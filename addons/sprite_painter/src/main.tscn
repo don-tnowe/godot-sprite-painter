@@ -1,0 +1,301 @@
+[gd_scene load_steps=17 format=3 uid="uid://clkbxsnmv1kne"]
+
+[ext_resource type="Script" path="res://addons/sprite_painter/src/main.gd" id="1_pn6xr"]
+[ext_resource type="Script" path="res://addons/sprite_painter/editor_icon_button.gd" id="2_ahevp"]
+[ext_resource type="Script" path="res://addons/sprite_painter/src/input.gd" id="2_fgqhb"]
+[ext_resource type="Texture2D" uid="uid://hc35i3cvcupp" path="res://addons/sprite_painter/graphics/rotate_right.tres" id="3_imbrs"]
+[ext_resource type="Texture2D" uid="uid://c7nymhfcdr3hl" path="res://addons/sprite_painter/graphics/diags.png" id="3_kxniu"]
+[ext_resource type="Texture2D" uid="uid://diqj6upxhiiko" path="res://addons/sprite_painter/graphics/h_size.tres" id="3_x3qjc"]
+[ext_resource type="Texture2D" uid="uid://ro5r4gstjow0" path="res://addons/sprite_painter/graphics/tool_scale.tres" id="4_3o4fi"]
+[ext_resource type="Texture2D" uid="uid://jpxduo4o6vce" path="res://addons/sprite_painter/graphics/rotate_left.tres" id="4_skxgw"]
+[ext_resource type="Texture2D" uid="uid://b5v27x2n2je75" path="res://addons/sprite_painter/graphics/distraction_free.tres" id="7_rkmdm"]
+[ext_resource type="Texture2D" uid="uid://dnnjnka3gsci7" path="res://addons/sprite_painter/graphics/mesh_texture.tres" id="7_tpo3y"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8skav"]
+content_margin_left = 5.0
+content_margin_top = 3.0
+content_margin_right = 5.0
+content_margin_bottom = 3.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nkhd7"]
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_lb3gr"]
+
+[sub_resource type="Image" id="Image_pw2b2"]
+data = {
+"data": PackedByteArray(255, 255, 255, 0, 255, 255, 255, 0, 255, 128, 128, 4, 255, 128, 128, 4, 255, 128, 128, 4, 255, 128, 128, 4, 255, 128, 128, 4, 255, 128, 128, 4, 255, 128, 128, 4, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 93, 93, 131, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 131, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 131, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 94, 94, 127, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 128, 128, 4, 255, 128, 128, 4, 255, 128, 128, 4, 255, 128, 128, 4, 255, 128, 128, 4, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 231, 255, 93, 93, 55, 255, 97, 97, 58, 255, 93, 93, 233, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 231, 255, 94, 94, 54, 255, 94, 94, 57, 255, 93, 93, 233, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 97, 97, 42, 255, 255, 255, 0, 255, 255, 255, 0, 255, 97, 97, 42, 255, 93, 93, 233, 255, 93, 93, 232, 255, 93, 93, 41, 255, 255, 255, 0, 255, 255, 255, 0, 255, 97, 97, 42, 255, 93, 93, 233, 255, 93, 93, 232, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 96, 96, 45, 255, 97, 97, 42, 255, 255, 255, 0, 255, 97, 97, 42, 255, 97, 97, 42, 255, 255, 255, 0, 255, 98, 98, 47, 255, 97, 97, 42, 255, 255, 255, 0, 255, 97, 97, 42, 255, 97, 97, 42, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 96, 96, 45, 255, 93, 93, 235, 255, 93, 93, 233, 255, 97, 97, 42, 255, 255, 255, 0, 255, 255, 255, 0, 255, 94, 94, 46, 255, 93, 93, 236, 255, 93, 93, 233, 255, 97, 97, 42, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 235, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 233, 255, 95, 95, 59, 255, 96, 96, 61, 255, 93, 93, 235, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 233, 255, 95, 95, 59, 255, 96, 96, 61, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0),
+"format": "RGBA8",
+"height": 16,
+"mipmaps": false,
+"width": 16
+}
+
+[sub_resource type="ImageTexture" id="ImageTexture_2obfd"]
+image = SubResource("Image_pw2b2")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jth0e"]
+
+[node name="Painter" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pn6xr")
+viewport_tex = NodePath("Box/Panel/ViewportTex")
+metadata/_edit_lock_ = true
+
+[node name="Input" type="Control" parent="."]
+layout_mode = 2
+script = ExtResource("2_fgqhb")
+viewport_tex = NodePath("../Box/Panel/ViewportTex")
+metadata/_edit_lock_ = true
+
+[node name="Box" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Toolbar" type="HBoxContainer" parent="Box"]
+layout_mode = 2
+
+[node name="Control2" type="Control" parent="Box/Toolbar"]
+layout_mode = 2
+
+[node name="BoxSelection" type="Button" parent="Box/Toolbar"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8skav")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_8skav")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_8skav")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_8skav")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_nkhd7")
+toggle_mode = true
+button_group = SubResource("ButtonGroup_lb3gr")
+icon = SubResource("ImageTexture_2obfd")
+flat = true
+script = ExtResource("2_ahevp")
+icon_name = "ActionCopy"
+
+[node name="WandSelection" type="Button" parent="Box/Toolbar"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8skav")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_8skav")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_8skav")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_8skav")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_nkhd7")
+toggle_mode = true
+button_group = SubResource("ButtonGroup_lb3gr")
+icon = SubResource("ImageTexture_2obfd")
+flat = true
+script = ExtResource("2_ahevp")
+icon_name = "Line"
+
+[node name="VSeparator2" type="VSeparator" parent="Box/Toolbar"]
+layout_mode = 2
+
+[node name="Pencil" type="Button" parent="Box/Toolbar"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8skav")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_8skav")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_8skav")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_8skav")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_nkhd7")
+toggle_mode = true
+button_group = SubResource("ButtonGroup_lb3gr")
+icon = SubResource("ImageTexture_2obfd")
+flat = true
+script = ExtResource("2_ahevp")
+icon_name = "Edit"
+
+[node name="Brush" type="Button" parent="Box/Toolbar"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8skav")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_8skav")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_8skav")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_8skav")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_nkhd7")
+toggle_mode = true
+button_group = SubResource("ButtonGroup_lb3gr")
+icon = SubResource("ImageTexture_2obfd")
+flat = true
+script = ExtResource("2_ahevp")
+icon_name = "CanvasItem"
+
+[node name="Eraser" type="Button" parent="Box/Toolbar"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8skav")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_8skav")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_8skav")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_8skav")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_nkhd7")
+toggle_mode = true
+button_group = SubResource("ButtonGroup_lb3gr")
+icon = SubResource("ImageTexture_2obfd")
+flat = true
+script = ExtResource("2_ahevp")
+icon_name = "Eraser"
+
+[node name="Bucket" type="Button" parent="Box/Toolbar"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8skav")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_8skav")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_8skav")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_8skav")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_nkhd7")
+toggle_mode = true
+button_group = SubResource("ButtonGroup_lb3gr")
+icon = SubResource("ImageTexture_2obfd")
+flat = true
+script = ExtResource("2_ahevp")
+icon_name = "Bucket"
+
+[node name="Gradient" type="Button" parent="Box/Toolbar"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8skav")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_8skav")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_8skav")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_8skav")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_nkhd7")
+toggle_mode = true
+button_group = SubResource("ButtonGroup_lb3gr")
+icon = SubResource("ImageTexture_2obfd")
+flat = true
+script = ExtResource("2_ahevp")
+icon_name = "Gradient"
+
+[node name="VSeparator" type="VSeparator" parent="Box/Toolbar"]
+layout_mode = 2
+
+[node name="Shape" type="Button" parent="Box/Toolbar"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8skav")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_8skav")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_8skav")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_8skav")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_nkhd7")
+toggle_mode = true
+button_group = SubResource("ButtonGroup_lb3gr")
+icon = SubResource("ImageTexture_2obfd")
+flat = true
+script = ExtResource("2_ahevp")
+icon_name = "PickerShapeCircle"
+
+[node name="Line" type="Button" parent="Box/Toolbar"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8skav")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_8skav")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_8skav")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_8skav")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_nkhd7")
+toggle_mode = true
+button_group = SubResource("ButtonGroup_lb3gr")
+icon = SubResource("ImageTexture_2obfd")
+flat = true
+script = ExtResource("2_ahevp")
+icon_name = "Curve2D"
+
+[node name="VSeparator3" type="VSeparator" parent="Box/Toolbar"]
+layout_mode = 2
+
+[node name="Transform" type="MenuButton" parent="Box/Toolbar"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8skav")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_8skav")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_8skav")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_8skav")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_jth0e")
+text = "Transform"
+item_count = 7
+popup/item_0/text = "Rotate clockwise"
+popup/item_0/icon = ExtResource("3_imbrs")
+popup/item_0/id = 2
+popup/item_1/text = "Rotate counter-clockwise"
+popup/item_1/icon = ExtResource("4_skxgw")
+popup/item_1/id = 3
+popup/item_2/text = "Flip horizontally"
+popup/item_2/icon = ExtResource("3_x3qjc")
+popup/item_2/id = 0
+popup/item_2/disabled = true
+popup/item_3/text = "Flip vertically"
+popup/item_3/icon = ExtResource("4_3o4fi")
+popup/item_3/id = 1
+popup/item_4/text = ""
+popup/item_4/id = 4
+popup/item_4/separator = true
+popup/item_5/text = "Crop to selection"
+popup/item_5/icon = ExtResource("7_tpo3y")
+popup/item_5/id = 6
+popup/item_6/text = "Change size..."
+popup/item_6/icon = ExtResource("7_rkmdm")
+popup/item_6/id = 5
+
+[node name="VSeparator4" type="VSeparator" parent="Box/Toolbar"]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="Box/Toolbar"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Save" type="Button" parent="Box/Toolbar"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8skav")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_8skav")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_8skav")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_8skav")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_nkhd7")
+icon = SubResource("ImageTexture_2obfd")
+flat = true
+script = ExtResource("2_ahevp")
+icon_name = "Save"
+
+[node name="Refresh" type="Button" parent="Box/Toolbar"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8skav")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_8skav")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_8skav")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_8skav")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_nkhd7")
+icon = SubResource("ImageTexture_2obfd")
+flat = true
+script = ExtResource("2_ahevp")
+icon_name = "RotateRight"
+
+[node name="Control3" type="Control" parent="Box/Toolbar"]
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="Box"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ViewportTex" type="Sprite2D" parent="Box/Panel"]
+texture = ExtResource("3_kxniu")
+centered = false
+metadata/_edit_lock_ = true
+
+[node name="EditedSprite" type="Sprite2D" parent="Box/Panel/ViewportTex"]
+metadata/_edit_lock_ = true
+
+[node name="BorderClip" type="NinePatchRect" parent="Box/Panel"]
+clip_children = 1
+layout_mode = 0
+offset_left = 671.0
+offset_top = 105.0
+offset_right = 908.0
+offset_bottom = 325.0
+texture = ExtResource("3_kxniu")
+draw_center = false
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="BorderTile" type="TextureRect" parent="Box/Panel/BorderClip"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_kxniu")
+ignore_texture_size = true
+stretch_mode = 1
+
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]

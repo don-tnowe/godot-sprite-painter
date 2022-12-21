@@ -1,0 +1,36 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+color_rows=false
+color_arrays=true
+_global_script_classes=[{
+"base": "Button",
+"class": &"ThemeIconButton",
+"language": &"GDScript",
+"path": "res://addons/sprite_painter/editor_icon_button.gd"
+}]
+_global_script_class_icons={
+"ThemeIconButton": ""
+}
+
+[application]
+
+config/name="Addon: Sprite Editor"
+config/features=PackedStringArray("4.0")
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/sprite_painter/plugin.cfg")
+
+[rendering]
+
+quality/driver/driver_name="GLES2"
+vram_compression/import_etc=true
+vram_compression/import_etc2=false
