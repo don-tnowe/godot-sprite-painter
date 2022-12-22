@@ -1,41 +1,50 @@
 @tool
 extends Control
 
-@export var scale_min := 0.125
-@export var scale_max := 8.0
-@export var scale_step := 1.25
-
-@export var viewport_tex : NodePath
-
 var cur_scale := 1.0
-var dragged := false
+var dragging := false
+
+
+func _input(event):
+	if event is InputEventMouse:
+		if !get_global_rect().has_point(event.position):
+			return
+
+		if event is InputEventMouseMotion:
+			if dragging:
+				accept_event()
+
+			return 
+
+		if event.button_index == MOUSE_BUTTON_LEFT || event.button_index == MOUSE_BUTTON_RIGHT:
+			accept_event()
+			dragging = event.pressed
+			return
 
 
 func _gui_input(event):
+	return
 	if event is InputEventMouseButton:
-		if event.button_index == MOUSE_BUTTON_MIDDLE:
-			dragged = event.is_pressed()
-		
-		if dragged: return
-		
 		if event.button_index == MOUSE_BUTTON_LEFT:
-			pass
+			accept_event()
 			
-		if event.button_index == MOUSE_BUTTON_RIGHT:
-			pass
-			
-		if event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
-			if cur_scale < scale_max:
-				cur_scale /= scale_step
-				
-			get_node(viewport_tex).scale = max(cur_scale, scale_min) * Vector2.ONE
-			
-		if event.button_index == MOUSE_BUTTON_WHEEL_UP:
-			if cur_scale < scale_max:
-				cur_scale *= scale_step
-				
-			get_node(viewport_tex).scale = min(cur_scale, scale_max) * Vector2.ONE
+		elif event.button_index == MOUSE_BUTTON_RIGHT:
+			accept_event()
+		
+		else:
+			event.position += global_position
+			mouse_filter = MOUSE_FILTER_IGNORE
+			get_viewport().push_input(event)
+			await get_tree().process_frame
+			mouse_filter = MOUSE_FILTER_PASS
 	
 	if event is InputEventMouseMotion:
-		if dragged:
-			get_node(viewport_tex).position -= event.relative * cur_scale
+		event.position += global_position
+		mouse_filter = MOUSE_FILTER_IGNORE
+		get_viewport().push_input(event)
+		await get_tree().process_frame
+		mouse_filter = MOUSE_FILTER_PASS
+
+
+func _on_visibility_changed():
+	set_process_input(is_visible_in_tree())

@@ -5,10 +5,10 @@
 [node name="Node2D" type="Node2D"]
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
+position = Vector2(98, 18)
 polygon = PackedVector2Array(302, 105, -2, 293, 224, 391, 330, 537, 478, 327, 640, 199, 842, 581, 852, 669, 1112, 443, 904, 241, 868, 107, 520, -53, 410, 49)
 
 [node name="Icon" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(564, 315)
+position = Vector2(563, 374)
 texture = ExtResource("1_uj0gm")
 centered = false
