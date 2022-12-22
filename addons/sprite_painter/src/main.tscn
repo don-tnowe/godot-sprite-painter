@@ -21,7 +21,7 @@ content_margin_bottom = 3.0
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_lb3gr"]
 
-[sub_resource type="Image" id="Image_t0cm0"]
+[sub_resource type="Image" id="Image_5ttac"]
 data = {
 "data": PackedByteArray(255, 255, 255, 0, 255, 255, 255, 0, 255, 128, 128, 4, 255, 128, 128, 4, 255, 128, 128, 4, 255, 128, 128, 4, 255, 128, 128, 4, 255, 128, 128, 4, 255, 128, 128, 4, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 93, 93, 131, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 131, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 131, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 94, 94, 127, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 128, 128, 4, 255, 128, 128, 4, 255, 128, 128, 4, 255, 128, 128, 4, 255, 128, 128, 4, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 231, 255, 93, 93, 55, 255, 97, 97, 58, 255, 93, 93, 233, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 231, 255, 94, 94, 54, 255, 94, 94, 57, 255, 93, 93, 233, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 97, 97, 42, 255, 255, 255, 0, 255, 255, 255, 0, 255, 97, 97, 42, 255, 93, 93, 233, 255, 93, 93, 232, 255, 93, 93, 41, 255, 255, 255, 0, 255, 255, 255, 0, 255, 97, 97, 42, 255, 93, 93, 233, 255, 93, 93, 232, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 96, 96, 45, 255, 97, 97, 42, 255, 255, 255, 0, 255, 97, 97, 42, 255, 97, 97, 42, 255, 255, 255, 0, 255, 98, 98, 47, 255, 97, 97, 42, 255, 255, 255, 0, 255, 97, 97, 42, 255, 97, 97, 42, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 96, 96, 45, 255, 93, 93, 235, 255, 93, 93, 233, 255, 97, 97, 42, 255, 255, 255, 0, 255, 255, 255, 0, 255, 94, 94, 46, 255, 93, 93, 236, 255, 93, 93, 233, 255, 97, 97, 42, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 235, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 233, 255, 95, 95, 59, 255, 96, 96, 61, 255, 93, 93, 235, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 233, 255, 95, 95, 59, 255, 96, 96, 61, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0),
 "format": "RGBA8",
@@ -30,8 +30,8 @@ data = {
 "width": 16
 }
 
-[sub_resource type="ImageTexture" id="ImageTexture_rkodj"]
-image = SubResource("Image_t0cm0")
+[sub_resource type="ImageTexture" id="ImageTexture_ljfmi"]
+image = SubResource("Image_5ttac")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jth0e"]
 
@@ -95,7 +95,6 @@ corner_radius_bottom_left = 4
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cicb3"]
 
 [node name="Painter" type="MarginContainer"]
-clip_contents = true
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -124,7 +123,7 @@ theme_override_styles/disabled = SubResource("StyleBoxEmpty_8skav")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_nkhd7")
 toggle_mode = true
 button_group = SubResource("ButtonGroup_lb3gr")
-icon = SubResource("ImageTexture_rkodj")
+icon = SubResource("ImageTexture_ljfmi")
 flat = true
 script = ExtResource("2_ahevp")
 icon_name = "ActionCopy"
@@ -138,7 +137,7 @@ theme_override_styles/disabled = SubResource("StyleBoxEmpty_8skav")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_nkhd7")
 toggle_mode = true
 button_group = SubResource("ButtonGroup_lb3gr")
-icon = SubResource("ImageTexture_rkodj")
+icon = SubResource("ImageTexture_ljfmi")
 flat = true
 script = ExtResource("2_ahevp")
 icon_name = "Line"
@@ -155,7 +154,7 @@ theme_override_styles/disabled = SubResource("StyleBoxEmpty_8skav")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_nkhd7")
 toggle_mode = true
 button_group = SubResource("ButtonGroup_lb3gr")
-icon = SubResource("ImageTexture_rkodj")
+icon = SubResource("ImageTexture_ljfmi")
 flat = true
 script = ExtResource("2_ahevp")
 icon_name = "Edit"
@@ -169,7 +168,7 @@ theme_override_styles/disabled = SubResource("StyleBoxEmpty_8skav")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_nkhd7")
 toggle_mode = true
 button_group = SubResource("ButtonGroup_lb3gr")
-icon = SubResource("ImageTexture_rkodj")
+icon = SubResource("ImageTexture_ljfmi")
 flat = true
 script = ExtResource("2_ahevp")
 icon_name = "CanvasItem"
@@ -183,7 +182,7 @@ theme_override_styles/disabled = SubResource("StyleBoxEmpty_8skav")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_nkhd7")
 toggle_mode = true
 button_group = SubResource("ButtonGroup_lb3gr")
-icon = SubResource("ImageTexture_rkodj")
+icon = SubResource("ImageTexture_ljfmi")
 flat = true
 script = ExtResource("2_ahevp")
 icon_name = "Eraser"
@@ -197,7 +196,7 @@ theme_override_styles/disabled = SubResource("StyleBoxEmpty_8skav")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_nkhd7")
 toggle_mode = true
 button_group = SubResource("ButtonGroup_lb3gr")
-icon = SubResource("ImageTexture_rkodj")
+icon = SubResource("ImageTexture_ljfmi")
 flat = true
 script = ExtResource("2_ahevp")
 icon_name = "Bucket"
@@ -211,7 +210,7 @@ theme_override_styles/disabled = SubResource("StyleBoxEmpty_8skav")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_nkhd7")
 toggle_mode = true
 button_group = SubResource("ButtonGroup_lb3gr")
-icon = SubResource("ImageTexture_rkodj")
+icon = SubResource("ImageTexture_ljfmi")
 flat = true
 script = ExtResource("2_ahevp")
 icon_name = "Gradient"
@@ -228,7 +227,7 @@ theme_override_styles/disabled = SubResource("StyleBoxEmpty_8skav")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_nkhd7")
 toggle_mode = true
 button_group = SubResource("ButtonGroup_lb3gr")
-icon = SubResource("ImageTexture_rkodj")
+icon = SubResource("ImageTexture_ljfmi")
 flat = true
 script = ExtResource("2_ahevp")
 icon_name = "PickerShapeCircle"
@@ -242,7 +241,7 @@ theme_override_styles/disabled = SubResource("StyleBoxEmpty_8skav")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_nkhd7")
 toggle_mode = true
 button_group = SubResource("ButtonGroup_lb3gr")
-icon = SubResource("ImageTexture_rkodj")
+icon = SubResource("ImageTexture_ljfmi")
 flat = true
 script = ExtResource("2_ahevp")
 icon_name = "Curve2D"
@@ -296,7 +295,7 @@ theme_override_styles/hover = SubResource("StyleBoxEmpty_8skav")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_8skav")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_8skav")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_nkhd7")
-icon = SubResource("ImageTexture_rkodj")
+icon = SubResource("ImageTexture_ljfmi")
 flat = true
 script = ExtResource("2_ahevp")
 icon_name = "Save"
@@ -308,7 +307,7 @@ theme_override_styles/hover = SubResource("StyleBoxEmpty_8skav")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_8skav")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_8skav")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_nkhd7")
-icon = SubResource("ImageTexture_rkodj")
+icon = SubResource("ImageTexture_ljfmi")
 flat = true
 script = ExtResource("2_ahevp")
 icon_name = "RotateRight"
@@ -320,7 +319,7 @@ theme_override_styles/hover = SubResource("StyleBoxEmpty_8skav")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_8skav")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_8skav")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_nkhd7")
-icon = SubResource("ImageTexture_rkodj")
+icon = SubResource("ImageTexture_ljfmi")
 flat = true
 script = ExtResource("2_ahevp")
 icon_name = "Close"
@@ -328,30 +327,35 @@ icon_name = "Close"
 [node name="Control3" type="Control" parent="Box/Toolbar"]
 layout_mode = 2
 
-[node name="Input" type="MarginContainer" parent="Box"]
+[node name="Workspace" type="MarginContainer" parent="Box"]
 layout_mode = 2
 size_flags_vertical = 3
 mouse_filter = 2
+mouse_force_pass_scroll_events = false
 script = ExtResource("2_fgqhb")
 metadata/_edit_lock_ = true
 
-[node name="ViewportOverlay" type="ColorRect" parent="Box/Input"]
+[node name="ViewportOverlay" type="ColorRect" parent="Box/Workspace"]
+clip_contents = true
 layout_mode = 2
 size_flags_vertical = 3
 mouse_filter = 2
 color = Color(0, 0, 0, 0.498039)
 metadata/_edit_lock_ = true
 
-[node name="EditedSprite" type="Sprite2D" parent="Box/Input/ViewportOverlay"]
+[node name="EditedSprite" type="Sprite2D" parent="Box/Workspace/ViewportOverlay"]
+unique_name_in_owner = true
+centered = false
 metadata/_edit_lock_ = true
 
-[node name="BorderClip" type="NinePatchRect" parent="Box/Input/ViewportOverlay"]
+[node name="BorderClip" type="NinePatchRect" parent="Box/Workspace/ViewportOverlay"]
+unique_name_in_owner = true
 clip_children = 1
 layout_mode = 0
 offset_left = 384.0
 offset_top = 143.0
-offset_right = 697.0
-offset_bottom = 447.0
+offset_right = 760.0
+offset_bottom = 396.0
 texture = ExtResource("3_kxniu")
 draw_center = false
 patch_margin_left = 8
@@ -359,7 +363,7 @@ patch_margin_top = 8
 patch_margin_right = 8
 patch_margin_bottom = 8
 
-[node name="BorderTile" type="TextureRect" parent="Box/Input/ViewportOverlay/BorderClip"]
+[node name="BorderTile" type="TextureRect" parent="Box/Workspace/ViewportOverlay/BorderClip"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -372,7 +376,7 @@ ignore_texture_size = true
 stretch_mode = 1
 metadata/_edit_lock_ = true
 
-[node name="Border" type="Panel" parent="Box/Input/ViewportOverlay"]
+[node name="Border" type="Panel" parent="Box/Workspace/ViewportOverlay"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -384,7 +388,7 @@ mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_bt1d5")
 metadata/_edit_lock_ = true
 
-[node name="Floating" type="MarginContainer" parent="Box/Input"]
+[node name="Floating" type="MarginContainer" parent="Box/Workspace"]
 layout_mode = 2
 mouse_filter = 2
 theme_override_constants/margin_left = 16
@@ -393,68 +397,68 @@ theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 16
 metadata/_edit_lock_ = true
 
-[node name="Control" type="Control" parent="Box/Input/Floating"]
+[node name="Control" type="Control" parent="Box/Workspace/Floating"]
 layout_mode = 2
 mouse_filter = 2
 
-[node name="ToolSettings" type="MarginContainer" parent="Box/Input/Floating/Control"]
+[node name="ToolSettings" type="MarginContainer" parent="Box/Workspace/Floating/Control"]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Panel2" type="Panel" parent="Box/Input/Floating/Control/ToolSettings"]
+[node name="Panel2" type="Panel" parent="Box/Workspace/Floating/Control/ToolSettings"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_o2ioo")
 
-[node name="Panel3" type="Panel" parent="Box/Input/Floating/Control/ToolSettings"]
+[node name="Panel3" type="Panel" parent="Box/Workspace/Floating/Control/ToolSettings"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="SettingContainer" type="MarginContainer" parent="Box/Input/Floating/Control/ToolSettings"]
+[node name="SettingContainer" type="MarginContainer" parent="Box/Workspace/Floating/Control/ToolSettings"]
 layout_mode = 2
 theme_override_constants/margin_left = 4
 theme_override_constants/margin_top = 4
 theme_override_constants/margin_right = 4
 theme_override_constants/margin_bottom = 4
 
-[node name="GridContainer" type="GridContainer" parent="Box/Input/Floating/Control/ToolSettings/SettingContainer"]
+[node name="GridContainer" type="GridContainer" parent="Box/Workspace/Floating/Control/ToolSettings/SettingContainer"]
 layout_mode = 2
 columns = 2
 
-[node name="Label" type="Label" parent="Box/Input/Floating/Control/ToolSettings/SettingContainer/GridContainer"]
+[node name="Label" type="Label" parent="Box/Workspace/Floating/Control/ToolSettings/SettingContainer/GridContainer"]
 layout_mode = 2
 text = "Size:"
 
-[node name="Label2" type="Label" parent="Box/Input/Floating/Control/ToolSettings/SettingContainer/GridContainer"]
+[node name="Label2" type="Label" parent="Box/Workspace/Floating/Control/ToolSettings/SettingContainer/GridContainer"]
 layout_mode = 2
 text = "1215311"
 
-[node name="Label3" type="Label" parent="Box/Input/Floating/Control/ToolSettings/SettingContainer/GridContainer"]
+[node name="Label3" type="Label" parent="Box/Workspace/Floating/Control/ToolSettings/SettingContainer/GridContainer"]
 layout_mode = 2
 text = "Shape:"
 
-[node name="Label4" type="Label" parent="Box/Input/Floating/Control/ToolSettings/SettingContainer/GridContainer"]
+[node name="Label4" type="Label" parent="Box/Workspace/Floating/Control/ToolSettings/SettingContainer/GridContainer"]
 layout_mode = 2
 text = "A B C D E"
 
-[node name="Label5" type="Label" parent="Box/Input/Floating/Control/ToolSettings/SettingContainer/GridContainer"]
+[node name="Label5" type="Label" parent="Box/Workspace/Floating/Control/ToolSettings/SettingContainer/GridContainer"]
 layout_mode = 2
 text = "Hardness:"
 
-[node name="Label6" type="Label" parent="Box/Input/Floating/Control/ToolSettings/SettingContainer/GridContainer"]
+[node name="Label6" type="Label" parent="Box/Workspace/Floating/Control/ToolSettings/SettingContainer/GridContainer"]
 layout_mode = 2
 text = "100%"
 
-[node name="Label7" type="Label" parent="Box/Input/Floating/Control/ToolSettings/SettingContainer/GridContainer"]
+[node name="Label7" type="Label" parent="Box/Workspace/Floating/Control/ToolSettings/SettingContainer/GridContainer"]
 layout_mode = 2
 text = "AA:"
 
-[node name="Label8" type="Label" parent="Box/Input/Floating/Control/ToolSettings/SettingContainer/GridContainer"]
+[node name="Label8" type="Label" parent="Box/Workspace/Floating/Control/ToolSettings/SettingContainer/GridContainer"]
 layout_mode = 2
 text = "[ ] On"
 
-[node name="ColorSettings" type="MarginContainer" parent="Box/Input/Floating/Control"]
+[node name="ColorSettings" type="MarginContainer" parent="Box/Workspace/Floating/Control"]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -463,36 +467,26 @@ offset_top = -80.0
 offset_right = 80.0
 grow_vertical = 0
 
-[node name="Panel2" type="Panel" parent="Box/Input/Floating/Control/ColorSettings"]
+[node name="Panel2" type="Panel" parent="Box/Workspace/Floating/Control/ColorSettings"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_o2ioo")
 
-[node name="Panel3" type="Panel" parent="Box/Input/Floating/Control/ColorSettings"]
+[node name="Panel3" type="Panel" parent="Box/Workspace/Floating/Control/ColorSettings"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Container" type="MarginContainer" parent="Box/Input/Floating/Control/ColorSettings"]
+[node name="Container" type="MarginContainer" parent="Box/Workspace/Floating/Control/ColorSettings"]
 layout_mode = 2
 theme_override_constants/margin_left = 8
 theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 
-[node name="Control" type="Control" parent="Box/Input/Floating/Control/ColorSettings/Container"]
+[node name="Control" type="Control" parent="Box/Workspace/Floating/Control/ColorSettings/Container"]
 layout_mode = 2
 
-[node name="Color1" type="Button" parent="Box/Input/Floating/Control/ColorSettings/Container/Control"]
-modulate = Color(0.498039, 0.498039, 0.498039, 1)
-layout_mode = 1
-offset_right = 37.0
-offset_bottom = 37.0
-theme_override_styles/normal = SubResource("StyleBoxFlat_eeewi")
-theme_override_styles/hover = SubResource("StyleBoxFlat_70jsv")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_gjl5v")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_cicb3")
-
-[node name="Color2" type="Button" parent="Box/Input/Floating/Control/ColorSettings/Container/Control"]
+[node name="Color2" type="Button" parent="Box/Workspace/Floating/Control/ColorSettings/Container/Control"]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -508,7 +502,17 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_70jsv")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_gjl5v")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_cicb3")
 
-[node name="Picker" type="Button" parent="Box/Input/Floating/Control/ColorSettings/Container/Control"]
+[node name="Color1" type="Button" parent="Box/Workspace/Floating/Control/ColorSettings/Container/Control"]
+modulate = Color(0.498039, 0.498039, 0.498039, 1)
+layout_mode = 1
+offset_right = 37.0
+offset_bottom = 37.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_eeewi")
+theme_override_styles/hover = SubResource("StyleBoxFlat_70jsv")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_gjl5v")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_cicb3")
+
+[node name="Picker" type="Button" parent="Box/Workspace/Floating/Control/ColorSettings/Container/Control"]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -522,14 +526,13 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_8skav")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_8skav")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_nkhd7")
 toggle_mode = true
-button_group = SubResource("ButtonGroup_lb3gr")
-icon = SubResource("ImageTexture_rkodj")
+icon = SubResource("ImageTexture_ljfmi")
 flat = true
 icon_alignment = 1
 script = ExtResource("2_ahevp")
 icon_name = "ColorPick"
 
-[node name="More" type="Button" parent="Box/Input/Floating/Control/ColorSettings/Container/Control"]
+[node name="More" type="Button" parent="Box/Workspace/Floating/Control/ColorSettings/Container/Control"]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -543,12 +546,11 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_8skav")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_8skav")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_nkhd7")
 toggle_mode = true
-button_group = SubResource("ButtonGroup_lb3gr")
-icon = SubResource("ImageTexture_rkodj")
+icon = SubResource("ImageTexture_ljfmi")
 flat = true
 icon_alignment = 1
 script = ExtResource("2_ahevp")
 icon_name = "ArrowRight"
 
 [connection signal="pressed" from="Box/Toolbar/Close" to="." method="_on_close_pressed"]
-[connection signal="visibility_changed" from="Box/Input" to="Box/Input" method="_on_visibility_changed"]
+[connection signal="visibility_changed" from="Box/Workspace" to="Box/Workspace" method="_on_visibility_changed"]

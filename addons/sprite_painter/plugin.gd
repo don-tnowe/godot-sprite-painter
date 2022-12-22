@@ -30,13 +30,20 @@ func _enter_tree() -> void:
 	make_visible(false)
 
 
+func _forward_canvas_gui_input(event):
+	if !overlay_enabled:
+		return false
+
+	return editor_view.handle_input(event)
+
+
 func _connect_2d_editor():
 	for x in get_editor_interface().get_editor_main_screen().get_children():
 		if x.get_class() == "CanvasItemEditor":
 			editor_2d_vp = x
 			editor_view.editor_2d_vp = x
 			break
-	
+
 	editor_2d_vp.resized.connect(_on_editor_resized)
 	editor_2d_vp.add_child(sploinky)
 	editor_2d_vp.move_child(sploinky, 1)
@@ -57,10 +64,10 @@ func _connect_enable_button():
 
 
 func _exit_tree() -> void:
-	if is_instance_valid(editor_view):
-		editor_view.queue_free()
-		sploinky.queue_free()
-		enable_button.queue_free()
+	make_visible(false)
+	editor_view.queue_free()
+	enable_button.queue_free()
+	sploinky.queue_free()
 
 
 func make_visible(visible):
@@ -73,9 +80,9 @@ func make_visible(visible):
 
 
 func _edit(object):
+	editor_view.edit_node(object)
 	if overlay_enabled:
 		make_visible(true)
-		editor_view.edit_node(object)
 
 
 func _handles(object):
@@ -88,6 +95,8 @@ func _handles(object):
 func _on_enable_pressed():
 	overlay_enabled = !overlay_enabled
 	make_visible(overlay_enabled)
+	if overlay_enabled:
+		editor_view.edit_node()
 
 
 func _on_main_screen_changed(screen):

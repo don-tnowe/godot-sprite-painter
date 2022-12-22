@@ -2,48 +2,30 @@
 extends Control
 
 var cur_scale := 1.0
+var mouse_button := -1
 var dragging := false
 
 
-func _input(event):
-	if event is InputEventMouse:
-		if !get_global_rect().has_point(event.position):
-			return
-
-		if event is InputEventMouseMotion:
-			if dragging:
-				accept_event()
-
-			return 
-
-		if event.button_index == MOUSE_BUTTON_LEFT || event.button_index == MOUSE_BUTTON_RIGHT:
-			accept_event()
-			dragging = event.pressed
-			return
-
-
-func _gui_input(event):
-	return
+func handle_input(event) -> bool:
 	if event is InputEventMouseButton:
-		if event.button_index == MOUSE_BUTTON_LEFT:
-			accept_event()
-			
-		elif event.button_index == MOUSE_BUTTON_RIGHT:
-			accept_event()
-		
-		else:
-			event.position += global_position
-			mouse_filter = MOUSE_FILTER_IGNORE
-			get_viewport().push_input(event)
-			await get_tree().process_frame
-			mouse_filter = MOUSE_FILTER_PASS
-	
-	if event is InputEventMouseMotion:
-		event.position += global_position
-		mouse_filter = MOUSE_FILTER_IGNORE
-		get_viewport().push_input(event)
-		await get_tree().process_frame
-		mouse_filter = MOUSE_FILTER_PASS
+		if event.button_index == MOUSE_BUTTON_RIGHT || event.button_index == MOUSE_BUTTON_LEFT:
+			if event.pressed:
+				dragging = true
+				mouse_button = event.button_index
+
+			elif mouse_button == event.button_index:
+				dragging = false
+				mouse_button = -1
+
+		return true
+
+	if event is InputEventMouseMotion && dragging:
+		return true
+
+	if event is InputEventKey:
+		return true
+
+	return false
 
 
 func _on_visibility_changed():
