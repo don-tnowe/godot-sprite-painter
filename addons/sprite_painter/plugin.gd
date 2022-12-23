@@ -73,6 +73,7 @@ func _exit_tree() -> void:
 func make_visible(visible):
 	if is_instance_valid(editor_view):
 		editor_view.visible = visible
+		editor_view.edit_node()
 		editor_2d_vp.get_child(0).visible = !visible
 		sploinky.custom_minimum_size.y = editor_2d_vp.get_child(0).size.y
 		sploinky.visible = visible
