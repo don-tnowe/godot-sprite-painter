@@ -29,13 +29,13 @@ func handle_input(event):
 
 
 static func print_hierarchy(root : Node, indent : String = ""):
-	for x in root.get_children():
+	for x in root.get_children(true):
 		print(x.name.indent(indent) + " : " + x.get_class())
 		print_hierarchy(x, indent + "-   ")
 
 
 static func save_scene(root : Node):
-	for x in root.get_children():
+	for x in root.get_children(true):
 		pack_to_owner(root)
 
 	var packed = PackedScene.new()

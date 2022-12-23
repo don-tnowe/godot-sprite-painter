@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://clkbxsnmv1kne"]
+[gd_scene load_steps=44 format=3 uid="uid://clkbxsnmv1kne"]
 
 [ext_resource type="Script" path="res://addons/sprite_painter/src/main.gd" id="1_pn6xr"]
 [ext_resource type="Script" path="res://addons/sprite_painter/editor_icon_button.gd" id="2_ahevp"]
@@ -31,9 +31,16 @@ content_margin_bottom = 3.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nkhd7"]
 
+[sub_resource type="InputEventKey" id="InputEventKey_2olkx"]
+keycode = 83
+
+[sub_resource type="Shortcut" id="Shortcut_ipdqg"]
+resource_name = "S"
+events = [SubResource("InputEventKey_2olkx")]
+
 [sub_resource type="ButtonGroup" id="ButtonGroup_lb3gr"]
 
-[sub_resource type="Image" id="Image_6mgds"]
+[sub_resource type="Image" id="Image_tosmd"]
 data = {
 "data": PackedByteArray(255, 255, 255, 0, 255, 255, 255, 0, 255, 128, 128, 4, 255, 128, 128, 4, 255, 128, 128, 4, 255, 128, 128, 4, 255, 128, 128, 4, 255, 128, 128, 4, 255, 128, 128, 4, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 93, 93, 131, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 131, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 131, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 94, 94, 127, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 128, 128, 4, 255, 128, 128, 4, 255, 128, 128, 4, 255, 128, 128, 4, 255, 128, 128, 4, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 231, 255, 93, 93, 55, 255, 97, 97, 58, 255, 93, 93, 233, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 231, 255, 94, 94, 54, 255, 94, 94, 57, 255, 93, 93, 233, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 97, 97, 42, 255, 255, 255, 0, 255, 255, 255, 0, 255, 97, 97, 42, 255, 93, 93, 233, 255, 93, 93, 232, 255, 93, 93, 41, 255, 255, 255, 0, 255, 255, 255, 0, 255, 97, 97, 42, 255, 93, 93, 233, 255, 93, 93, 232, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 96, 96, 45, 255, 97, 97, 42, 255, 255, 255, 0, 255, 97, 97, 42, 255, 97, 97, 42, 255, 255, 255, 0, 255, 98, 98, 47, 255, 97, 97, 42, 255, 255, 255, 0, 255, 97, 97, 42, 255, 97, 97, 42, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 96, 96, 45, 255, 93, 93, 235, 255, 93, 93, 233, 255, 97, 97, 42, 255, 255, 255, 0, 255, 255, 255, 0, 255, 94, 94, 46, 255, 93, 93, 236, 255, 93, 93, 233, 255, 97, 97, 42, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 235, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 233, 255, 95, 95, 59, 255, 96, 96, 61, 255, 93, 93, 235, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 233, 255, 95, 95, 59, 255, 96, 96, 61, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0),
 "format": "RGBA8",
@@ -42,10 +49,46 @@ data = {
 "width": 16
 }
 
-[sub_resource type="ImageTexture" id="ImageTexture_mrajx"]
-image = SubResource("Image_6mgds")
+[sub_resource type="ImageTexture" id="ImageTexture_frjs1"]
+image = SubResource("Image_tosmd")
+
+[sub_resource type="InputEventKey" id="InputEventKey_ac1o6"]
+keycode = 86
+
+[sub_resource type="Shortcut" id="Shortcut_7y38e"]
+resource_name = "V"
+events = [SubResource("InputEventKey_ac1o6")]
+
+[sub_resource type="InputEventKey" id="InputEventKey_8yx45"]
+device = -1
+keycode = 66
+unicode = 98
+
+[sub_resource type="Shortcut" id="Shortcut_cnbj8"]
+resource_name = "B"
+events = [SubResource("InputEventKey_8yx45")]
+
+[sub_resource type="InputEventKey" id="InputEventKey_awww8"]
+keycode = 70
+
+[sub_resource type="Shortcut" id="Shortcut_unc62"]
+resource_name = "F"
+events = [SubResource("InputEventKey_awww8")]
+
+[sub_resource type="InputEventKey" id="InputEventKey_bi32x"]
+keycode = 79
+
+[sub_resource type="Shortcut" id="Shortcut_qgge1"]
+resource_name = "O"
+events = [SubResource("InputEventKey_bi32x")]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jth0e"]
+
+[sub_resource type="InputEventKey" id="InputEventKey_m8eep"]
+keycode = 4194305
+
+[sub_resource type="Shortcut" id="Shortcut_lhl5g"]
+events = [SubResource("InputEventKey_m8eep")]
 
 [sub_resource type="LabelSettings" id="LabelSettings_e8qge"]
 font_size = 24
@@ -88,38 +131,43 @@ mouse_filter = 2
 
 [node name="Toolbar" type="HBoxContainer" parent="Box"]
 layout_mode = 2
+mouse_filter = 0
 
 [node name="Control2" type="Control" parent="Box/Toolbar"]
 layout_mode = 2
 
 [node name="BoxSelection" type="Button" parent="Box/Toolbar"]
 layout_mode = 2
-tooltip_text = "Box Selection"
+tooltip_text = "Box Selection (S)"
+focus_mode = 0
 theme_override_styles/normal = SubResource("StyleBoxEmpty_8skav")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_8skav")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_8skav")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_8skav")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_nkhd7")
-disabled = true
 toggle_mode = true
+shortcut_in_tooltip = false
+shortcut = SubResource("Shortcut_ipdqg")
 button_group = SubResource("ButtonGroup_lb3gr")
-icon = SubResource("ImageTexture_mrajx")
+icon = SubResource("ImageTexture_frjs1")
 flat = true
 script = ExtResource("2_ahevp")
 icon_name = "ActionCopy"
 
 [node name="WandSelection" type="Button" parent="Box/Toolbar"]
 layout_mode = 2
-tooltip_text = "Wand Selection"
+tooltip_text = "Wand Selection (S + S)"
+focus_mode = 0
 theme_override_styles/normal = SubResource("StyleBoxEmpty_8skav")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_8skav")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_8skav")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_8skav")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_nkhd7")
-disabled = true
 toggle_mode = true
+shortcut_in_tooltip = false
+shortcut = SubResource("Shortcut_ipdqg")
 button_group = SubResource("ButtonGroup_lb3gr")
-icon = SubResource("ImageTexture_mrajx")
+icon = SubResource("ImageTexture_frjs1")
 flat = true
 script = ExtResource("2_ahevp")
 icon_name = "Line"
@@ -129,69 +177,79 @@ layout_mode = 2
 
 [node name="Pencil" type="Button" parent="Box/Toolbar"]
 layout_mode = 2
-tooltip_text = "Pencil"
+tooltip_text = "Pencil (V)"
+focus_mode = 0
 theme_override_styles/normal = SubResource("StyleBoxEmpty_8skav")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_8skav")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_8skav")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_8skav")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_nkhd7")
 toggle_mode = true
-button_pressed = true
+shortcut_in_tooltip = false
+shortcut = SubResource("Shortcut_7y38e")
 button_group = SubResource("ButtonGroup_lb3gr")
-icon = SubResource("ImageTexture_mrajx")
+icon = SubResource("ImageTexture_frjs1")
 flat = true
 script = ExtResource("2_ahevp")
 icon_name = "Edit"
 
 [node name="Brush" type="Button" parent="Box/Toolbar"]
 layout_mode = 2
-tooltip_text = "Brush"
+tooltip_text = "Brush (B)"
+focus_mode = 0
 theme_override_styles/normal = SubResource("StyleBoxEmpty_8skav")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_8skav")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_8skav")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_8skav")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_nkhd7")
-disabled = true
 toggle_mode = true
+shortcut_in_tooltip = false
+shortcut = SubResource("Shortcut_cnbj8")
 button_group = SubResource("ButtonGroup_lb3gr")
-icon = SubResource("ImageTexture_mrajx")
+icon = SubResource("ImageTexture_frjs1")
 flat = true
 script = ExtResource("2_ahevp")
 icon_name = "CanvasItem"
 
 [node name="Eraser" type="Button" parent="Box/Toolbar"]
 layout_mode = 2
-tooltip_text = "Eraser"
+tooltip_text = "Eraser (B + B)"
+focus_mode = 0
 theme_override_styles/normal = SubResource("StyleBoxEmpty_8skav")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_8skav")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_8skav")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_8skav")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_nkhd7")
-disabled = true
 toggle_mode = true
+shortcut_in_tooltip = false
+shortcut = SubResource("Shortcut_cnbj8")
 button_group = SubResource("ButtonGroup_lb3gr")
-icon = SubResource("ImageTexture_mrajx")
+icon = SubResource("ImageTexture_frjs1")
 flat = true
 script = ExtResource("2_ahevp")
 icon_name = "Eraser"
 
 [node name="Bucket" type="Button" parent="Box/Toolbar"]
 layout_mode = 2
-tooltip_text = "Fill"
+tooltip_text = "Fill (F)"
+focus_mode = 0
 theme_override_styles/normal = SubResource("StyleBoxEmpty_8skav")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_8skav")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_8skav")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_8skav")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_nkhd7")
 toggle_mode = true
+shortcut_in_tooltip = false
+shortcut = SubResource("Shortcut_unc62")
 button_group = SubResource("ButtonGroup_lb3gr")
-icon = SubResource("ImageTexture_mrajx")
+icon = SubResource("ImageTexture_frjs1")
 flat = true
 script = ExtResource("2_ahevp")
 icon_name = "Bucket"
 
 [node name="Gradient" type="Button" parent="Box/Toolbar"]
 layout_mode = 2
+focus_mode = 0
 theme_override_styles/normal = SubResource("StyleBoxEmpty_8skav")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_8skav")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_8skav")
@@ -199,8 +257,10 @@ theme_override_styles/disabled = SubResource("StyleBoxEmpty_8skav")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_nkhd7")
 disabled = true
 toggle_mode = true
+shortcut_in_tooltip = false
+shortcut = SubResource("Shortcut_unc62")
 button_group = SubResource("ButtonGroup_lb3gr")
-icon = SubResource("ImageTexture_mrajx")
+icon = SubResource("ImageTexture_frjs1")
 flat = true
 script = ExtResource("2_ahevp")
 icon_name = "Gradient"
@@ -211,6 +271,7 @@ layout_mode = 2
 [node name="Shape" type="Button" parent="Box/Toolbar"]
 layout_mode = 2
 tooltip_text = "Shape"
+focus_mode = 0
 theme_override_styles/normal = SubResource("StyleBoxEmpty_8skav")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_8skav")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_8skav")
@@ -218,14 +279,17 @@ theme_override_styles/disabled = SubResource("StyleBoxEmpty_8skav")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_nkhd7")
 disabled = true
 toggle_mode = true
+shortcut_in_tooltip = false
+shortcut = SubResource("Shortcut_qgge1")
 button_group = SubResource("ButtonGroup_lb3gr")
-icon = SubResource("ImageTexture_mrajx")
+icon = SubResource("ImageTexture_frjs1")
 flat = true
 script = ExtResource("2_ahevp")
 icon_name = "PickerShapeCircle"
 
 [node name="Line" type="Button" parent="Box/Toolbar"]
 layout_mode = 2
+focus_mode = 0
 theme_override_styles/normal = SubResource("StyleBoxEmpty_8skav")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_8skav")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_8skav")
@@ -233,8 +297,10 @@ theme_override_styles/disabled = SubResource("StyleBoxEmpty_8skav")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_nkhd7")
 disabled = true
 toggle_mode = true
+shortcut_in_tooltip = false
+shortcut = SubResource("Shortcut_qgge1")
 button_group = SubResource("ButtonGroup_lb3gr")
-icon = SubResource("ImageTexture_mrajx")
+icon = SubResource("ImageTexture_frjs1")
 flat = true
 script = ExtResource("2_ahevp")
 icon_name = "Curve2D"
@@ -283,36 +349,41 @@ size_flags_horizontal = 3
 
 [node name="Save" type="Button" parent="Box/Toolbar"]
 layout_mode = 2
+focus_mode = 0
 theme_override_styles/normal = SubResource("StyleBoxEmpty_8skav")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_8skav")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_8skav")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_8skav")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_nkhd7")
-icon = SubResource("ImageTexture_mrajx")
+icon = SubResource("ImageTexture_frjs1")
 flat = true
 script = ExtResource("2_ahevp")
 icon_name = "Save"
 
 [node name="Refresh" type="Button" parent="Box/Toolbar"]
 layout_mode = 2
+focus_mode = 0
 theme_override_styles/normal = SubResource("StyleBoxEmpty_8skav")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_8skav")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_8skav")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_8skav")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_nkhd7")
-icon = SubResource("ImageTexture_mrajx")
+icon = SubResource("ImageTexture_frjs1")
 flat = true
 script = ExtResource("2_ahevp")
 icon_name = "RotateRight"
 
 [node name="Close" type="Button" parent="Box/Toolbar"]
 layout_mode = 2
+tooltip_text = "Close"
+focus_mode = 0
 theme_override_styles/normal = SubResource("StyleBoxEmpty_8skav")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_8skav")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_8skav")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_8skav")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_nkhd7")
-icon = SubResource("ImageTexture_mrajx")
+shortcut = SubResource("Shortcut_lhl5g")
+icon = SubResource("ImageTexture_frjs1")
 flat = true
 script = ExtResource("2_ahevp")
 icon_name = "Close"
@@ -324,6 +395,7 @@ layout_mode = 2
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
+focus_mode = 1
 mouse_filter = 2
 mouse_force_pass_scroll_events = false
 script = ExtResource("9_gvnc2")
@@ -531,6 +603,7 @@ tool_name = "Shape"
 
 [node name="ColorSettings" parent="Box/Workspace/Floating/Control" instance=ExtResource("22_rhy5h")]
 layout_mode = 1
+workspace = NodePath("../../..")
 
 [connection signal="pressed" from="Box/Toolbar/Close" to="." method="_on_close_pressed"]
 [connection signal="image_changed" from="Box/Workspace" to="." method="_on_workspace_image_changed"]

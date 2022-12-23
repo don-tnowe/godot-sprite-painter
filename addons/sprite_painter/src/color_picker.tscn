@@ -1,7 +1,17 @@
-[gd_scene load_steps=14 format=3 uid="uid://chrbyd3jglj2a"]
+[gd_scene load_steps=24 format=3 uid="uid://chrbyd3jglj2a"]
 
 [ext_resource type="Script" path="res://addons/sprite_painter/src/color_picker.gd" id="1_ae0lg"]
 [ext_resource type="Script" path="res://addons/sprite_painter/editor_icon_button.gd" id="1_srmpw"]
+
+[sub_resource type="InputEventKey" id="InputEventKey_l6hbd"]
+resource_name = "Ctrl"
+keycode = 4194326
+
+[sub_resource type="InputEventKey" id="InputEventKey_wy4cg"]
+resource_name = "I"
+
+[sub_resource type="Shortcut" id="Shortcut_76p2c"]
+events = [SubResource("InputEventKey_l6hbd"), SubResource("InputEventKey_wy4cg")]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o2ioo"]
 draw_center = false
@@ -77,7 +87,15 @@ content_margin_bottom = 3.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fjbou"]
 
-[sub_resource type="Image" id="Image_q48ed"]
+[sub_resource type="InputEventKey" id="InputEventKey_5nkat"]
+device = -1
+keycode = 88
+unicode = 120
+
+[sub_resource type="Shortcut" id="Shortcut_4b8no"]
+events = [SubResource("InputEventKey_5nkat")]
+
+[sub_resource type="Image" id="Image_tosmd"]
 data = {
 "data": PackedByteArray(255, 255, 255, 0, 255, 255, 255, 0, 255, 128, 128, 4, 255, 128, 128, 4, 255, 128, 128, 4, 255, 128, 128, 4, 255, 128, 128, 4, 255, 128, 128, 4, 255, 128, 128, 4, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 93, 93, 131, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 131, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 131, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 94, 94, 127, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 128, 128, 4, 255, 128, 128, 4, 255, 128, 128, 4, 255, 128, 128, 4, 255, 128, 128, 4, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 231, 255, 93, 93, 55, 255, 97, 97, 58, 255, 93, 93, 233, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 231, 255, 94, 94, 54, 255, 94, 94, 57, 255, 93, 93, 233, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 97, 97, 42, 255, 255, 255, 0, 255, 255, 255, 0, 255, 97, 97, 42, 255, 93, 93, 233, 255, 93, 93, 232, 255, 93, 93, 41, 255, 255, 255, 0, 255, 255, 255, 0, 255, 97, 97, 42, 255, 93, 93, 233, 255, 93, 93, 232, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 96, 96, 45, 255, 97, 97, 42, 255, 255, 255, 0, 255, 97, 97, 42, 255, 97, 97, 42, 255, 255, 255, 0, 255, 98, 98, 47, 255, 97, 97, 42, 255, 255, 255, 0, 255, 97, 97, 42, 255, 97, 97, 42, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 96, 96, 45, 255, 93, 93, 235, 255, 93, 93, 233, 255, 97, 97, 42, 255, 255, 255, 0, 255, 255, 255, 0, 255, 94, 94, 46, 255, 93, 93, 236, 255, 93, 93, 233, 255, 97, 97, 42, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 235, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 233, 255, 95, 95, 59, 255, 96, 96, 61, 255, 93, 93, 235, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 233, 255, 95, 95, 59, 255, 96, 96, 61, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0),
 "format": "RGBA8",
@@ -86,8 +104,26 @@ data = {
 "width": 16
 }
 
-[sub_resource type="ImageTexture" id="ImageTexture_x8qtu"]
-image = SubResource("Image_q48ed")
+[sub_resource type="ImageTexture" id="ImageTexture_frjs1"]
+image = SubResource("Image_tosmd")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_skgeh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0wms8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_grafd"]
+
+[sub_resource type="Image" id="Image_npne5"]
+data = {
+"data": PackedByteArray(255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 180, 180, 180, 75, 178, 178, 178, 228, 178, 178, 178, 227, 178, 178, 178, 73, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 178, 178, 178, 228, 178, 178, 178, 255, 178, 178, 178, 255, 178, 178, 178, 226, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 178, 178, 178, 255, 178, 178, 178, 255, 178, 178, 178, 255, 178, 178, 178, 255, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 178, 178, 178, 255, 178, 178, 178, 255, 178, 178, 178, 255, 178, 178, 178, 255, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 178, 178, 178, 255, 178, 178, 178, 255, 178, 178, 178, 255, 178, 178, 178, 255, 178, 178, 178, 255, 178, 178, 178, 255, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 178, 178, 178, 255, 178, 178, 178, 255, 178, 178, 178, 255, 178, 178, 178, 255, 178, 178, 178, 255, 178, 178, 178, 255, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 178, 178, 178, 255, 255, 255, 255, 0, 255, 255, 255, 0, 178, 178, 178, 255, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 178, 178, 178, 255, 255, 255, 255, 0, 255, 255, 255, 0, 178, 178, 178, 255, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 178, 178, 178, 255, 255, 255, 255, 0, 255, 255, 255, 0, 178, 178, 178, 255, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 178, 178, 178, 255, 255, 255, 255, 0, 255, 255, 255, 0, 178, 178, 178, 255, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 178, 178, 178, 255, 255, 255, 255, 0, 255, 255, 255, 0, 178, 178, 178, 255, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 178, 178, 178, 221, 179, 179, 179, 74, 178, 178, 178, 76, 178, 178, 178, 220, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 178, 178, 178, 66, 178, 178, 178, 255, 178, 178, 178, 255, 181, 181, 181, 65, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 178, 178, 178, 255, 178, 178, 178, 255, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0),
+"format": "RGBA8",
+"height": 16,
+"mipmaps": false,
+"width": 16
+}
+
+[sub_resource type="ImageTexture" id="ImageTexture_suq33"]
+image = SubResource("Image_npne5")
 
 [node name="ColorSettings" type="MarginContainer"]
 anchors_preset = 2
@@ -98,6 +134,8 @@ offset_right = 80.0
 grow_vertical = 0
 mouse_filter = 0
 script = ExtResource("1_ae0lg")
+workspace = NodePath("")
+picker_shortcut = SubResource("Shortcut_76p2c")
 
 [node name="Panel2" type="Panel" parent="."]
 layout_mode = 2
@@ -198,63 +236,44 @@ anchor_right = 1.0
 offset_left = -26.0
 offset_bottom = 26.0
 grow_horizontal = 0
+tooltip_text = "Swap Primary/Secondary Colors
+
+The Screen Color Picker (Ctrl) will always change the Primary (Left Mouse Button) color."
 theme_override_styles/normal = SubResource("StyleBoxEmpty_xa6r5")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_xa6r5")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_xa6r5")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_xa6r5")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_fjbou")
-icon = SubResource("ImageTexture_x8qtu")
+shortcut = SubResource("Shortcut_4b8no")
+icon = SubResource("ImageTexture_frjs1")
 flat = true
 icon_alignment = 1
 script = ExtResource("1_srmpw")
 icon_name = "Hsize"
 
-[node name="Palette" type="Button" parent="Container/Box/Box/Box/Control"]
+[node name="Control" type="MarginContainer" parent="Container/Box/Box/Box/Control"]
 layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_top = -26.0
+offset_top = 38.0
 offset_right = 26.0
-grow_vertical = 0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme_override_styles/normal = SubResource("StyleBoxEmpty_xa6r5")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_xa6r5")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_xa6r5")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_xa6r5")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_fjbou")
-toggle_mode = true
-icon = SubResource("ImageTexture_x8qtu")
-flat = true
-icon_alignment = 1
-script = ExtResource("1_srmpw")
-icon_name = "Grid"
+offset_bottom = 64.0
 
-[node name="Picker" type="Button" parent="Container/Box/Box/Box/Control"]
-visible = false
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_top = -26.0
-offset_right = 26.0
-grow_vertical = 0
-theme_override_styles/normal = SubResource("StyleBoxEmpty_xa6r5")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_xa6r5")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_xa6r5")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_xa6r5")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_fjbou")
+[node name="@@83303" type="Button" parent="Container/Box/Box/Box/Control/Control"]
+custom_minimum_size = Vector2(28, 0)
+layout_mode = 2
+tooltip_text = "Pick a color from the editor window."
+theme_override_styles/normal = SubResource("StyleBoxEmpty_skgeh")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_0wms8")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_grafd")
 toggle_mode = true
-icon = SubResource("ImageTexture_x8qtu")
+shortcut = SubResource("Shortcut_76p2c")
+icon = SubResource("ImageTexture_suq33")
 flat = true
 icon_alignment = 1
-script = ExtResource("1_srmpw")
-icon_name = "ColorPick"
 
 [node name="Palette" type="VBoxContainer" parent="Container/Box/Box"]
 visible = false
 layout_mode = 2
+size_flags_vertical = 3
 
 [node name="Box" type="HBoxContainer" parent="Container/Box/Box/Palette"]
 layout_mode = 2
@@ -267,7 +286,7 @@ text = "Palette"
 [node name="FromImage" type="Button" parent="Container/Box/Box/Palette/Box"]
 layout_mode = 2
 tooltip_text = "Get from image / selection"
-icon = SubResource("ImageTexture_x8qtu")
+icon = SubResource("ImageTexture_frjs1")
 script = ExtResource("1_srmpw")
 icon_name = "CanvasLayer"
 
@@ -410,30 +429,15 @@ custom_minimum_size = Vector2(16, 16)
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Box2" type="HBoxContainer" parent="Container/Box/Box"]
-visible = false
-layout_mode = 2
-
-[node name="Control" type="Control" parent="Container/Box/Box/Box2"]
+[node name="Palette2" type="Button" parent="Container/Box/Box"]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 3
-
-[node name="Picker" type="Button" parent="Container/Box/Box/Box2"]
-visible = false
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_styles/normal = SubResource("StyleBoxEmpty_xa6r5")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_xa6r5")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_xa6r5")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_xa6r5")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_fjbou")
 toggle_mode = true
-icon = SubResource("ImageTexture_x8qtu")
-flat = true
+icon = SubResource("ImageTexture_frjs1")
 icon_alignment = 1
 script = ExtResource("1_srmpw")
-icon_name = "ArrowRight"
+icon_name = "Grid"
 
 [node name="Box2" type="HBoxContainer" parent="Container/Box"]
 visible = false
@@ -446,16 +450,13 @@ layout_mode = 2
 layout_mode = 2
 color = Color(0.498039, 0.498039, 0.498039, 1)
 color_mode = 1
-deferred_mode = true
-can_add_swatches = false
-presets_visible = false
+sampler_visible = false
 
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
 [connection signal="pressed" from="Container/Box/Box/Box/Control/Color2" to="." method="_on_color_2_pressed"]
 [connection signal="pressed" from="Container/Box/Box/Box/Control/Color2/Frame" to="." method="_on_color_2_pressed"]
 [connection signal="pressed" from="Container/Box/Box/Box/Control/Color1" to="." method="_on_color_1_pressed"]
 [connection signal="pressed" from="Container/Box/Box/Box/Control/Color1/Frame2" to="." method="_on_color_2_pressed"]
 [connection signal="pressed" from="Container/Box/Box/Box/Control/Swap" to="." method="_on_swap_pressed"]
-[connection signal="toggled" from="Container/Box/Box/Box/Control/Palette" to="." method="_on_palette_toggled"]
-[connection signal="toggled" from="Container/Box/Box/Box/Control/Picker" to="." method="_on_picker_tool_toggled"]
-[connection signal="toggled" from="Container/Box/Box/Box2/Picker" to="." method="_on_open_picker_toggled"]
+[connection signal="toggled" from="Container/Box/Box/Palette2" to="." method="_on_palette_toggled"]
 [connection signal="color_changed" from="Container/Box/Box2/ColorPicker" to="." method="_on_color_picker_color_changed"]

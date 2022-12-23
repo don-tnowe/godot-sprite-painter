@@ -6,34 +6,83 @@ signal tool_changed(tool_node)
 @export var toolbar : NodePath
 @export var toolbar_end : NodePath
 
+var by_button := {}
+var by_shortcut := {}
+
 var current_tool : Control
+var current_tool_shortcut_list := []
 var current_color1 := Color.WHITE
 var current_color2 := Color.WHITE
 
 
 func _ready():
+	if get_viewport() is SubViewport: return
+
 	var end_at = get_node(toolbar_end)
 	var default = null
 	for x in get_node(toolbar).get_children():
 		if x == end_at: break
 		if !x is BaseButton: continue
-
-		var t = get_node_or_null(NodePath(x.name))
-		if t == null:
-			x.disabled = true
-			continue
-
-		if default == null:
+		_setup_tool_button(x)
+		if default == null && !x.disabled:
 			default = x
-			call_deferred("_on_tool_button_toggled", true, t)
-			x.button_pressed = true
-
-		t.hide()
-		x.tooltip_text = t.tool_name
-		x.toggled.connect(_on_tool_button_toggled.bind(t))
+	
+	current_tool = default
+	default.button_pressed = true
+	default.show()
 
 
-func _on_tool_button_toggled(toggled, tool_node):
+func _setup_tool_button(button : BaseButton):
+	var tool_node = get_node_or_null(NodePath(button.name))
+	by_button[button] = tool_node
+	button.disabled = false
+	if tool_node == null:
+		button.disabled = true
+		return
+
+	if button.shortcut != null:
+		var buttons_with_sc = by_shortcut.get(button.shortcut, [])
+		buttons_with_sc.append(button)
+		button.pressed.connect(button_shortcut_pressed.bind(
+			button,
+			buttons_with_sc
+		))
+		if buttons_with_sc.size() >= 2:
+			button.set_deferred("shortcut", null)
+
+		by_shortcut[button.shortcut] = buttons_with_sc
+
+	button.tooltip_text = "%s (%s)" % [
+		tool_node.tool_name,
+		(button.shortcut.get_as_text() + " + ")\
+			.repeat(by_shortcut[button.shortcut].size())\
+			.trim_suffix(" + "),
+	]
+	tool_node.hide()
+	button.toggled.connect(_on_tool_button_toggled.bind(tool_node))
+
+
+func button_shortcut_pressed(button : BaseButton, list : Array):
+	var pressed_in_list = list.find(button)
+	if current_tool_shortcut_list != list:
+		# Next time the shortcut is pressed, it will select the first from the list
+		if current_tool_shortcut_list.size() > 1:
+			var sc
+			for x in current_tool_shortcut_list:
+				if x.shortcut != null:
+					sc = x.shortcut
+					x.shortcut = null
+
+			current_tool_shortcut_list[0].shortcut = sc
+
+	list[(pressed_in_list + 1) % list.size()].shortcut = button.shortcut
+	if list.size() > 1:
+		button.shortcut = null
+
+	current_tool_shortcut_list = list
+
+
+func _on_tool_button_toggled(toggled : bool, tool_node : EditingTool):
 	if !toggled: return
 
 	if current_tool != null:

@@ -46,8 +46,9 @@ func handle_input(event) -> bool:
 		if Input.is_mouse_button_pressed(MOUSE_BUTTON_MIDDLE) || Input.is_key_pressed(KEY_SPACE):
 			image_view.translate(event.relative)
 
+		grab_focus()
 		return pass_event_to_tool(event)
-	
+
 	if event is InputEventKey:
 		return true
 
