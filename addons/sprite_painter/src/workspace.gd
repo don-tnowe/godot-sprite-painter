@@ -4,12 +4,14 @@ extends Control
 signal image_changed()
 
 @onready var image_view = $"%EditedImageView"
+@onready var tool_manager = $"%ToolSwitcher"
 
 var cur_scale := 1.0
 var mouse_button := -1
 var dragging := false
 var edited_image : Image
 var edited_image_path : String
+var edited_image_selection : BitMap
 
 
 func handle_input(event) -> bool:
@@ -18,12 +20,16 @@ func handle_input(event) -> bool:
 			if event.pressed:
 				dragging = true
 				mouse_button = event.button_index
-				return true
+				return pass_event_to_tool(event)
 
 			elif mouse_button == event.button_index:
 				dragging = false
 				mouse_button = -1
-				return true
+				if pass_event_to_tool(event):
+					save_image()
+					return true
+				
+				else: return false
 
 		if event.button_index == MOUSE_BUTTON_WHEEL_UP:
 			image_view.zoom(Vector2.ONE * 1.05)
@@ -40,12 +46,21 @@ func handle_input(event) -> bool:
 		if Input.is_mouse_button_pressed(MOUSE_BUTTON_MIDDLE) || Input.is_key_pressed(KEY_SPACE):
 			image_view.translate(event.relative)
 
-		return true
+		return pass_event_to_tool(event)
 	
 	if event is InputEventKey:
 		return true
 
 	return false
+
+
+func pass_event_to_tool(event) -> bool:
+	event.position = event.global_position - global_position
+	return tool_manager.handle_image_input(
+		image_view.event_vp_to_image(event),
+		edited_image,
+		edited_image_selection
+	)
 
 
 func edit_texture(tex_path : String):
@@ -72,9 +87,12 @@ func _on_resize_value_changed(delta, expand_direction):
 				(new_size.y - old_size.y) * anchors.y,
 			)
 		)
-		
 		edited_image.copy_from(new_image)
-	
+
+	save_image()
+
+
+func save_image():
 	var err = edited_image.save_png(edited_image_path)
 	if err != OK: printerr(err)
 	

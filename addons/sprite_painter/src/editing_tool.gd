@@ -133,3 +133,25 @@ func add_property(property_name, default_value, setter : Callable, type : int, h
 			pass
 
 	parent.add_child(editor)
+
+
+func mouse_pressed(
+	event : InputEventMouseButton,
+	image : Image,
+	color1 : Color = Color.BLACK,
+	color2 : Color = Color.WHITE,
+	selection : BitMap = null,
+):
+	printerr("Not implemented: mouse_pressed! (" + get_script().resource_path.get_file() + ")")
+
+
+func mouse_moved(event : InputEventMouseMotion):
+	printerr("Not implemented: mouse_moved! (" + get_script().resource_path.get_file() + ")")
+
+
+func draw_preview(image_view : CanvasItem, mouse_position : Vector2i):
+	printerr("Not implemented: draw_preview! (" + get_script().resource_path.get_file() + ")")
+
+
+func draw_transparent_preview(image_view : CanvasItem, mouse_position : Vector2i):
+	pass

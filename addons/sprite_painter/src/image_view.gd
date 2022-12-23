@@ -1,11 +1,14 @@
 @tool
 extends Sprite2D
 
+@export var draw_handler : NodePath
+
 @onready var border_rect = $"../ImageBorder"
 @onready var resize_result = $"../ResizeResult"
 @onready var resize_rect = border_rect.get_node("Resize")
 
 var camera_pos := Vector2.ZERO
+var mouse_pos := Vector2.ZERO
 
 
 func zoom(by : Vector2):
@@ -25,8 +28,8 @@ func update_position():
 
 
 func update_position_local():
-	position = get_parent().size * 0.5 + camera_pos
-	centered = true
+	position = get_parent().size * 0.5 + camera_pos - texture.get_size() * 0.5
+	centered = false
 	update_texture_view_rect()
 
 
@@ -34,23 +37,8 @@ func update_position_overlay(edited_node):
 	position = edited_node.global_position - edited_node.get_viewport().get_visible_rect().position
 	centered = false
 	scale = edited_node.global_scale if edited_node is Node2D else edited_node.scale
-	apply_sprite_transforms(edited_node)
 	# TODO: fetch source's actual on-screen position.
 	update_texture_view_rect()
-
-
-func apply_sprite_transforms(source):
-	if source is Sprite2D:
-		offset = source.offset
-		flip_h = source.flip_h
-		flip_v = source.flip_v
-		centered = source.centered
-
-	else:
-		offset = Vector2.ZERO
-		flip_h = false
-		flip_v = false
-		centered = false
 
 
 func update_texture_view_rect():
@@ -76,3 +64,20 @@ func _on_resize_preview_changed(current_delta, expand_direction):
 
 	resize_result.visible = expand_direction != Vector2i(0, 0)
 	resize_result.global_position = get_global_mouse_position() - resize_result.size * 0.5
+
+
+func _draw():
+	get_node(draw_handler).draw_preview(self, mouse_pos)
+
+
+func event_vp_to_image(from_event : InputEventMouse, unsafe : bool = false) -> InputEventMouse:
+	if !unsafe:
+		from_event = from_event.duplicate()
+
+	from_event.position = ((from_event.position - position) / scale).floor()
+	if from_event is InputEventMouseMotion:
+		from_event.relative /= scale
+
+	mouse_pos = from_event.position
+	queue_redraw()
+	return from_event
