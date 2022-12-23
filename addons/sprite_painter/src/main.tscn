@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://clkbxsnmv1kne"]
+[gd_scene load_steps=35 format=3 uid="uid://clkbxsnmv1kne"]
 
 [ext_resource type="Script" path="res://addons/sprite_painter/src/main.gd" id="1_pn6xr"]
 [ext_resource type="Script" path="res://addons/sprite_painter/editor_icon_button.gd" id="2_ahevp"]
@@ -13,6 +13,14 @@
 [ext_resource type="Texture2D" uid="uid://do11l7wgupx60" path="res://icon.png" id="10_37clt"]
 [ext_resource type="Script" path="res://addons/sprite_painter/src/image_view.gd" id="10_etjnr"]
 [ext_resource type="PackedScene" uid="uid://c6v7q8a4qyl07" path="res://addons/sprite_painter/src/resize_rect.tscn" id="11_jhyl6"]
+[ext_resource type="Script" path="res://addons/sprite_painter/src/tool_switcher.gd" id="14_ig7f3"]
+[ext_resource type="Script" path="res://addons/sprite_painter/src/editing_tools/tool_select.gd" id="15_2n2l5"]
+[ext_resource type="Script" path="res://addons/sprite_painter/src/editing_tools/tool_brush.gd" id="16_b68p1"]
+[ext_resource type="Script" path="res://addons/sprite_painter/src/editing_tools/tool_bucket.gd" id="17_4lt5q"]
+[ext_resource type="Script" path="res://addons/sprite_painter/src/editing_tools/tool_eraser.gd" id="18_u584i"]
+[ext_resource type="Script" path="res://addons/sprite_painter/src/editing_tools/tool_pencil.gd" id="19_76b7g"]
+[ext_resource type="Script" path="res://addons/sprite_painter/src/editing_tools/tool_shape.gd" id="20_vwkmd"]
+[ext_resource type="Script" path="res://addons/sprite_painter/src/editing_tools/tool_wand.gd" id="21_xj52d"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8skav"]
 content_margin_left = 5.0
@@ -24,7 +32,7 @@ content_margin_bottom = 3.0
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_lb3gr"]
 
-[sub_resource type="Image" id="Image_37p5m"]
+[sub_resource type="Image" id="Image_07kkn"]
 data = {
 "data": PackedByteArray(255, 255, 255, 0, 255, 255, 255, 0, 255, 128, 128, 4, 255, 128, 128, 4, 255, 128, 128, 4, 255, 128, 128, 4, 255, 128, 128, 4, 255, 128, 128, 4, 255, 128, 128, 4, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 93, 93, 131, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 131, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 131, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 94, 94, 127, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 128, 128, 4, 255, 128, 128, 4, 255, 128, 128, 4, 255, 128, 128, 4, 255, 128, 128, 4, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 231, 255, 93, 93, 55, 255, 97, 97, 58, 255, 93, 93, 233, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 231, 255, 94, 94, 54, 255, 94, 94, 57, 255, 93, 93, 233, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 97, 97, 42, 255, 255, 255, 0, 255, 255, 255, 0, 255, 97, 97, 42, 255, 93, 93, 233, 255, 93, 93, 232, 255, 93, 93, 41, 255, 255, 255, 0, 255, 255, 255, 0, 255, 97, 97, 42, 255, 93, 93, 233, 255, 93, 93, 232, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 96, 96, 45, 255, 97, 97, 42, 255, 255, 255, 0, 255, 97, 97, 42, 255, 97, 97, 42, 255, 255, 255, 0, 255, 98, 98, 47, 255, 97, 97, 42, 255, 255, 255, 0, 255, 97, 97, 42, 255, 97, 97, 42, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 96, 96, 45, 255, 93, 93, 235, 255, 93, 93, 233, 255, 97, 97, 42, 255, 255, 255, 0, 255, 255, 255, 0, 255, 94, 94, 46, 255, 93, 93, 236, 255, 93, 93, 233, 255, 97, 97, 42, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 235, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 233, 255, 95, 95, 59, 255, 96, 96, 61, 255, 93, 93, 235, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 233, 255, 95, 95, 59, 255, 96, 96, 61, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0),
 "format": "RGBA8",
@@ -33,8 +41,8 @@ data = {
 "width": 16
 }
 
-[sub_resource type="ImageTexture" id="ImageTexture_ypfwd"]
-image = SubResource("Image_37p5m")
+[sub_resource type="ImageTexture" id="ImageTexture_mbymj"]
+image = SubResource("Image_07kkn")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jth0e"]
 
@@ -122,20 +130,23 @@ layout_mode = 2
 
 [node name="BoxSelection" type="Button" parent="Box/Toolbar"]
 layout_mode = 2
+tooltip_text = "Box Selection"
 theme_override_styles/normal = SubResource("StyleBoxEmpty_8skav")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_8skav")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_8skav")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_8skav")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_nkhd7")
 toggle_mode = true
+button_pressed = true
 button_group = SubResource("ButtonGroup_lb3gr")
-icon = SubResource("ImageTexture_ypfwd")
+icon = SubResource("ImageTexture_mbymj")
 flat = true
 script = ExtResource("2_ahevp")
 icon_name = "ActionCopy"
 
 [node name="WandSelection" type="Button" parent="Box/Toolbar"]
 layout_mode = 2
+tooltip_text = "Wand Selection"
 theme_override_styles/normal = SubResource("StyleBoxEmpty_8skav")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_8skav")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_8skav")
@@ -143,7 +154,7 @@ theme_override_styles/disabled = SubResource("StyleBoxEmpty_8skav")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_nkhd7")
 toggle_mode = true
 button_group = SubResource("ButtonGroup_lb3gr")
-icon = SubResource("ImageTexture_ypfwd")
+icon = SubResource("ImageTexture_mbymj")
 flat = true
 script = ExtResource("2_ahevp")
 icon_name = "Line"
@@ -153,6 +164,7 @@ layout_mode = 2
 
 [node name="Pencil" type="Button" parent="Box/Toolbar"]
 layout_mode = 2
+tooltip_text = "Pencil"
 theme_override_styles/normal = SubResource("StyleBoxEmpty_8skav")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_8skav")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_8skav")
@@ -160,13 +172,14 @@ theme_override_styles/disabled = SubResource("StyleBoxEmpty_8skav")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_nkhd7")
 toggle_mode = true
 button_group = SubResource("ButtonGroup_lb3gr")
-icon = SubResource("ImageTexture_ypfwd")
+icon = SubResource("ImageTexture_mbymj")
 flat = true
 script = ExtResource("2_ahevp")
 icon_name = "Edit"
 
 [node name="Brush" type="Button" parent="Box/Toolbar"]
 layout_mode = 2
+tooltip_text = "Brush"
 theme_override_styles/normal = SubResource("StyleBoxEmpty_8skav")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_8skav")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_8skav")
@@ -174,13 +187,14 @@ theme_override_styles/disabled = SubResource("StyleBoxEmpty_8skav")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_nkhd7")
 toggle_mode = true
 button_group = SubResource("ButtonGroup_lb3gr")
-icon = SubResource("ImageTexture_ypfwd")
+icon = SubResource("ImageTexture_mbymj")
 flat = true
 script = ExtResource("2_ahevp")
 icon_name = "CanvasItem"
 
 [node name="Eraser" type="Button" parent="Box/Toolbar"]
 layout_mode = 2
+tooltip_text = "Eraser"
 theme_override_styles/normal = SubResource("StyleBoxEmpty_8skav")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_8skav")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_8skav")
@@ -188,13 +202,14 @@ theme_override_styles/disabled = SubResource("StyleBoxEmpty_8skav")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_nkhd7")
 toggle_mode = true
 button_group = SubResource("ButtonGroup_lb3gr")
-icon = SubResource("ImageTexture_ypfwd")
+icon = SubResource("ImageTexture_mbymj")
 flat = true
 script = ExtResource("2_ahevp")
 icon_name = "Eraser"
 
 [node name="Bucket" type="Button" parent="Box/Toolbar"]
 layout_mode = 2
+tooltip_text = "Fill"
 theme_override_styles/normal = SubResource("StyleBoxEmpty_8skav")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_8skav")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_8skav")
@@ -202,7 +217,7 @@ theme_override_styles/disabled = SubResource("StyleBoxEmpty_8skav")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_nkhd7")
 toggle_mode = true
 button_group = SubResource("ButtonGroup_lb3gr")
-icon = SubResource("ImageTexture_ypfwd")
+icon = SubResource("ImageTexture_mbymj")
 flat = true
 script = ExtResource("2_ahevp")
 icon_name = "Bucket"
@@ -214,9 +229,10 @@ theme_override_styles/hover = SubResource("StyleBoxEmpty_8skav")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_8skav")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_8skav")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_nkhd7")
+disabled = true
 toggle_mode = true
 button_group = SubResource("ButtonGroup_lb3gr")
-icon = SubResource("ImageTexture_ypfwd")
+icon = SubResource("ImageTexture_mbymj")
 flat = true
 script = ExtResource("2_ahevp")
 icon_name = "Gradient"
@@ -226,6 +242,7 @@ layout_mode = 2
 
 [node name="Shape" type="Button" parent="Box/Toolbar"]
 layout_mode = 2
+tooltip_text = "Shape"
 theme_override_styles/normal = SubResource("StyleBoxEmpty_8skav")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_8skav")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_8skav")
@@ -233,7 +250,7 @@ theme_override_styles/disabled = SubResource("StyleBoxEmpty_8skav")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_nkhd7")
 toggle_mode = true
 button_group = SubResource("ButtonGroup_lb3gr")
-icon = SubResource("ImageTexture_ypfwd")
+icon = SubResource("ImageTexture_mbymj")
 flat = true
 script = ExtResource("2_ahevp")
 icon_name = "PickerShapeCircle"
@@ -245,14 +262,15 @@ theme_override_styles/hover = SubResource("StyleBoxEmpty_8skav")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_8skav")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_8skav")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_nkhd7")
+disabled = true
 toggle_mode = true
 button_group = SubResource("ButtonGroup_lb3gr")
-icon = SubResource("ImageTexture_ypfwd")
+icon = SubResource("ImageTexture_mbymj")
 flat = true
 script = ExtResource("2_ahevp")
 icon_name = "Curve2D"
 
-[node name="VSeparator3" type="VSeparator" parent="Box/Toolbar"]
+[node name="ToolsEnd" type="VSeparator" parent="Box/Toolbar"]
 layout_mode = 2
 
 [node name="Transform" type="MenuButton" parent="Box/Toolbar"]
@@ -262,6 +280,7 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_8skav")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_8skav")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_8skav")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_jth0e")
+disabled = true
 text = "Transform"
 item_count = 7
 popup/item_0/text = "Rotate clockwise"
@@ -273,7 +292,6 @@ popup/item_1/id = 3
 popup/item_2/text = "Flip horizontally"
 popup/item_2/icon = ExtResource("3_x3qjc")
 popup/item_2/id = 0
-popup/item_2/disabled = true
 popup/item_3/text = "Flip vertically"
 popup/item_3/icon = ExtResource("4_3o4fi")
 popup/item_3/id = 1
@@ -301,7 +319,7 @@ theme_override_styles/hover = SubResource("StyleBoxEmpty_8skav")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_8skav")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_8skav")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_nkhd7")
-icon = SubResource("ImageTexture_ypfwd")
+icon = SubResource("ImageTexture_mbymj")
 flat = true
 script = ExtResource("2_ahevp")
 icon_name = "Save"
@@ -313,7 +331,7 @@ theme_override_styles/hover = SubResource("StyleBoxEmpty_8skav")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_8skav")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_8skav")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_nkhd7")
-icon = SubResource("ImageTexture_ypfwd")
+icon = SubResource("ImageTexture_mbymj")
 flat = true
 script = ExtResource("2_ahevp")
 icon_name = "RotateRight"
@@ -325,7 +343,7 @@ theme_override_styles/hover = SubResource("StyleBoxEmpty_8skav")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_8skav")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_8skav")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_nkhd7")
-icon = SubResource("ImageTexture_ypfwd")
+icon = SubResource("ImageTexture_mbymj")
 flat = true
 script = ExtResource("2_ahevp")
 icon_name = "Close"
@@ -437,7 +455,6 @@ metadata/_edit_lock_ = true
 
 [node name="Resize" parent="Box/Workspace/ViewportOverlay/ImageBorder" instance=ExtResource("11_jhyl6")]
 layout_mode = 1
-delta_color = Color(1, 0.25, 0, 0.75)
 sensitivity = 0.25
 
 [node name="Border" type="Panel" parent="Box/Workspace/ViewportOverlay"]
@@ -480,48 +497,56 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_o2ioo")
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="SettingContainer" type="MarginContainer" parent="Box/Workspace/Floating/Control/ToolSettings"]
+[node name="ToolSwitcher" type="MarginContainer" parent="Box/Workspace/Floating/Control/ToolSettings"]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_constants/margin_left = 4
 theme_override_constants/margin_top = 4
 theme_override_constants/margin_right = 4
 theme_override_constants/margin_bottom = 4
+script = ExtResource("14_ig7f3")
+toolbar = NodePath("../../../../../Toolbar")
+toolbar_end = NodePath("../../../../../Toolbar/ToolsEnd")
 
-[node name="GridContainer" type="GridContainer" parent="Box/Workspace/Floating/Control/ToolSettings/SettingContainer"]
+[node name="BoxSelection" type="VBoxContainer" parent="Box/Workspace/Floating/Control/ToolSettings/ToolSwitcher"]
 layout_mode = 2
-columns = 2
+script = ExtResource("15_2n2l5")
 
-[node name="Label" type="Label" parent="Box/Workspace/Floating/Control/ToolSettings/SettingContainer/GridContainer"]
+[node name="WandSelection" type="VBoxContainer" parent="Box/Workspace/Floating/Control/ToolSettings/ToolSwitcher"]
+visible = false
 layout_mode = 2
-text = "Size:"
+script = ExtResource("21_xj52d")
+tool_name = "Wand Selection"
 
-[node name="Label2" type="Label" parent="Box/Workspace/Floating/Control/ToolSettings/SettingContainer/GridContainer"]
+[node name="Pencil" type="VBoxContainer" parent="Box/Workspace/Floating/Control/ToolSettings/ToolSwitcher"]
+visible = false
 layout_mode = 2
-text = "1215311"
+script = ExtResource("19_76b7g")
+tool_name = "Pencil"
 
-[node name="Label3" type="Label" parent="Box/Workspace/Floating/Control/ToolSettings/SettingContainer/GridContainer"]
+[node name="Brush" type="VBoxContainer" parent="Box/Workspace/Floating/Control/ToolSettings/ToolSwitcher"]
+visible = false
 layout_mode = 2
-text = "Shape:"
+script = ExtResource("16_b68p1")
+tool_name = "Brush"
 
-[node name="Label4" type="Label" parent="Box/Workspace/Floating/Control/ToolSettings/SettingContainer/GridContainer"]
+[node name="Eraser" type="VBoxContainer" parent="Box/Workspace/Floating/Control/ToolSettings/ToolSwitcher"]
+visible = false
 layout_mode = 2
-text = "A B C D E"
+script = ExtResource("18_u584i")
+tool_name = "Eraser"
 
-[node name="Label5" type="Label" parent="Box/Workspace/Floating/Control/ToolSettings/SettingContainer/GridContainer"]
+[node name="Bucket" type="VBoxContainer" parent="Box/Workspace/Floating/Control/ToolSettings/ToolSwitcher"]
+visible = false
 layout_mode = 2
-text = "Hardness:"
+script = ExtResource("17_4lt5q")
+tool_name = "Fill"
 
-[node name="Label6" type="Label" parent="Box/Workspace/Floating/Control/ToolSettings/SettingContainer/GridContainer"]
+[node name="Shape" type="VBoxContainer" parent="Box/Workspace/Floating/Control/ToolSettings/ToolSwitcher"]
+visible = false
 layout_mode = 2
-text = "100%"
-
-[node name="Label7" type="Label" parent="Box/Workspace/Floating/Control/ToolSettings/SettingContainer/GridContainer"]
-layout_mode = 2
-text = "AA:"
-
-[node name="Label8" type="Label" parent="Box/Workspace/Floating/Control/ToolSettings/SettingContainer/GridContainer"]
-layout_mode = 2
-text = "[ ] On"
+script = ExtResource("20_vwkmd")
+tool_name = "Shape"
 
 [node name="ColorSettings" type="MarginContainer" parent="Box/Workspace/Floating/Control"]
 layout_mode = 1
@@ -591,7 +616,7 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_8skav")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_8skav")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_nkhd7")
 toggle_mode = true
-icon = SubResource("ImageTexture_ypfwd")
+icon = SubResource("ImageTexture_mbymj")
 flat = true
 icon_alignment = 1
 script = ExtResource("2_ahevp")
@@ -611,7 +636,7 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_8skav")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_8skav")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_nkhd7")
 toggle_mode = true
-icon = SubResource("ImageTexture_ypfwd")
+icon = SubResource("ImageTexture_mbymj")
 flat = true
 icon_alignment = 1
 script = ExtResource("2_ahevp")

@@ -12,7 +12,6 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_eudu3")
-delta_color = null
 metadata/_edit_lock_ = true
 
 [node name="X-" type="TextureRect" parent="."]

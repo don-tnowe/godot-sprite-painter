@@ -11,12 +11,18 @@ config_version=5
 color_rows=false
 color_arrays=true
 _global_script_classes=[{
+"base": "VBoxContainer",
+"class": &"EditingTool",
+"language": &"GDScript",
+"path": "res://addons/sprite_painter/src/editing_tool.gd"
+}, {
 "base": "Button",
 "class": &"ThemeIconButton",
 "language": &"GDScript",
 "path": "res://addons/sprite_painter/editor_icon_button.gd"
 }]
 _global_script_class_icons={
+"EditingTool": "",
 "ThemeIconButton": ""
 }
 
