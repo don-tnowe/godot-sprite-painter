@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://clkbxsnmv1kne"]
+[gd_scene load_steps=32 format=3 uid="uid://clkbxsnmv1kne"]
 
 [ext_resource type="Script" path="res://addons/sprite_painter/src/main.gd" id="1_pn6xr"]
 [ext_resource type="Script" path="res://addons/sprite_painter/editor_icon_button.gd" id="2_ahevp"]
@@ -21,6 +21,7 @@
 [ext_resource type="Script" path="res://addons/sprite_painter/src/editing_tools/tool_pencil.gd" id="19_76b7g"]
 [ext_resource type="Script" path="res://addons/sprite_painter/src/editing_tools/tool_shape.gd" id="20_vwkmd"]
 [ext_resource type="Script" path="res://addons/sprite_painter/src/editing_tools/tool_wand.gd" id="21_xj52d"]
+[ext_resource type="PackedScene" uid="uid://chrbyd3jglj2a" path="res://addons/sprite_painter/src/color_picker.tscn" id="22_rhy5h"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8skav"]
 content_margin_left = 5.0
@@ -70,43 +71,6 @@ corner_radius_bottom_left = 2
 shadow_color = Color(0.8, 0.8, 0.8, 1)
 shadow_size = 4
 anti_aliasing = false
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eeewi"]
-bg_color = Color(1, 1, 1, 1)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0.6, 0.6, 0.6, 1)
-corner_radius_top_left = 4
-corner_radius_top_right = 4
-corner_radius_bottom_right = 4
-corner_radius_bottom_left = 4
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_70jsv"]
-bg_color = Color(1, 1, 1, 1)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(1.5, 1.5, 1.5, 1)
-corner_radius_top_left = 4
-corner_radius_top_right = 4
-corner_radius_bottom_right = 4
-corner_radius_bottom_left = 4
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gjl5v"]
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0.6, 0.6, 0.6, 1)
-corner_radius_top_left = 4
-corner_radius_top_right = 4
-corner_radius_bottom_right = 4
-corner_radius_bottom_left = 4
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cicb3"]
 
 [node name="Painter" type="MarginContainer"]
 anchors_preset = 15
@@ -509,6 +473,7 @@ toolbar = NodePath("../../../../../Toolbar")
 toolbar_end = NodePath("../../../../../Toolbar/ToolsEnd")
 
 [node name="BoxSelection" type="VBoxContainer" parent="Box/Workspace/Floating/Control/ToolSettings/ToolSwitcher"]
+visible = false
 layout_mode = 2
 script = ExtResource("15_2n2l5")
 
@@ -548,99 +513,9 @@ layout_mode = 2
 script = ExtResource("20_vwkmd")
 tool_name = "Shape"
 
-[node name="ColorSettings" type="MarginContainer" parent="Box/Workspace/Floating/Control"]
+[node name="ColorSettings" parent="Box/Workspace/Floating/Control" instance=ExtResource("22_rhy5h")]
 layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_top = -80.0
-offset_right = 80.0
-grow_vertical = 0
-
-[node name="Panel2" type="Panel" parent="Box/Workspace/Floating/Control/ColorSettings"]
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_styles/panel = SubResource("StyleBoxFlat_o2ioo")
-
-[node name="Panel3" type="Panel" parent="Box/Workspace/Floating/Control/ColorSettings"]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="Container" type="MarginContainer" parent="Box/Workspace/Floating/Control/ColorSettings"]
-layout_mode = 2
-theme_override_constants/margin_left = 8
-theme_override_constants/margin_top = 8
-theme_override_constants/margin_right = 8
-theme_override_constants/margin_bottom = 8
-
-[node name="Control" type="Control" parent="Box/Workspace/Floating/Control/ColorSettings/Container"]
-layout_mode = 2
-
-[node name="Color2" type="Button" parent="Box/Workspace/Floating/Control/ColorSettings/Container/Control"]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -37.0
-offset_top = -37.0
-grow_horizontal = 0
-grow_vertical = 0
-theme_override_styles/normal = SubResource("StyleBoxFlat_eeewi")
-theme_override_styles/hover = SubResource("StyleBoxFlat_70jsv")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_gjl5v")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_cicb3")
-
-[node name="Color1" type="Button" parent="Box/Workspace/Floating/Control/ColorSettings/Container/Control"]
-modulate = Color(0.498039, 0.498039, 0.498039, 1)
-layout_mode = 0
-offset_right = 37.0
-offset_bottom = 37.0
-theme_override_styles/normal = SubResource("StyleBoxFlat_eeewi")
-theme_override_styles/hover = SubResource("StyleBoxFlat_70jsv")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_gjl5v")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_cicb3")
-
-[node name="Picker" type="Button" parent="Box/Workspace/Floating/Control/ColorSettings/Container/Control"]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_top = -26.0
-offset_right = 26.0
-grow_vertical = 0
-theme_override_styles/normal = SubResource("StyleBoxEmpty_8skav")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_8skav")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_8skav")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_8skav")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_nkhd7")
-toggle_mode = true
-icon = SubResource("ImageTexture_mbymj")
-flat = true
-icon_alignment = 1
-script = ExtResource("2_ahevp")
-icon_name = "ColorPick"
-
-[node name="More" type="Button" parent="Box/Workspace/Floating/Control/ColorSettings/Container/Control"]
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -26.0
-offset_bottom = 26.0
-grow_horizontal = 0
-theme_override_styles/normal = SubResource("StyleBoxEmpty_8skav")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_8skav")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_8skav")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_8skav")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_nkhd7")
-toggle_mode = true
-icon = SubResource("ImageTexture_mbymj")
-flat = true
-icon_alignment = 1
-script = ExtResource("2_ahevp")
-icon_name = "ArrowRight"
+offset_right = 118.0
 
 [connection signal="pressed" from="Box/Toolbar/Close" to="." method="_on_close_pressed"]
 [connection signal="image_changed" from="Box/Workspace" to="." method="_on_workspace_image_changed"]
