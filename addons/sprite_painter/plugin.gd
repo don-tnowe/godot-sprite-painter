@@ -73,11 +73,11 @@ func _exit_tree() -> void:
 func make_visible(visible):
 	if is_instance_valid(editor_view):
 		editor_view.visible = visible
-		editor_view.edit_node()
 		editor_2d_vp.get_child(0).visible = !visible
 		sploinky.custom_minimum_size.y = editor_2d_vp.get_child(0).size.y
 		sploinky.visible = visible
-		add_control_to_container(EditorPlugin.CONTAINER_CANVAS_EDITOR_BOTTOM, Button.new())
+		if visible:
+			editor_view.edit_node(editor_view.edited_node)
 
 
 func _edit(object):
@@ -97,7 +97,7 @@ func _on_enable_pressed():
 	overlay_enabled = !overlay_enabled
 	make_visible(overlay_enabled)
 	if overlay_enabled:
-		editor_view.edit_node()
+		editor_view.edit_node(editor_view.edited_node)
 
 
 func _on_main_screen_changed(screen):

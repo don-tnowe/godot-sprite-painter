@@ -13,9 +13,6 @@ var edited_node : CanvasItem
 
 func edit_node(node : Node = null):
 	if node == null || node.texture == null || node.texture.resource_path == "":
-		if edited_node != null:
-			edit_node(edited_node)
-
 		return
 
 	edited_node = node
