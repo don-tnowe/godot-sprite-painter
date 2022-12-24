@@ -10,8 +10,8 @@ signal color_changed(new_color, is_primary)
 @onready var color2_button = $Container/Box/Box/Box/Control/Color2
 @onready var palette = $Container/Box/Box/Palette
 @onready var which_color_picked = $Container/Box/Box/WhichColor
-@onready var color_picker_container = $Container/Box/Box2
-@onready var color_picker = $Container/Box/Box2/ColorPicker
+@onready var color_picker_container = $Control/Picker
+@onready var color_picker = $Control/Picker/Margins/Box/ColorPicker
 @onready var color_picker_tool_button = $Container/Box/Box/Box/Control/Control.get_child(0)
 
 var color1 := Color("7f7f7f")
@@ -29,6 +29,16 @@ func _ready():
 	set_color(false, color2)
 	_on_visibility_changed()
 	_yoink_color_picker_tool_button()
+	hide()
+	show()
+	color_picker_container.hide()
+	color_picker_container.size = Vector2.ZERO
+	await get_tree().process_frame
+	color_picker_container.global_position = (
+		global_position
+		+ get_minimum_size()
+		+ Vector2(16, -color_picker_container.size.y)
+	)
 
 
 func set_color(is_primary, color):
@@ -69,9 +79,26 @@ func _input(event):
 		color_picker_tool_button.button_pressed = !color_picker_tool_button.button_pressed
 		return
 
-	if event is InputEventKey:
-		if event.keycode == KEY_CTRL:
-			color_picker_tool_button.set_deferred("button_pressed", event.pressed)
+	if event is InputEventKey && !event.is_echo():
+		if color_picker_tool_button.button_pressed && event.is_pressed():
+			# Click on the primary color to undo the pick.
+			call_deferred("force_click", color1_button.global_position + color1_button.size * 0.5)
+
+
+func force_click(pos):
+	var click = InputEventMouseButton.new()
+	click.pressed = true
+	click.button_index = MOUSE_BUTTON_LEFT
+	click.position = pos
+	click.global_position = click.position
+	var movement = InputEventMouseMotion.new()
+	movement.position = click.position
+	movement.global_position = click.position
+	movement.relative = get_global_mouse_position() - click.position
+	get_viewport().push_input(movement)
+	get_viewport().push_input(click)
+	click.pressed = false
+	get_viewport().push_input(click)
 
 
 func _yoink_color_picker_tool_button():
@@ -82,7 +109,6 @@ func _yoink_color_picker_tool_button():
 		var old_button = color_picker_tool_button
 		color_picker_tool_button = x
 		x.get_parent().remove_child(x)
-		x.toggled.connect(_on_picker_tool_toggled)
 		x.shortcut = picker_shortcut
 		x.shortcut_context = get_node(workspace)
 		x.icon_alignment = HORIZONTAL_ALIGNMENT_CENTER
@@ -114,11 +140,6 @@ func _on_swap_pressed():
 	set_picked_primary(color_picker_primary, false)
 
 
-func _on_picker_tool_toggled(button_pressed):
-	# TODO
-	pass
-
-
 func _on_open_picker_toggled(button_pressed):
 	color_picker_container.visible = button_pressed
 	set_picked_primary(color_picker_primary)
@@ -129,4 +150,10 @@ func _on_palette_toggled(button_pressed):
 
 
 func _on_visibility_changed():
-	set_process_input(visible)
+	set_process_input(is_visible_in_tree())
+
+
+func _on_picker_header_gui_input(event):
+	if event is InputEventMouseMotion:
+		if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+			color_picker_container.position += event.relative
