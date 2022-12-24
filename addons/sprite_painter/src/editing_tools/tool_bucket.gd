@@ -9,6 +9,7 @@ var drawing_color := Color.BLACK
 var image : Image
 var start_color := Color.TRANSPARENT
 var affected_pixels := BitMap.new()
+var last_affected_rect := Rect2i()
 
 
 func _ready():
@@ -48,6 +49,10 @@ func mouse_pressed(
 					image.set_pixel(i, j, color1)
 
 
+func get_affected_rect():
+	return last_affected_rect.grow_individual(0, 0, 1, 1)
+
+
 func mouse_moved(event : InputEventMouseMotion):
 	if !drawing: return
 	if is_out_of_bounds(event.position): return
@@ -62,7 +67,8 @@ func mouse_moved(event : InputEventMouseMotion):
 
 func start_fill(pos : Vector2i):
 	affected_pixels.create(image.get_size())
-	if fill_mode == 0:
+	last_affected_rect = Rect2i(pos, Vector2.ZERO)
+	if (fill_mode == 0) != Input.is_key_pressed(KEY_SHIFT):
 		floodfill(pos)
 
 	else:
@@ -87,6 +93,7 @@ func add_if_fillable(pos : Vector2i, to_array : Array = null):
 		return
 
 	if get_color_distance_squared(start_color, image.get_pixelv(pos)) <= 4.0 * tolerance:
+		last_affected_rect = last_affected_rect.expand(pos)
 		affected_pixels.set_bitv(pos, true)
 		if to_array != null:
 			to_array.append(pos)
@@ -96,6 +103,7 @@ func mask_color(color):
 	for i in image.get_width():
 		for j in image.get_height():
 			if get_color_distance_squared(start_color, image.get_pixel(i, j)) <= 4.0 * tolerance:
+				last_affected_rect = last_affected_rect.expand(Vector2i(i, j))
 				affected_pixels.set_bit(i, j, true)
 
 

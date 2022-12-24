@@ -10,7 +10,12 @@ position = Vector2(53, 81)
 polygon = PackedVector2Array(302, 105, -2, 293, 224, 391, 330, 537, 478, 327, 567, 292, 640, 199, 842, 581, 852, 669, 1112, 443, 904, 241, 868, 107, 665.661, 13.9704, 520, -53, 418, 52)
 
 [node name="Icon2" type="Sprite2D" parent="."]
-position = Vector2(136, 208)
+position = Vector2(66, 245)
+texture = ExtResource("1_uj0gm")
+centered = false
+
+[node name="Icon4" type="Sprite2D" parent="."]
+position = Vector2(117, 444)
 texture = ExtResource("1_uj0gm")
 centered = false
 

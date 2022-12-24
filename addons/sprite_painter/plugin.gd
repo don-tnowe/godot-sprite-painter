@@ -71,13 +71,21 @@ func _exit_tree() -> void:
 
 
 func make_visible(visible):
-	if is_instance_valid(editor_view):
-		editor_view.visible = visible
-		editor_2d_vp.get_child(0).visible = !visible
-		sploinky.custom_minimum_size.y = editor_2d_vp.get_child(0).size.y
-		sploinky.visible = visible
-		if visible:
-			editor_view.edit_node(editor_view.edited_node)
+	if !is_instance_valid(editor_view): return
+	if editor_view.visible == visible: return
+
+	editor_view.visible = visible
+	editor_2d_vp.get_child(0).visible = !visible
+	sploinky.custom_minimum_size.y = editor_2d_vp.get_child(0).size.y
+	sploinky.visible = visible
+	if visible:
+		editor_view.edit_node(editor_view.edited_node)
+	
+	else:
+		editor_view.save_changes()
+		get_editor_interface()\
+			.get_resource_filesystem()\
+			.reimport_files([editor_view.workspace.edited_image_path])
 
 
 func _edit(object):
@@ -96,8 +104,6 @@ func _handles(object):
 func _on_enable_pressed():
 	overlay_enabled = !overlay_enabled
 	make_visible(overlay_enabled)
-	if overlay_enabled:
-		editor_view.edit_node(editor_view.edited_node)
 
 
 func _on_main_screen_changed(screen):

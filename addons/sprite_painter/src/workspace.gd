@@ -1,7 +1,9 @@
 @tool
 extends Control
 
-signal image_changed()
+signal pre_image_changed(image, rect_changed)
+signal image_changed(image, rect_changed)
+signal image_replaced(old_image, new_image)
 
 @onready var image_view = $"%EditedImageView"
 @onready var tool_manager = $"%ToolSwitcher"
@@ -25,8 +27,10 @@ func handle_input(event) -> bool:
 			elif mouse_button == event.button_index:
 				dragging = false
 				mouse_button = -1
+				var rect = tool_manager.get_affected_rect()
+				pre_image_changed.emit(edited_image, rect)
 				if pass_event_to_tool(event):
-					save_image()
+					image_changed.emit(edited_image, rect)
 					return true
 				
 				else: return false
@@ -71,31 +75,39 @@ func edit_texture(tex_path : String):
 	image_view.call_deferred("update_position")
 
 
-func _on_resize_value_changed(delta, expand_direction):
-	var old_size = edited_image.get_size()
-	var new_size = old_size + Vector2i(delta.round())
-	if Input.is_key_pressed(KEY_SHIFT):
-		edited_image.resize(new_size.x, new_size.y, Image.INTERPOLATE_NEAREST)
+func resize_texture(old_image, old_size, new_size, expand_direction, stretch):
+	if stretch:
+		var new_image = Image.create(old_size.x, old_size.y, false, old_image.get_format())
+		new_image.blit_rect(
+			old_image,
+			Rect2i(Vector2.ZERO, old_image.get_size()), Vector2i.ZERO
+		)
+		new_image.resize(new_size.x, new_size.y, Image.INTERPOLATE_NEAREST)
+		return new_image
 
 	else:
-		var new_image = Image.create(new_size.x, new_size.y, false, edited_image.get_format())
+		var new_image = Image.create(new_size.x, new_size.y, false, old_image.get_format())
 		var anchors = (Vector2i.ONE - expand_direction) / 2
 		new_image.blit_rect(
-			edited_image,
-			Rect2i(Vector2.ZERO, edited_image.get_size()),
+			old_image,
+			Rect2i(Vector2i.ZERO, old_image.get_size()),
 			Vector2i(
 				(new_size.x - old_size.x) * anchors.x,
 				(new_size.y - old_size.y) * anchors.y,
 			)
 		)
-		edited_image.copy_from(new_image)
-
-	save_image()
+		return new_image
 
 
-func save_image():
-	var err = edited_image.save_png(edited_image_path)
-	if err != OK: printerr(err)
-	
-	image_changed.emit()
-	edit_texture(edited_image_path)
+func replace_image(old_image, new_image):
+	edited_image = new_image
+
+
+func _on_resize_value_changed(delta, expand_direction):
+	var old_size = edited_image.get_size()
+
+	var new_size = old_size + Vector2i(delta.round())
+	var stretch =  Input.is_key_pressed(KEY_SHIFT)
+	var new_image = resize_texture(edited_image, old_size, new_size, expand_direction, stretch)
+	image_replaced.emit(edited_image, new_image)
+	edited_image = new_image

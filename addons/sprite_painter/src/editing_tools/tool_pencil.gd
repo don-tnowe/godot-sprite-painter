@@ -9,6 +9,7 @@ var drawing := false
 var drawing_color := Color()
 var drawing_positions : Array[Vector2]
 var image_size := Vector2()
+var last_affected_rect := Rect2i()
 
 
 func _ready():
@@ -33,11 +34,16 @@ func mouse_pressed(
 	image_size = image.get_size()
 	if drawing:
 		drawing_positions.clear()
+		last_affected_rect = Rect2i(event.position, Vector2i.ZERO)
 		_add_point(event.position)
 
 	else:
 		for x in drawing_positions:
 			image.set_pixelv(x, color1)
+
+
+func get_affected_rect():
+	return last_affected_rect.grow_individual(0, 0, 1, 1)
 
 
 func mouse_moved(event : InputEventMouseMotion):
@@ -62,6 +68,7 @@ func _add_point(pt : Vector2):
 			drawing_positions.pop_back()
 
 	drawing_positions.append(pt)
+	last_affected_rect = last_affected_rect.expand(pt)
 
 
 func draw_preview(image_view : CanvasItem, mouse_position : Vector2i):

@@ -145,6 +145,11 @@ func mouse_pressed(
 	printerr("Not implemented: mouse_pressed! (" + get_script().resource_path.get_file() + ")")
 
 
+func get_affected_rect() -> Rect2i:
+	printerr("Not implemented: get_affected_rect! (" + get_script().resource_path.get_file() + ")")
+	return Rect2i()
+
+
 func mouse_moved(event : InputEventMouseMotion):
 	printerr("Not implemented: mouse_moved! (" + get_script().resource_path.get_file() + ")")
 

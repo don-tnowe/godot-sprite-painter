@@ -112,6 +112,10 @@ func handle_image_input(event, image, selection) -> bool:
 	return false
 
 
+func get_affected_rect() -> Rect2i:
+	return current_tool.get_affected_rect()
+
+
 func draw_preview(image_view : CanvasItem, mouse_position : Vector2i):
 	current_tool.draw_preview(image_view, mouse_position)
 
