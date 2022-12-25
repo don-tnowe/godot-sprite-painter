@@ -40,7 +40,7 @@ func mouse_pressed(
 	self.image = image
 	if drawing:
 		affected_pixels.create(image.get_size())
-		start_fill(event.position)
+		fill(event.position)
 
 	else:
 		for i in image.get_width():
@@ -64,68 +64,28 @@ func mouse_moved(event : InputEventMouseMotion):
 		return
 	
 	start_color = cur_color
-	start_fill(event.position)
+	fill(event.position)
 
 
-func start_fill(pos : Vector2i):
-	affected_pixels.create(image.get_size())
-	last_affected_rect = Rect2i(pos, Vector2.ZERO)
-	if (fill_mode == 0) != Input.is_key_pressed(KEY_SHIFT):
-		floodfill(pos)
-
-	else:
-		mask_color(image.get_pixelv(pos))
-
-
-func floodfill(start : Vector2i):
-	var color := image.get_pixelv(start)
-
-	var q = [start]
-	while q.size() > 0:
-		var x = q.pop_front()
-		affected_pixels.set_bitv(x, true)
-		add_if_fillable(x + Vector2i.RIGHT, q)
-		add_if_fillable(x + Vector2i.DOWN, q)
-		add_if_fillable(x + Vector2i.LEFT, q)
-		add_if_fillable(x + Vector2i.UP, q)
-
-
-func add_if_fillable(pos : Vector2i, to_array : Array = null):
-	if is_out_of_bounds(pos, image.get_size()) || affected_pixels.get_bitv(pos):
-		return
-
-	if get_color_distance_squared(start_color, image.get_pixelv(pos)) <= tolerance:
-		last_affected_rect = last_affected_rect.expand(pos)
-		affected_pixels.set_bitv(pos, true)
-		if to_array != null:
-			to_array.append(pos)
-
-
-func mask_color(color):
-	for i in image.get_width():
-		for j in image.get_height():
-			if get_color_distance_squared(start_color, image.get_pixel(i, j)) <= tolerance:
-				last_affected_rect = last_affected_rect.expand(Vector2i(i, j))
-				affected_pixels.set_bit(i, j, true)
-
-
-func get_color_distance_squared(a : Color, b : Color):
-	var a_sum = a.a + b.a
-	return (
-		(a.r - b.r) * (a.r - b.r)
-		+ (a.g - b.g) * (a.g - b.g)
-		+ (a.b - b.b) * (a.b - b.b)
-	) * a_sum + (a.a - b.a) * (a.a - b.a) * (2.0 - a_sum)
+func fill(start_pos : Vector2):
+	last_affected_rect = ImageFillTools.fill_on_image(
+		image,
+		affected_pixels,
+		start_pos,
+		tolerance,
+		(fill_mode == 0) != Input.is_key_pressed(KEY_SHIFT)
+	)
 
 
 func draw_preview(image_view : CanvasItem, mouse_position : Vector2i):
 	if !drawing: return
 
 	image_view.draw_rect(Rect2(mouse_position, Vector2.ONE), Color.WHITE)
+	var image_height = image.get_height()
 	for i in image.get_width():
 		var rect_height = 0
-		for j in image.get_height():
-			if affected_pixels.get_bit(i, j):
+		for j in image_height:
+			if affected_pixels.get_bit(i, j) && j != image_height:
 				rect_height += 1
 
 			elif rect_height > 0:
