@@ -135,6 +135,13 @@ func add_property(property_name, default_value, setter : Callable, type : int, h
 	parent.add_child(editor)
 
 
+func is_out_of_bounds(pos : Vector2i, rect_size : Vector2i):
+	return (
+		pos.x < 0 || pos.y < 0
+		|| pos.x >= rect_size.x || pos.y >= rect_size.y
+	)
+
+
 func mouse_pressed(
 	event : InputEventMouseButton,
 	image : Image,

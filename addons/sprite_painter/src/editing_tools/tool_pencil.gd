@@ -51,10 +51,11 @@ func mouse_moved(event : InputEventMouseMotion):
 	var pt_count = max(abs(event.relative.x), abs(event.relative.y))
 	var lerp_step = 1 / pt_count
 	for i in pt_count:
-		_add_point((event.position + Vector2.ONE - event.relative * i * lerp_step).floor() - Vector2.ONE)
+		_add_point(event.position + Vector2.ONE - event.relative * i * lerp_step - Vector2.ONE)
 
 
 func _add_point(pt : Vector2):
+	pt = pt.floor()
 	if drawing_positions.size() >= 1 && drawing_positions[-1] == pt:
 		return
 
@@ -72,10 +73,11 @@ func _add_point(pt : Vector2):
 
 
 func draw_preview(image_view : CanvasItem, mouse_position : Vector2i):
+	if drawing:
+		for x in drawing_positions:
+			image_view.draw_rect(Rect2(x, Vector2.ONE), drawing_color)
+
 	image_view.draw_rect(Rect2i(mouse_position + Vector2i(0, 4), Vector2(1, 32)).abs(), crosshair_color)
 	image_view.draw_rect(Rect2i(mouse_position - Vector2i(0, 3), Vector2(1, -32)).abs(), crosshair_color)
 	image_view.draw_rect(Rect2i(mouse_position + Vector2i(4, 0), Vector2(32, 1)).abs(), crosshair_color)
 	image_view.draw_rect(Rect2i(mouse_position - Vector2i(3, 0), Vector2(-32, 1)).abs(), crosshair_color)
-	if drawing:
-		for x in drawing_positions:
-			image_view.draw_rect(Rect2(x, Vector2.ONE), drawing_color)

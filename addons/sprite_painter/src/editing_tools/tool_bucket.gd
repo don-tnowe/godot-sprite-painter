@@ -55,7 +55,9 @@ func get_affected_rect():
 
 func mouse_moved(event : InputEventMouseMotion):
 	if !drawing: return
-	if is_out_of_bounds(event.position): return
+	if is_out_of_bounds(event.position, image.get_size()):
+		affected_pixels.create(affected_pixels.get_size())
+		return
 
 	var cur_color := image.get_pixelv(event.position)
 	if cur_color == start_color:
@@ -89,10 +91,10 @@ func floodfill(start : Vector2i):
 
 
 func add_if_fillable(pos : Vector2i, to_array : Array = null):
-	if is_out_of_bounds(pos) || affected_pixels.get_bitv(pos):
+	if is_out_of_bounds(pos, image.get_size()) || affected_pixels.get_bitv(pos):
 		return
 
-	if get_color_distance_squared(start_color, image.get_pixelv(pos)) <= 4.0 * tolerance:
+	if get_color_distance_squared(start_color, image.get_pixelv(pos)) <= tolerance:
 		last_affected_rect = last_affected_rect.expand(pos)
 		affected_pixels.set_bitv(pos, true)
 		if to_array != null:
@@ -102,25 +104,18 @@ func add_if_fillable(pos : Vector2i, to_array : Array = null):
 func mask_color(color):
 	for i in image.get_width():
 		for j in image.get_height():
-			if get_color_distance_squared(start_color, image.get_pixel(i, j)) <= 4.0 * tolerance:
+			if get_color_distance_squared(start_color, image.get_pixel(i, j)) <= tolerance:
 				last_affected_rect = last_affected_rect.expand(Vector2i(i, j))
 				affected_pixels.set_bit(i, j, true)
 
 
-func is_out_of_bounds(pos : Vector2i):
-	return (
-		pos.x < 0 || pos.y < 0
-		|| pos.x >= image.get_width() || pos.y >= image.get_height()
-	)
-
-
 func get_color_distance_squared(a : Color, b : Color):
+	var a_sum = a.a + b.a
 	return (
 		(a.r - b.r) * (a.r - b.r)
 		+ (a.g - b.g) * (a.g - b.g)
 		+ (a.b - b.b) * (a.b - b.b)
-		+ (a.a - b.a) * (a.a - b.a)
-	)
+	) * a_sum + (a.a - b.a) * (a.a - b.a) * (2.0 - a_sum)
 
 
 func draw_preview(image_view : CanvasItem, mouse_position : Vector2i):

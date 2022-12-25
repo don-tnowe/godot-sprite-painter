@@ -31,6 +31,7 @@ func handle_input(event) -> bool:
 				pre_image_changed.emit(edited_image, rect)
 				if pass_event_to_tool(event):
 					image_changed.emit(edited_image, rect)
+					image_view.texture.update(edited_image)
 					return true
 				
 				else: return false
@@ -69,10 +70,22 @@ func pass_event_to_tool(event) -> bool:
 
 
 func edit_texture(tex_path : String):
-	edited_image_path = tex_path
-	edited_image = Image.load_from_file(tex_path)
-	image_view.texture = ImageTexture.create_from_image(edited_image)
+	if edited_image_path != tex_path:
+		edited_image = Image.load_from_file(tex_path)
+		image_view.texture = ImageTexture.create_from_image(edited_image)
+
 	image_view.call_deferred("update_position")
+	edited_image_path = tex_path
+
+
+func update_texture(new_image):
+	if new_image.get_size() != edited_image.get_size():
+		image_view.texture = ImageTexture.create_from_image(new_image)
+		image_view.update_position()
+		image_view.queue_redraw()
+
+	image_view.texture.update(new_image)
+	edited_image = new_image
 
 
 func resize_texture(old_image, old_size, new_size, expand_direction, stretch):
@@ -110,4 +123,4 @@ func _on_resize_value_changed(delta, expand_direction):
 	var stretch =  Input.is_key_pressed(KEY_SHIFT)
 	var new_image = resize_texture(edited_image, old_size, new_size, expand_direction, stretch)
 	image_replaced.emit(edited_image, new_image)
-	edited_image = new_image
+	update_texture(new_image)

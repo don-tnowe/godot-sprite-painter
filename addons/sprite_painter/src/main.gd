@@ -98,10 +98,11 @@ func paste_image_rect(from, to, destination = Vector2.ZERO):
 func save_changes(image = null):
 	if image == null:
 		image = workspace.edited_image
+		if image == null: return
 
 	var err = image.save_png(workspace.edited_image_path)
 	if err != OK: printerr(err)
-	workspace.edit_texture(workspace.edited_image_path)
+	workspace.update_texture(image)
 
 
 func _on_workspace_image_replaced(old_image, new_image):
@@ -125,6 +126,3 @@ func _on_workspace_image_replaced(old_image, new_image):
 #		)
 #	)
 	undo_redo.commit_action()
-	var err = new_image.save_png(workspace.edited_image_path)
-	if err != OK: printerr(err)
-	workspace.edit_texture(workspace.edited_image_path)
