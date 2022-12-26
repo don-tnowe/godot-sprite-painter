@@ -38,7 +38,7 @@ events = [SubResource("InputEventKey_2olkx")]
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_lb3gr"]
 
-[sub_resource type="Image" id="Image_2q86b"]
+[sub_resource type="Image" id="Image_fi3xx"]
 data = {
 "data": PackedByteArray(255, 255, 255, 0, 255, 255, 255, 0, 255, 128, 128, 4, 255, 128, 128, 4, 255, 128, 128, 4, 255, 128, 128, 4, 255, 128, 128, 4, 255, 128, 128, 4, 255, 128, 128, 4, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 93, 93, 131, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 131, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 131, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 94, 94, 127, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 128, 128, 4, 255, 128, 128, 4, 255, 128, 128, 4, 255, 128, 128, 4, 255, 128, 128, 4, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 231, 255, 93, 93, 55, 255, 97, 97, 58, 255, 93, 93, 233, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 231, 255, 94, 94, 54, 255, 94, 94, 57, 255, 93, 93, 233, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 97, 97, 42, 255, 255, 255, 0, 255, 255, 255, 0, 255, 97, 97, 42, 255, 93, 93, 233, 255, 93, 93, 232, 255, 93, 93, 41, 255, 255, 255, 0, 255, 255, 255, 0, 255, 97, 97, 42, 255, 93, 93, 233, 255, 93, 93, 232, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 96, 96, 45, 255, 97, 97, 42, 255, 255, 255, 0, 255, 97, 97, 42, 255, 97, 97, 42, 255, 255, 255, 0, 255, 98, 98, 47, 255, 97, 97, 42, 255, 255, 255, 0, 255, 97, 97, 42, 255, 97, 97, 42, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 96, 96, 45, 255, 93, 93, 235, 255, 93, 93, 233, 255, 97, 97, 42, 255, 255, 255, 0, 255, 255, 255, 0, 255, 94, 94, 46, 255, 93, 93, 236, 255, 93, 93, 233, 255, 97, 97, 42, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 235, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 233, 255, 95, 95, 59, 255, 96, 96, 61, 255, 93, 93, 235, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 233, 255, 95, 95, 59, 255, 96, 96, 61, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0),
 "format": "RGBA8",
@@ -47,8 +47,8 @@ data = {
 "width": 16
 }
 
-[sub_resource type="ImageTexture" id="ImageTexture_vdmj6"]
-image = SubResource("Image_2q86b")
+[sub_resource type="ImageTexture" id="ImageTexture_7457j"]
+image = SubResource("Image_fi3xx")
 
 [sub_resource type="InputEventKey" id="InputEventKey_ac1o6"]
 keycode = 86
@@ -153,7 +153,7 @@ toggle_mode = true
 shortcut_in_tooltip = false
 shortcut = SubResource("Shortcut_ipdqg")
 button_group = SubResource("ButtonGroup_lb3gr")
-icon = SubResource("ImageTexture_vdmj6")
+icon = SubResource("ImageTexture_7457j")
 flat = true
 script = ExtResource("2_ahevp")
 icon_name = "ActionCopy"
@@ -170,7 +170,7 @@ toggle_mode = true
 shortcut_in_tooltip = false
 shortcut = SubResource("Shortcut_ipdqg")
 button_group = SubResource("ButtonGroup_lb3gr")
-icon = SubResource("ImageTexture_vdmj6")
+icon = SubResource("ImageTexture_7457j")
 flat = true
 script = ExtResource("2_ahevp")
 icon_name = "PreviewSun"
@@ -190,7 +190,7 @@ toggle_mode = true
 shortcut_in_tooltip = false
 shortcut = SubResource("Shortcut_7y38e")
 button_group = SubResource("ButtonGroup_lb3gr")
-icon = SubResource("ImageTexture_vdmj6")
+icon = SubResource("ImageTexture_7457j")
 flat = true
 script = ExtResource("2_ahevp")
 icon_name = "Edit"
@@ -207,7 +207,7 @@ toggle_mode = true
 shortcut_in_tooltip = false
 shortcut = SubResource("Shortcut_cnbj8")
 button_group = SubResource("ButtonGroup_lb3gr")
-icon = SubResource("ImageTexture_vdmj6")
+icon = SubResource("ImageTexture_7457j")
 flat = true
 script = ExtResource("2_ahevp")
 icon_name = "CanvasItem"
@@ -224,7 +224,7 @@ toggle_mode = true
 shortcut_in_tooltip = false
 shortcut = SubResource("Shortcut_cnbj8")
 button_group = SubResource("ButtonGroup_lb3gr")
-icon = SubResource("ImageTexture_vdmj6")
+icon = SubResource("ImageTexture_7457j")
 flat = true
 script = ExtResource("2_ahevp")
 icon_name = "Eraser"
@@ -241,7 +241,7 @@ toggle_mode = true
 shortcut_in_tooltip = false
 shortcut = SubResource("Shortcut_unc62")
 button_group = SubResource("ButtonGroup_lb3gr")
-icon = SubResource("ImageTexture_vdmj6")
+icon = SubResource("ImageTexture_7457j")
 flat = true
 script = ExtResource("2_ahevp")
 icon_name = "Bucket"
@@ -259,7 +259,7 @@ toggle_mode = true
 shortcut_in_tooltip = false
 shortcut = SubResource("Shortcut_unc62")
 button_group = SubResource("ButtonGroup_lb3gr")
-icon = SubResource("ImageTexture_vdmj6")
+icon = SubResource("ImageTexture_7457j")
 flat = true
 script = ExtResource("2_ahevp")
 icon_name = "Gradient"
@@ -281,7 +281,7 @@ toggle_mode = true
 shortcut_in_tooltip = false
 shortcut = SubResource("Shortcut_pgrth")
 button_group = SubResource("ButtonGroup_lb3gr")
-icon = SubResource("ImageTexture_vdmj6")
+icon = SubResource("ImageTexture_7457j")
 flat = true
 script = ExtResource("2_ahevp")
 icon_name = "Clear"
@@ -299,7 +299,7 @@ toggle_mode = true
 shortcut_in_tooltip = false
 shortcut = SubResource("Shortcut_pgrth")
 button_group = SubResource("ButtonGroup_lb3gr")
-icon = SubResource("ImageTexture_vdmj6")
+icon = SubResource("ImageTexture_7457j")
 flat = true
 script = ExtResource("2_ahevp")
 icon_name = "MaterialPreviewSphere"
@@ -317,7 +317,7 @@ toggle_mode = true
 shortcut_in_tooltip = false
 shortcut = SubResource("Shortcut_pgrth")
 button_group = SubResource("ButtonGroup_lb3gr")
-icon = SubResource("ImageTexture_vdmj6")
+icon = SubResource("ImageTexture_7457j")
 flat = true
 script = ExtResource("2_ahevp")
 icon_name = "3D"
@@ -338,7 +338,7 @@ toggle_mode = true
 shortcut_in_tooltip = false
 shortcut = SubResource("Shortcut_qgge1")
 button_group = SubResource("ButtonGroup_lb3gr")
-icon = SubResource("ImageTexture_vdmj6")
+icon = SubResource("ImageTexture_7457j")
 flat = true
 script = ExtResource("2_ahevp")
 icon_name = "PickerShapeCircle"
@@ -356,7 +356,7 @@ toggle_mode = true
 shortcut_in_tooltip = false
 shortcut = SubResource("Shortcut_qgge1")
 button_group = SubResource("ButtonGroup_lb3gr")
-icon = SubResource("ImageTexture_vdmj6")
+icon = SubResource("ImageTexture_7457j")
 flat = true
 script = ExtResource("2_ahevp")
 icon_name = "Curve2D"
@@ -412,7 +412,7 @@ theme_override_styles/hover = SubResource("StyleBoxEmpty_8skav")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_8skav")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_8skav")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_nkhd7")
-icon = SubResource("ImageTexture_vdmj6")
+icon = SubResource("ImageTexture_7457j")
 flat = true
 script = ExtResource("2_ahevp")
 icon_name = "Save"
@@ -426,7 +426,7 @@ theme_override_styles/hover = SubResource("StyleBoxEmpty_8skav")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_8skav")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_8skav")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_nkhd7")
-icon = SubResource("ImageTexture_vdmj6")
+icon = SubResource("ImageTexture_7457j")
 flat = true
 script = ExtResource("2_ahevp")
 icon_name = "RotateRight"
@@ -441,7 +441,7 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_8skav")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_8skav")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_nkhd7")
 shortcut = SubResource("Shortcut_lhl5g")
-icon = SubResource("ImageTexture_vdmj6")
+icon = SubResource("ImageTexture_7457j")
 flat = true
 script = ExtResource("2_ahevp")
 icon_name = "Close"
@@ -657,7 +657,7 @@ layout_mode = 2
 script = ExtResource("17_4lt5q")
 tool_name = "Fill"
 
-[node name="Shape_" type="VBoxContainer" parent="Box/Workspace/Floating/Control/ToolSettings/ToolSwitcher"]
+[node name="Shape" type="VBoxContainer" parent="Box/Workspace/Floating/Control/ToolSettings/ToolSwitcher"]
 visible = false
 layout_mode = 2
 script = ExtResource("20_vwkmd")

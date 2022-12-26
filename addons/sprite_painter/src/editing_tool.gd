@@ -142,6 +142,11 @@ func is_out_of_bounds(pos : Vector2i, rect_size : Vector2i):
 	)
 
 
+func set_image_pixel(image : Image, x : int, y : int, color : Color):
+	if !is_out_of_bounds(Vector2i(x, y), image.get_size()):
+		image.set_pixel(x, y, color)
+
+
 func mouse_pressed(
 	event : InputEventMouseButton,
 	image : Image,
