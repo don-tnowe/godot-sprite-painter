@@ -12,6 +12,14 @@ enum {
   TOOL_PROP_GRADIENT,
 }
 
+enum {
+  SELECTION_REPLACE,
+  SELECTION_ADD,
+  SELECTION_SUBTRACT,
+  SELECTION_INTERSECTION,
+  SELECTION_XOR,
+}
+
 @export var tool_name := "Box Selection"
 
 var selection : BitMap

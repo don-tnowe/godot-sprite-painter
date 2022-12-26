@@ -6,6 +6,7 @@ signal image_changed(image, rect_changed)
 signal image_replaced(old_image, new_image)
 
 @onready var image_view = $"%EditedImageView"
+@onready var selection_view = $"%SelectionView"
 @onready var tool_manager = $"%ToolSwitcher"
 
 var cur_scale := 1.0
@@ -13,7 +14,7 @@ var mouse_button := -1
 var dragging := false
 var edited_image : Image
 var edited_image_path : String
-var edited_image_selection : BitMap
+var edited_image_selection := BitMap.new()
 
 
 func handle_input(event) -> bool:
@@ -71,8 +72,12 @@ func pass_event_to_tool(event) -> bool:
 
 func edit_texture(tex_path : String):
 	if edited_image_path != tex_path:
-		edited_image = Image.load_from_file(tex_path)
-		image_view.texture = ImageTexture.create_from_image(edited_image)
+		var new_image = Image.load_from_file(tex_path)
+		edited_image_selection.create(new_image.get_size())
+		selection_view.selection = edited_image_selection
+		image_view.texture = ImageTexture.create_from_image(new_image)
+		replace_image(edited_image, new_image)
+		image_view.reset_position()
 
 	image_view.call_deferred("update_position")
 	edited_image_path = tex_path
@@ -85,7 +90,7 @@ func update_texture(new_image):
 		image_view.queue_redraw()
 
 	image_view.texture.update(new_image)
-	edited_image = new_image
+	replace_image(edited_image, new_image)
 
 
 func resize_texture(old_image, old_size, new_size, expand_direction, stretch):
@@ -113,7 +118,11 @@ func resize_texture(old_image, old_size, new_size, expand_direction, stretch):
 
 
 func replace_image(old_image, new_image):
+	var new_size = new_image.get_size()
 	edited_image = new_image
+	edited_image_selection.create(new_size)
+	edited_image_selection.set_bit_rect(Rect2i(Vector2i.ZERO, new_size), true)
+	selection_view.selection = edited_image_selection
 
 
 func _on_resize_value_changed(delta, expand_direction):

@@ -27,6 +27,12 @@ func update_position():
 	resize_rect.rect_scale = global_scale
 
 
+func reset_position():
+	camera_pos = Vector2.ZERO
+	scale = Vector2.ONE
+	update_position()
+
+
 func update_position_local():
 	position = get_parent().size * 0.5 + camera_pos - texture.get_size() * 0.5
 	centered = false
