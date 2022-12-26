@@ -14,6 +14,8 @@ enum {
 
 @export var tool_name := "Box Selection"
 
+var selection : BitMap
+
 var _last_grid : GridContainer
 
 
@@ -39,7 +41,7 @@ func start_property_grid():
 	add_child(grid)
 
 
-func add_property(property_name, default_value, setter : Callable, type : int, hint = null):
+func add_property(property_name, default_value, setter : Callable, type : int, hint : Variant = null):
 	var parent = _last_grid
 	if _last_grid == null:
 		parent = HBoxContainer.new()
@@ -144,7 +146,14 @@ func is_out_of_bounds(pos : Vector2i, rect_size : Vector2i):
 
 func set_image_pixel(image : Image, x : int, y : int, color : Color):
 	if !is_out_of_bounds(Vector2i(x, y), image.get_size()):
-		image.set_pixel(x, y, color)
+		if selection.get_bit(x, y):
+			set_image_pixel(image, x, y, color)
+
+
+func set_image_pixelv(image : Image, pos : Vector2i, color : Color):
+	if !is_out_of_bounds(pos, image.get_size()):
+		if selection.get_bitv(pos):
+			image.set_pixelv(pos, color)
 
 
 func mouse_pressed(
@@ -152,7 +161,6 @@ func mouse_pressed(
 	image : Image,
 	color1 : Color = Color.BLACK,
 	color2 : Color = Color.WHITE,
-	selection : BitMap = null,
 ):
 	printerr("Not implemented: mouse_pressed! (" + get_script().resource_path.get_file() + ")")
 

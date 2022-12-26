@@ -13,10 +13,11 @@ var overlay_enabled := false
 func _enter_tree() -> void:
 	var ui := get_editor_interface()
 
+	undo_redo = get_undo_redo()
 	editor_view = load(get_script().resource_path.get_base_dir() + "/src/main.tscn").instantiate()
 	editor_view.editor_interface = ui
 	editor_view.editor_plugin = self
-	undo_redo = get_undo_redo()
+	editor_view.undo_redo = undo_redo
 
 	_connect_2d_editor()
 	_connect_enable_button()

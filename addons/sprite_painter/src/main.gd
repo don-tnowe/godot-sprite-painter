@@ -13,11 +13,11 @@ var edited_node : CanvasItem
 var undo_redo : EditorUndoRedoManager
 
 
-func _ready():
+#func _ready():
 #	var plugin_undoredo = editor_plugin.get_undo_redo()
 #	var own_history_id = plugin_undoredo.get_object_history_id(self)
 #	undo_redo = plugin_undoredo.get_history_undo_redo(own_history_id)
-	undo_redo = editor_plugin.get_undo_redo()
+#	undo_redo = editor_plugin.get_undo_redo()
 
 
 func edit_node(node : Node = null):

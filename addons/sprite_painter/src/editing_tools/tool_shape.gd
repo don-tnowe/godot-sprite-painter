@@ -65,7 +65,6 @@ func mouse_pressed(
 	image : Image,
 	color1 : Color = Color.BLACK,
 	color2 : Color = Color.WHITE,
-	selection : BitMap = null,
 ):
 	drawing = event.pressed
 	color_border = color1
@@ -79,8 +78,9 @@ func mouse_pressed(
 		var rect = Rect2i(start_pos, Vector2i.ZERO).expand(end_pos).abs()
 		if !replace:
 			draw_shape(func(pos, sdf):
-				set_image_pixel(
-					image, pos.x, pos.y,
+				if is_out_of_bounds(pos, rect.size): return
+				set_image_pixelv(
+					image, pos,
 					image.get_pixelv(pos).blend(sdf_to_color(sdf))
 				))
 
@@ -90,8 +90,8 @@ func mouse_pressed(
 
 func set_image_pixel_from_sdf(pos, sdf, image):
 	if sdf >= 0.5:
-		set_image_pixel(
-			image, pos.x, pos.y,
+		set_image_pixelv(
+			image, pos,
 			sdf_to_color(sdf)
 		)
 
@@ -189,18 +189,23 @@ func shape_sdf(pos : Vector2i, shape_size : Vector2i) -> float:
 				pos = Vector2i(pos.y, pos.x)
 				shape_size = Vector2i(shape_size.y, shape_size.x)
 
-			if pos.x / shape_size.x < 0.5:
+			var half_width = shape_size.x * 0.5  # Used A LOT here.
+			if pos.x < half_width:
 				pos.x = ceil(pos.x * inv_cos120)
 
 			else:
 				pos.x = floor(pos.x * inv_cos120)
 
-			var diamond_from_center = (Vector2(pos) - shape_size * 0.5).abs() * Vector2(0.5, 1)
+			var diamond_from_center = Vector2(pos * 2 - shape_size).abs() * Vector2(0.25, 0.5)
 			diamond_from_center.y *= shape_size.aspect()
-			var diamond_dist = shape_size.x * 0.5 - (diamond_from_center.x + diamond_from_center.y)
-			var rect_dist = (shape_size.x * 0.5 - abs(pos.x - shape_size.x * 0.5)
-			return minf(diamond_dist, (shape_size.x * 0.5 - abs(pos.x - shape_size.x * 0.5)))
-		
+
+			var diamond_dist = half_width - (diamond_from_center.x + diamond_from_center.y)
+			var rect_dist = half_width - abs(pos.x - half_width)
+
+			# return diamond_dist
+			# return rect_dist
+			return minf(diamond_dist, (half_width - abs(pos.x - half_width)))
+
 		_:
 			printerr("Invalid shape selected! (%s)" % shape)
 			return -1.0

@@ -14,8 +14,8 @@ signal color_changed(new_color, is_primary)
 @onready var color_picker = $Control/Picker/Margins/Box/ColorPicker
 @onready var color_picker_tool_button = $Container/Box/Box/Box/Control/Control.get_child(0)
 
-var color1 := Color("7f7f7f")
-var color2 := Color("ffffff")
+var color1 := Color.WHITE
+var color2 := Color.TRANSPARENT
 
 var color_picker_primary := true
 

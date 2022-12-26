@@ -32,7 +32,6 @@ func mouse_pressed(
 	image : Image,
 	color1 : Color = Color.BLACK,
 	color2 : Color = Color.WHITE,
-	selection : BitMap = null,
 ):
 	drawing = event.pressed
 	drawing_color = Color.BLACK.blend(color1)
@@ -46,7 +45,7 @@ func mouse_pressed(
 		for i in image.get_width():
 			for j in image.get_height():
 				if affected_pixels.get_bit(i, j):
-					image.set_pixel(i, j, color1)
+					set_image_pixel(image, i, j, color1)
 
 
 func get_affected_rect():

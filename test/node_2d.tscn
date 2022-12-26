@@ -1,25 +1,28 @@
-[gd_scene load_steps=3 format=3 uid="uid://dq1nb7p2ts0ok"]
+[gd_scene load_steps=4 format=3 uid="uid://dq1nb7p2ts0ok"]
 
+[ext_resource type="Texture2D" uid="uid://c7nymhfcdr3hl" path="res://addons/sprite_painter/graphics/diags.png" id="1_hgr16"]
 [ext_resource type="Texture2D" uid="uid://do11l7wgupx60" path="res://icon.png" id="1_uj0gm"]
 [ext_resource type="Texture2D" uid="uid://cejv38d7lmges" path="res://test/diags2.png" id="2_lxinl"]
 
 [node name="Node2D" type="Node2D"]
 
 [node name="Polygon2D2" type="Polygon2D" parent="."]
-position = Vector2(53, 81)
+texture_repeat = 2
+position = Vector2(-537, 434)
+texture = ExtResource("1_hgr16")
 polygon = PackedVector2Array(302, 105, -2, 293, 224, 391, 330, 537, 478, 327, 567, 292, 640, 199, 842, 581, 852, 669, 1112, 443, 904, 241, 868, 107, 665.661, 13.9704, 520, -53, 418, 52)
 
+[node name="a" type="Sprite2D" parent="."]
+position = Vector2(411, 128)
+texture = ExtResource("2_lxinl")
+centered = false
+
 [node name="Icon2" type="Sprite2D" parent="."]
-position = Vector2(60, 269)
+position = Vector2(71, 111)
 texture = ExtResource("1_uj0gm")
 centered = false
 
 [node name="Icon4" type="Sprite2D" parent="."]
-position = Vector2(63, 590)
+position = Vector2(281, 520)
 texture = ExtResource("1_uj0gm")
-centered = false
-
-[node name="Icon3" type="Sprite2D" parent="."]
-position = Vector2(469, 61)
-texture = ExtResource("2_lxinl")
 centered = false

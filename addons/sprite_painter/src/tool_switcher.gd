@@ -100,12 +100,12 @@ func handle_image_input(event, image, selection) -> bool:
 		return true
 
 	elif event is InputEventMouseButton:
+		current_tool.selection = selection
 		current_tool.mouse_pressed(
 			event,
 			image,
 			current_color1 if event.button_index == MOUSE_BUTTON_LEFT else current_color2,
-			current_color1 if event.button_index != MOUSE_BUTTON_LEFT else current_color2,
-			selection
+			current_color1 if event.button_index != MOUSE_BUTTON_LEFT else current_color2
 		)
 		return true
 
