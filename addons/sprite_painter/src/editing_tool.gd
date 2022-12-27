@@ -13,11 +13,11 @@ enum {
 }
 
 enum {
-  SELECTION_REPLACE,
-  SELECTION_ADD,
-  SELECTION_SUBTRACT,
-  SELECTION_INTERSECTION,
-  SELECTION_XOR,
+  OPERATION_REPLACE,
+  OPERATION_ADD,
+  OPERATION_SUBTRACT,
+  OPERATION_INTERSECTION,
+  OPERATION_XOR,
 }
 
 @export var tool_name := "Box Selection"
@@ -152,10 +152,31 @@ func is_out_of_bounds(pos : Vector2i, rect_size : Vector2i):
 	)
 
 
+func get_rect_from_drag(start_pos, end_pos, squarify : bool = false):
+	var rect = Rect2i(start_pos, end_pos - start_pos)
+	if !squarify:
+		return rect.abs().grow_individual(0, 0, 1, 1)
+
+	var max_side = maxi(abs(rect.size.x), abs(rect.size.y))
+	var square = Rect2i(rect.position, Vector2i(max_side, max_side))
+	if rect.size.x < 0:
+		square.position.x -= square.size.x
+
+	if rect.size.y < 0:
+		square.position.y -= square.size.y
+
+	return square
+
+
+
+func is_selection_empty():
+	return selection.get_true_bit_count() == selection.get_size().x * selection.get_size().y
+
+
 func set_image_pixel(image : Image, x : int, y : int, color : Color):
 	if !is_out_of_bounds(Vector2i(x, y), image.get_size()):
 		if selection.get_bit(x, y):
-			set_image_pixel(image, x, y, color)
+			image.set_pixel(x, y, color)
 
 
 func set_image_pixelv(image : Image, pos : Vector2i, color : Color):

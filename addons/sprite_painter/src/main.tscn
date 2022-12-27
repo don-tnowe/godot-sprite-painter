@@ -39,7 +39,7 @@ events = [SubResource("InputEventKey_2olkx")]
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_lb3gr"]
 
-[sub_resource type="Image" id="Image_2kyc1"]
+[sub_resource type="Image" id="Image_pp7p5"]
 data = {
 "data": PackedByteArray(255, 255, 255, 0, 255, 255, 255, 0, 255, 128, 128, 4, 255, 128, 128, 4, 255, 128, 128, 4, 255, 128, 128, 4, 255, 128, 128, 4, 255, 128, 128, 4, 255, 128, 128, 4, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 93, 93, 131, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 131, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 131, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 94, 94, 127, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 128, 128, 4, 255, 128, 128, 4, 255, 128, 128, 4, 255, 128, 128, 4, 255, 128, 128, 4, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 231, 255, 93, 93, 55, 255, 97, 97, 58, 255, 93, 93, 233, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 231, 255, 94, 94, 54, 255, 94, 94, 57, 255, 93, 93, 233, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 97, 97, 42, 255, 255, 255, 0, 255, 255, 255, 0, 255, 97, 97, 42, 255, 93, 93, 233, 255, 93, 93, 232, 255, 93, 93, 41, 255, 255, 255, 0, 255, 255, 255, 0, 255, 97, 97, 42, 255, 93, 93, 233, 255, 93, 93, 232, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 96, 96, 45, 255, 97, 97, 42, 255, 255, 255, 0, 255, 97, 97, 42, 255, 97, 97, 42, 255, 255, 255, 0, 255, 98, 98, 47, 255, 97, 97, 42, 255, 255, 255, 0, 255, 97, 97, 42, 255, 97, 97, 42, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 96, 96, 45, 255, 93, 93, 235, 255, 93, 93, 233, 255, 97, 97, 42, 255, 255, 255, 0, 255, 255, 255, 0, 255, 94, 94, 46, 255, 93, 93, 236, 255, 93, 93, 233, 255, 97, 97, 42, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 235, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 233, 255, 95, 95, 59, 255, 96, 96, 61, 255, 93, 93, 235, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 233, 255, 95, 95, 59, 255, 96, 96, 61, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0),
 "format": "RGBA8",
@@ -48,8 +48,8 @@ data = {
 "width": 16
 }
 
-[sub_resource type="ImageTexture" id="ImageTexture_thlb8"]
-image = SubResource("Image_2kyc1")
+[sub_resource type="ImageTexture" id="ImageTexture_ads4v"]
+image = SubResource("Image_pp7p5")
 
 [sub_resource type="InputEventKey" id="InputEventKey_ac1o6"]
 keycode = 86
@@ -161,7 +161,7 @@ toggle_mode = true
 shortcut_in_tooltip = false
 shortcut = SubResource("Shortcut_ipdqg")
 button_group = SubResource("ButtonGroup_lb3gr")
-icon = SubResource("ImageTexture_thlb8")
+icon = SubResource("ImageTexture_ads4v")
 flat = true
 script = ExtResource("2_ahevp")
 icon_name = "ActionCopy"
@@ -178,7 +178,7 @@ toggle_mode = true
 shortcut_in_tooltip = false
 shortcut = SubResource("Shortcut_ipdqg")
 button_group = SubResource("ButtonGroup_lb3gr")
-icon = SubResource("ImageTexture_thlb8")
+icon = SubResource("ImageTexture_ads4v")
 flat = true
 script = ExtResource("2_ahevp")
 icon_name = "PreviewSun"
@@ -198,7 +198,7 @@ toggle_mode = true
 shortcut_in_tooltip = false
 shortcut = SubResource("Shortcut_7y38e")
 button_group = SubResource("ButtonGroup_lb3gr")
-icon = SubResource("ImageTexture_thlb8")
+icon = SubResource("ImageTexture_ads4v")
 flat = true
 script = ExtResource("2_ahevp")
 icon_name = "Edit"
@@ -215,7 +215,7 @@ toggle_mode = true
 shortcut_in_tooltip = false
 shortcut = SubResource("Shortcut_cnbj8")
 button_group = SubResource("ButtonGroup_lb3gr")
-icon = SubResource("ImageTexture_thlb8")
+icon = SubResource("ImageTexture_ads4v")
 flat = true
 script = ExtResource("2_ahevp")
 icon_name = "CanvasItem"
@@ -232,7 +232,7 @@ toggle_mode = true
 shortcut_in_tooltip = false
 shortcut = SubResource("Shortcut_cnbj8")
 button_group = SubResource("ButtonGroup_lb3gr")
-icon = SubResource("ImageTexture_thlb8")
+icon = SubResource("ImageTexture_ads4v")
 flat = true
 script = ExtResource("2_ahevp")
 icon_name = "Eraser"
@@ -249,7 +249,7 @@ toggle_mode = true
 shortcut_in_tooltip = false
 shortcut = SubResource("Shortcut_unc62")
 button_group = SubResource("ButtonGroup_lb3gr")
-icon = SubResource("ImageTexture_thlb8")
+icon = SubResource("ImageTexture_ads4v")
 flat = true
 script = ExtResource("2_ahevp")
 icon_name = "Bucket"
@@ -267,7 +267,7 @@ toggle_mode = true
 shortcut_in_tooltip = false
 shortcut = SubResource("Shortcut_unc62")
 button_group = SubResource("ButtonGroup_lb3gr")
-icon = SubResource("ImageTexture_thlb8")
+icon = SubResource("ImageTexture_ads4v")
 flat = true
 script = ExtResource("2_ahevp")
 icon_name = "Gradient"
@@ -289,7 +289,7 @@ toggle_mode = true
 shortcut_in_tooltip = false
 shortcut = SubResource("Shortcut_pgrth")
 button_group = SubResource("ButtonGroup_lb3gr")
-icon = SubResource("ImageTexture_thlb8")
+icon = SubResource("ImageTexture_ads4v")
 flat = true
 script = ExtResource("2_ahevp")
 icon_name = "Clear"
@@ -307,7 +307,7 @@ toggle_mode = true
 shortcut_in_tooltip = false
 shortcut = SubResource("Shortcut_pgrth")
 button_group = SubResource("ButtonGroup_lb3gr")
-icon = SubResource("ImageTexture_thlb8")
+icon = SubResource("ImageTexture_ads4v")
 flat = true
 script = ExtResource("2_ahevp")
 icon_name = "MaterialPreviewSphere"
@@ -325,7 +325,7 @@ toggle_mode = true
 shortcut_in_tooltip = false
 shortcut = SubResource("Shortcut_pgrth")
 button_group = SubResource("ButtonGroup_lb3gr")
-icon = SubResource("ImageTexture_thlb8")
+icon = SubResource("ImageTexture_ads4v")
 flat = true
 script = ExtResource("2_ahevp")
 icon_name = "3D"
@@ -346,7 +346,7 @@ toggle_mode = true
 shortcut_in_tooltip = false
 shortcut = SubResource("Shortcut_qgge1")
 button_group = SubResource("ButtonGroup_lb3gr")
-icon = SubResource("ImageTexture_thlb8")
+icon = SubResource("ImageTexture_ads4v")
 flat = true
 script = ExtResource("2_ahevp")
 icon_name = "PickerShapeCircle"
@@ -364,7 +364,7 @@ toggle_mode = true
 shortcut_in_tooltip = false
 shortcut = SubResource("Shortcut_qgge1")
 button_group = SubResource("ButtonGroup_lb3gr")
-icon = SubResource("ImageTexture_thlb8")
+icon = SubResource("ImageTexture_ads4v")
 flat = true
 script = ExtResource("2_ahevp")
 icon_name = "Curve2D"
@@ -382,7 +382,7 @@ toggle_mode = true
 shortcut_in_tooltip = false
 shortcut = SubResource("Shortcut_nva4u")
 button_group = SubResource("ButtonGroup_lb3gr")
-icon = SubResource("ImageTexture_thlb8")
+icon = SubResource("ImageTexture_ads4v")
 flat = true
 script = ExtResource("2_ahevp")
 icon_name = "Shader"
@@ -438,7 +438,7 @@ theme_override_styles/hover = SubResource("StyleBoxEmpty_8skav")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_8skav")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_8skav")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_nkhd7")
-icon = SubResource("ImageTexture_thlb8")
+icon = SubResource("ImageTexture_ads4v")
 flat = true
 script = ExtResource("2_ahevp")
 icon_name = "Save"
@@ -452,7 +452,7 @@ theme_override_styles/hover = SubResource("StyleBoxEmpty_8skav")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_8skav")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_8skav")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_nkhd7")
-icon = SubResource("ImageTexture_thlb8")
+icon = SubResource("ImageTexture_ads4v")
 flat = true
 script = ExtResource("2_ahevp")
 icon_name = "RotateRight"
@@ -467,7 +467,7 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_8skav")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_8skav")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_nkhd7")
 shortcut = SubResource("Shortcut_lhl5g")
-icon = SubResource("ImageTexture_thlb8")
+icon = SubResource("ImageTexture_ads4v")
 flat = true
 script = ExtResource("2_ahevp")
 icon_name = "Close"
@@ -504,6 +504,21 @@ position = Vector2(248, 255)
 centered = false
 script = ExtResource("10_etjnr")
 draw_handler = NodePath("../../Floating/Control/ToolSettings/ToolSwitcher")
+
+[node name="SelectionView" type="Control" parent="Box/Workspace/ViewportOverlay/EditedImageView"]
+unique_name_in_owner = true
+self_modulate = Color(1, 1, 1, 0.812)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("13_81c1e")
+selection_color = Color(0.117647, 0.564706, 1, 0.498039)
 
 [node name="ResizeResult" type="Label" parent="Box/Workspace/ViewportOverlay"]
 visible = false
@@ -585,20 +600,6 @@ metadata/_edit_lock_ = true
 layout_mode = 1
 sensitivity = 0.25
 
-[node name="SelectionView" type="Control" parent="Box/Workspace/ViewportOverlay/ImageBorder"]
-unique_name_in_owner = true
-visible = false
-self_modulate = Color(1, 1, 1, 18.7505)
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-script = ExtResource("13_81c1e")
-selection_color = Color(0.2, 0.5, 1, 1)
-
 [node name="Border" type="Panel" parent="Box/Workspace/ViewportOverlay"]
 layout_mode = 1
 anchors_preset = 15
@@ -651,16 +652,16 @@ script = ExtResource("14_ig7f3")
 toolbar = NodePath("../../../../../Toolbar")
 toolbar_end = NodePath("../../../../../Toolbar/ToolsEnd")
 
-[node name="BoxSelection_" type="VBoxContainer" parent="Box/Workspace/Floating/Control/ToolSettings/ToolSwitcher"]
+[node name="BoxSelection" type="VBoxContainer" parent="Box/Workspace/Floating/Control/ToolSettings/ToolSwitcher"]
 visible = false
 layout_mode = 2
 script = ExtResource("15_2n2l5")
 
-[node name="WandSelection_" type="VBoxContainer" parent="Box/Workspace/Floating/Control/ToolSettings/ToolSwitcher"]
+[node name="WandSelection" type="VBoxContainer" parent="Box/Workspace/Floating/Control/ToolSettings/ToolSwitcher"]
 visible = false
 layout_mode = 2
 script = ExtResource("21_xj52d")
-tool_name = "Wand Selection"
+tool_name = "Color Selection"
 
 [node name="Pencil" type="VBoxContainer" parent="Box/Workspace/Floating/Control/ToolSettings/ToolSwitcher"]
 visible = false
@@ -672,7 +673,6 @@ tool_name = "Pencil"
 visible = false
 layout_mode = 2
 script = ExtResource("16_b68p1")
-chunk_size = Vector2i(512, 512)
 tool_name = "Brush"
 
 [node name="Eraser" type="VBoxContainer" parent="Box/Workspace/Floating/Control/ToolSettings/ToolSwitcher"]
@@ -700,9 +700,10 @@ workspace = NodePath("../../..")
 
 [connection signal="pressed" from="Box/Toolbar/Close" to="." method="_on_close_pressed"]
 [connection signal="image_changed" from="Box/Workspace" to="." method="_on_workspace_image_changed"]
+[connection signal="image_changed" from="Box/Workspace" to="Box/Workspace/ViewportOverlay/EditedImageView/SelectionView" method="_on_image_changed"]
 [connection signal="image_replaced" from="Box/Workspace" to="." method="_on_workspace_image_replaced"]
 [connection signal="pre_image_changed" from="Box/Workspace" to="." method="_on_workspace_pre_image_changed"]
+[connection signal="visibility_changed" from="Box/Workspace/ViewportOverlay/EditedImageView/SelectionView" to="Box/Workspace/ViewportOverlay/EditedImageView/SelectionView" method="_on_visibility_changed"]
 [connection signal="preview_changed" from="Box/Workspace/ViewportOverlay/ImageBorder/Resize" to="Box/Workspace/ViewportOverlay/EditedImageView" method="_on_resize_preview_changed"]
 [connection signal="value_changed" from="Box/Workspace/ViewportOverlay/ImageBorder/Resize" to="Box/Workspace" method="_on_resize_value_changed"]
-[connection signal="visibility_changed" from="Box/Workspace/ViewportOverlay/ImageBorder/SelectionView" to="Box/Workspace/ViewportOverlay/ImageBorder/SelectionView" method="_on_visibility_changed"]
 [connection signal="color_changed" from="Box/Workspace/Floating/Control/ColorSettings" to="Box/Workspace/Floating/Control/ToolSettings/ToolSwitcher" method="_on_color_settings_color_changed"]

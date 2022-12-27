@@ -72,7 +72,8 @@ func fill(start_pos : Vector2):
 		affected_pixels,
 		start_pos,
 		tolerance,
-		(fill_mode == 0) != Input.is_key_pressed(KEY_SHIFT)
+		(fill_mode == 0) != Input.is_key_pressed(KEY_SHIFT),
+		selection
 	)
 
 

@@ -32,6 +32,9 @@ func handle_input(event) -> bool:
 				pre_image_changed.emit(edited_image, rect)
 				if pass_event_to_tool(event):
 					image_changed.emit(edited_image, rect)
+					if edited_image_selection.get_true_bit_count() == 0:
+						clear_selection()
+
 					image_view.texture.update(edited_image)
 					return true
 				
@@ -56,7 +59,15 @@ func handle_input(event) -> bool:
 		return pass_event_to_tool(event)
 
 	if event is InputEventKey:
-		return true
+		var ctrl = (event.get_keycode_with_modifiers() & (KEY_MASK_CMD_OR_CTRL)) != 0
+		match event.keycode:
+			KEY_A, KEY_D:
+				if ctrl:
+					clear_selection()
+
+				return ctrl
+
+		return false
 
 	return false
 
@@ -73,11 +84,10 @@ func pass_event_to_tool(event) -> bool:
 func edit_texture(tex_path : String):
 	if edited_image_path != tex_path:
 		var new_image = Image.load_from_file(tex_path)
-		edited_image_selection.create(new_image.get_size())
-		selection_view.selection = edited_image_selection
 		image_view.texture = ImageTexture.create_from_image(new_image)
-		replace_image(edited_image, new_image)
 		image_view.reset_position()
+
+		replace_image(edited_image, new_image)
 
 	image_view.call_deferred("update_position")
 	edited_image_path = tex_path
@@ -88,9 +98,10 @@ func update_texture(new_image):
 		image_view.texture = ImageTexture.create_from_image(new_image)
 		image_view.update_position()
 		image_view.queue_redraw()
+		replace_image(edited_image, new_image)
 
 	image_view.texture.update(new_image)
-	replace_image(edited_image, new_image)
+	edited_image = new_image
 
 
 func resize_texture(old_image, old_size, new_size, expand_direction, stretch):
@@ -120,9 +131,14 @@ func resize_texture(old_image, old_size, new_size, expand_direction, stretch):
 func replace_image(old_image, new_image):
 	var new_size = new_image.get_size()
 	edited_image = new_image
+
 	edited_image_selection.create(new_size)
-	edited_image_selection.set_bit_rect(Rect2i(Vector2i.ZERO, new_size), true)
+	clear_selection()
 	selection_view.selection = edited_image_selection
+
+
+func clear_selection():
+	edited_image_selection.set_bit_rect(Rect2i(Vector2i.ZERO, edited_image_selection.get_size()), true)
 
 
 func _on_resize_value_changed(delta, expand_direction):
