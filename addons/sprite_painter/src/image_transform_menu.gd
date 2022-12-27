@@ -37,8 +37,8 @@ func _ready():
 
 	p.set_item_icon(OPTION_ROTATE_CW, get_theme_icon("RotateRight", "EditorIcons"))
 	p.set_item_icon(OPTION_ROTATE_CCW, get_theme_icon("RotateLeft", "EditorIcons"))
-	p.set_item_icon(OPTION_FLIP_H, get_theme_icon("ArrowRight", "EditorIcons"))
-	p.set_item_icon(OPTION_FLIP_V, get_theme_icon("ArrowDown", "EditorIcons"))
+	p.set_item_icon(OPTION_FLIP_H, get_theme_icon("MoveRight", "EditorIcons"))
+	p.set_item_icon(OPTION_FLIP_V, get_theme_icon("MoveDown", "EditorIcons"))
 	# One of them is not real.
 #	p.set_item_icon(OPTION_FLIP_H, get_theme_icon("Hsize", "EditorIcons"))
 #	p.set_item_icon(OPTION_FLIP_V, get_theme_icon("VSize", "EditorIcons"))

@@ -37,7 +37,7 @@ func edit_object(obj : Object):
 
 	elif obj is AtlasTexture:
 		var region = obj.region
-		edit_subresource(obj.atlas.resource_path, region.size, region.position)
+		edit_subresource(obj.atlas.resource_path, region.size, region.position, true)
 		edited_object = obj
 		object_selected.emit(obj)
 

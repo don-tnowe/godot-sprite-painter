@@ -9,6 +9,7 @@ extends Button
 
 func _set_icon_name(v):
 	icon_name = v
+	if !has_theme_icon(v, "EditorIcons"): return
 	icon = get_theme_icon(v, "EditorIcons")
 
 
