@@ -1,10 +1,20 @@
 @tool
 extends EditorPlugin
 
+const can_edit_properties := [
+	"texture",
+#	"tile_set",
+#	"frames", # AnimatedSprite
+#	"texture_normal", # TextureButton
+#	"texture_progress",
+]
+
 var editor_view : Control
 var editor_2d_vp : Control
-var enable_button : Button
+var editor_3d_vp : Control
+var enable_buttons : Dictionary
 var sploinky := Control.new()
+var sploinky3 := Control.new()
 var undo_redo : EditorUndoRedoManager
 
 var overlay_enabled := false
@@ -19,14 +29,15 @@ func _enter_tree() -> void:
 	editor_view.editor_plugin = self
 	editor_view.undo_redo = undo_redo
 
-	_connect_2d_editor()
-	_connect_enable_button()
+	_connect_editor_viewports()
+	_add_enable_button(EditorPlugin.CONTAINER_CANVAS_EDITOR_MENU)
+	_add_enable_button(EditorPlugin.CONTAINER_SPATIAL_EDITOR_MENU)
 
 	main_screen_changed.connect(_on_main_screen_changed)
 	ui.get_selection().selection_changed.connect(_on_selection_changed)
 
 	ui.get_base_control().add_child(editor_view)
-	_on_editor_resized()
+	_on_editor_resized(editor_2d_vp if editor_2d_vp.is_visible_in_tree() else editor_3d_vp)
 
 	make_visible(false)
 
@@ -38,21 +49,26 @@ func _forward_canvas_gui_input(event):
 	return editor_view.handle_input(event)
 
 
-func _connect_2d_editor():
-	for x in get_editor_interface().get_editor_main_screen().get_children():
+func _connect_editor_viewports():
+	var mainscreen = get_editor_interface().get_editor_main_screen()
+	mainscreen.resized.connect(_on_editor_resized.bind(mainscreen))
+	for x in mainscreen.get_children():
 		if x.get_class() == "CanvasItemEditor":
 			editor_2d_vp = x
 			editor_view.editor_2d_vp = x
-			break
+			x.add_child(sploinky)
+			x.move_child(sploinky, 1)
 
-	editor_2d_vp.resized.connect(_on_editor_resized)
-	editor_2d_vp.add_child(sploinky)
-	editor_2d_vp.move_child(sploinky, 1)
+		if x.get_class() == "Node3DEditor":
+			editor_3d_vp = x
+			editor_view.editor_3d_vp = x
+			x.add_child(sploinky3)
+			x.move_child(sploinky3, 1)
 
 
-func _connect_enable_button():
-	enable_button = Button.new()
-	add_control_to_container(EditorPlugin.CONTAINER_CANVAS_EDITOR_MENU, enable_button)
+func _add_enable_button(container_id):
+	var enable_button = Button.new()
+	add_control_to_container(container_id, enable_button)
 	
 	enable_button.add_theme_stylebox_override("normal", StyleBoxEmpty.new())
 	enable_button.add_theme_stylebox_override("hover", StyleBoxEmpty.new())
@@ -63,12 +79,16 @@ func _connect_enable_button():
 	enable_button.pressed.connect(_on_enable_pressed)
 	enable_button.hide()
 
+	enable_buttons[container_id] = enable_button
+
 
 func _exit_tree() -> void:
 	make_visible(false)
 	editor_view.queue_free()
-	enable_button.queue_free()
 	sploinky.queue_free()
+	sploinky3.queue_free()
+	for x in enable_buttons.values():
+		x.queue_free()
 
 
 func make_visible(visible):
@@ -77,29 +97,43 @@ func make_visible(visible):
 
 	editor_view.visible = visible
 	editor_2d_vp.get_child(0).visible = !visible
+	editor_3d_vp.get_child(0).visible = !visible
 	sploinky.custom_minimum_size.y = editor_2d_vp.get_child(0).size.y
+	sploinky3.custom_minimum_size.y = editor_3d_vp.get_child(0).size.y
 	sploinky.visible = visible
+	sploinky3.visible = visible
 	if visible:
-		editor_view.edit_node(editor_view.edited_node)
+		editor_view.edit_object(editor_view.edited_object)
 	
 	else:
 		editor_view.save_changes()
+		if editor_view.unsaved_image_paths.size() == 0:
+			return
+
 		get_editor_interface()\
 			.get_resource_filesystem()\
-			.reimport_files([editor_view.workspace.edited_image_path])
+			.reimport_files(editor_view.unsaved_image_paths)
+		editor_view.unsaved_image_paths.clear()
 
 
 func _edit(object):
-	editor_view.edit_node(object)
+	editor_view.edit_object(object)
 	if overlay_enabled:
 		make_visible(true)
 
 
 func _handles(object):
 	if !object is Node:
+		if object is CompressedTexture2D || object is AtlasTexture:
+			return true
+
 		return false
 
-	return "texture" in object
+	for x in can_edit_properties:
+		if x in object:
+			return true
+
+	return false
 
 
 func _on_enable_pressed():
@@ -115,14 +149,17 @@ func _on_main_screen_changed(screen):
 func _on_selection_changed():
 	var sel = get_editor_interface().get_selection().get_selected_nodes()
 	if sel.size() == 0 || !_handles(sel[-1]):
-		enable_button.hide()
+		for x in enable_buttons.values():
+			x.hide()
+
 		overlay_enabled = false
 		make_visible(false)
-		
+
 	else:
-		enable_button.show()
+		for x in enable_buttons.values():
+			x.show()
 
 
-func _on_editor_resized():
-	editor_view.size = editor_2d_vp.size
-	editor_view.global_position = editor_2d_vp.global_position
+func _on_editor_resized(vieport):
+	editor_view.size = vieport.size
+	editor_view.global_position = vieport.global_position

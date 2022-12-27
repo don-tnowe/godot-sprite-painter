@@ -1,15 +1,19 @@
 @tool
-class_name SpriteEditorRoot
+class_name SpritePainterRoot
 extends Control
+
+signal object_selected(object)
 
 @onready var workspace = $"%Workspace"
 
 var editor_interface : EditorInterface
 var editor_plugin : EditorPlugin
 var editor_2d_vp : Control
+var editor_3d_vp : Control
 
 var viewport_ignored := true
-var edited_node : CanvasItem
+var edited_object : Object
+var unsaved_image_paths : Array[String] = []
 var undo_redo : EditorUndoRedoManager
 
 
@@ -20,13 +24,68 @@ var undo_redo : EditorUndoRedoManager
 #	undo_redo = editor_plugin.get_undo_redo()
 
 
-func edit_node(node : Node = null):
-	if node == null || node.texture == null || node.texture.resource_path == "":
+func edit_object(obj : Object):
+	if obj is Node:
+		edit_node(obj)
+		edited_object = obj
+		object_selected.emit(obj)
+
+	elif obj is CompressedTexture2D:
+		edit_file(obj.resource_path)
+		edited_object = obj
+		object_selected.emit(obj)
+
+	elif obj is AtlasTexture:
+		var region = obj.region
+		edit_subresource(obj.atlas.resource_path, region.size, region.position)
+		edited_object = obj
+		object_selected.emit(obj)
+
+	else:
+		return false
+
+
+func edit_node(node : Node):
+	if node == null:
 		return
 
-	edited_node = node
 	mouse_filter = MOUSE_FILTER_STOP if viewport_ignored else MOUSE_FILTER_IGNORE
-	workspace.call_deferred("edit_texture", node.texture.resource_path)
+	if "texture" in node:
+		call_deferred("edit_subresource", node.texture.resource_path)
+
+
+func edit_subresource(
+	filepath : String,
+	grid_size : Vector2i = Vector2i.ZERO,
+	grid_offset : Vector2i = Vector2i.ZERO,
+	is_region : bool = false
+):
+	if !filepath in unsaved_image_paths:
+		unsaved_image_paths.append(filepath)
+
+	workspace.edit_texture(filepath)
+	if edited_object is Sprite2D || edited_object is Sprite3D:
+		update_grid_from_sprite(edited_object)
+	
+	else:
+		workspace.set_view_grid(grid_size, grid_offset, is_region)
+
+
+func update_grid_from_sprite(node : CanvasItem):
+	var tex_size = Vector2(node.texture.get_size())
+	var frame_size = tex_size / Vector2(node.hframes, node.vframes)
+	var region_offset = Vector2i.ZERO
+	if node.region_enabled:
+		frame_size /= node.region_rect.size
+		region_offset = node.region_rect.position
+
+	workspace.set_view_grid(frame_size, region_offset, node.region_enabled)
+
+
+func edit_file(filepath : String):
+	unsaved_image_paths.append(filepath)
+	workspace.edit_texture(filepath)
+	workspace.set_view_grid(Vector2i.ZERO, Vector2i.ZERO, false)
 
 
 func _gui_input(event):
@@ -43,23 +102,23 @@ static func print_hierarchy(root : Node, indent : String = ""):
 		print_hierarchy(x, indent + "-   ")
 
 
-static func save_scene(root : Node):
+static func save_scene(root : Node, filename = "saved_scn.tscn"):
 	for x in root.get_children(true):
 		pack_to_owner(root)
 
 	var packed = PackedScene.new()
 	packed.pack(root)
-	packed.resource_path = "res://saved_scn.tscn"
+	packed.resource_path = "res://" + filename
 	ResourceSaver.save(packed)
 
 
-static func pack_to_owner(root : Node, new_owner : Node = root):
-	for x in root.get_children():
-		if root.filename != "":
-			new_owner = root
-		
+static func pack_to_owner(root : Node, keep_scene_nodes : bool = true, new_owner : Node = root):
+	for x in root.get_children(true):
+#		if keep_scene_nodes && root.file_path != "":
+#			new_owner = root
+
 		x.owner = new_owner
-		pack_to_owner(x, new_owner)
+		pack_to_owner(x, keep_scene_nodes, new_owner)
 
 
 func _on_close_pressed():

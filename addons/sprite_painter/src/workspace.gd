@@ -7,6 +7,7 @@ signal image_replaced(old_image, new_image)
 
 @onready var image_view = $"%EditedImageView"
 @onready var selection_view = $"%SelectionView"
+@onready var grid_view = $"%GridView"
 @onready var tool_manager = $"%ToolSwitcher"
 
 var cur_scale := 1.0
@@ -93,6 +94,14 @@ func edit_texture(tex_path : String):
 	edited_image_path = tex_path
 
 
+func set_view_grid(grid_size, grid_offset, is_region):
+	grid_view.image_size = edited_image.get_size()
+	grid_view.grid_size = grid_size
+	grid_view.grid_offset = grid_offset
+	grid_view.is_region = is_region
+	grid_view.queue_redraw()
+
+
 func update_texture(new_image):
 	if new_image.get_size() != edited_image.get_size():
 		image_view.texture = ImageTexture.create_from_image(new_image)
@@ -102,6 +111,9 @@ func update_texture(new_image):
 
 	image_view.texture.update(new_image)
 	edited_image = new_image
+
+	grid_view.image_size = new_image.get_size()
+	grid_view.queue_redraw()
 
 
 func get_resized(old_image, new_size, expand_direction, stretch_format = -1) -> Image:

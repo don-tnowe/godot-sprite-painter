@@ -1,5 +1,5 @@
 @tool
-extends Control
+extends Node2D
 
 @export var selection_color := Color(0.5, 0.5, 0.5, 0.5)
 
