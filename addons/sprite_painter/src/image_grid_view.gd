@@ -11,6 +11,7 @@ var is_region := false
 
 
 func _draw():
+	if grid_size == Vector2i.ZERO: return
 	if is_region:
 		draw_polyline([
 			grid_offset,
