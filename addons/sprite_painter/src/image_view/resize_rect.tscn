@@ -1,6 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://c6v7q8a4qyl07"]
+[gd_scene load_steps=3 format=3]
 
-[ext_resource type="Script" path="res://addons/sprite_painter/src/resize_rect.gd" id="1_eudu3"]
+[ext_resource type="Script" path="res://addons/sprite_painter/src/image_view/resize_rect.gd" id="1_eudu3"]
 [ext_resource type="Texture2D" uid="uid://c7nymhfcdr3hl" path="res://addons/sprite_painter/graphics/diags.png" id="1_v44m5"]
 
 [node name="Resize" type="Control"]

@@ -1,7 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://dcc6kewvuomhc"]
+[gd_scene load_steps=6 format=3 uid="uid://2uunhi4ot34t"]
 
-[ext_resource type="Script" path="res://addons/sprite_painter/src/type_context_settings.gd" id="1_qvay4"]
-[ext_resource type="Script" path="res://addons/sprite_painter/editor_icon_button.gd" id="2_nkosm"]
+[ext_resource type="Script" path="res://addons/sprite_painter/src/floating/type_context_settings.gd" id="1_7q6dr"]
+[ext_resource type="Script" path="res://addons/sprite_painter/editor_icon_button.gd" id="2_l84pr"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o2ioo"]
 draw_center = false
@@ -17,7 +17,7 @@ shadow_color = Color(0.8, 0.8, 0.8, 1)
 shadow_size = 4
 anti_aliasing = false
 
-[sub_resource type="Image" id="Image_nd8gv"]
+[sub_resource type="Image" id="Image_cxni3"]
 data = {
 "data": PackedByteArray(255, 255, 255, 0, 255, 255, 255, 0, 255, 128, 128, 4, 255, 128, 128, 4, 255, 128, 128, 4, 255, 128, 128, 4, 255, 128, 128, 4, 255, 128, 128, 4, 255, 128, 128, 4, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 93, 93, 131, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 131, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 131, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 94, 94, 127, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 128, 128, 4, 255, 128, 128, 4, 255, 128, 128, 4, 255, 128, 128, 4, 255, 128, 128, 4, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 231, 255, 93, 93, 55, 255, 97, 97, 58, 255, 93, 93, 233, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 231, 255, 94, 94, 54, 255, 94, 94, 57, 255, 93, 93, 233, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 97, 97, 42, 255, 255, 255, 0, 255, 255, 255, 0, 255, 97, 97, 42, 255, 93, 93, 233, 255, 93, 93, 232, 255, 93, 93, 41, 255, 255, 255, 0, 255, 255, 255, 0, 255, 97, 97, 42, 255, 93, 93, 233, 255, 93, 93, 232, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 96, 96, 45, 255, 97, 97, 42, 255, 255, 255, 0, 255, 97, 97, 42, 255, 97, 97, 42, 255, 255, 255, 0, 255, 98, 98, 47, 255, 97, 97, 42, 255, 255, 255, 0, 255, 97, 97, 42, 255, 97, 97, 42, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 96, 96, 45, 255, 93, 93, 235, 255, 93, 93, 233, 255, 97, 97, 42, 255, 255, 255, 0, 255, 255, 255, 0, 255, 94, 94, 46, 255, 93, 93, 236, 255, 93, 93, 233, 255, 97, 97, 42, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 235, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 233, 255, 95, 95, 59, 255, 96, 96, 61, 255, 93, 93, 235, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 233, 255, 95, 95, 59, 255, 96, 96, 61, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0),
 "format": "RGBA8",
@@ -26,10 +26,11 @@ data = {
 "width": 16
 }
 
-[sub_resource type="ImageTexture" id="ImageTexture_0m28g"]
-image = SubResource("Image_nd8gv")
+[sub_resource type="ImageTexture" id="ImageTexture_mo6ny"]
+image = SubResource("Image_cxni3")
 
 [node name="ContextSettings" type="MarginContainer"]
+visible = false
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
@@ -41,21 +42,18 @@ offset_bottom = -35.0
 grow_horizontal = 0
 grow_vertical = 0
 mouse_filter = 0
-script = ExtResource("1_qvay4")
+script = ExtResource("1_7q6dr")
 
 [node name="Panel2" type="Panel" parent="."]
-layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_o2ioo")
 metadata/_edit_lock_ = true
 
 [node name="Panel3" type="Panel" parent="."]
-layout_mode = 2
 size_flags_vertical = 3
 metadata/_edit_lock_ = true
 
 [node name="Container" type="MarginContainer" parent="."]
-layout_mode = 2
 theme_override_constants/margin_left = 8
 theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 8
@@ -63,15 +61,12 @@ theme_override_constants/margin_bottom = 8
 metadata/_edit_lock_ = true
 
 [node name="Box" type="GridContainer" parent="Container"]
-layout_mode = 2
 columns = 2
 
 [node name="Mode" type="Label" parent="Container/Box"]
-layout_mode = 2
 text = "Animation"
 
 [node name="FrameData" type="LineEdit" parent="Container/Box"]
-layout_mode = 2
 size_flags_horizontal = 3
 text = "Idle, Frame 8"
 editable = false
@@ -79,7 +74,6 @@ expand_to_text_length = true
 
 [node name="ButtonTexSelection" type="OptionButton" parent="Container/Box"]
 visible = false
-layout_mode = 2
 size_flags_horizontal = 3
 item_count = 5
 selected = 0
@@ -96,7 +90,6 @@ popup/item_4/id = 4
 
 [node name="ProgressTexSelection" type="OptionButton" parent="Container/Box"]
 visible = false
-layout_mode = 2
 size_flags_horizontal = 3
 item_count = 3
 selected = 0
@@ -109,33 +102,29 @@ popup/item_2/id = 2
 
 [node name="Label2" type="Label" parent="Container/Box"]
 visible = false
-layout_mode = 2
 text = "Helpers"
 
 [node name="Box" type="HBoxContainer" parent="Container/Box"]
 visible = false
-layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="ThemeIconButton" type="Button" parent="Container/Box/Box"]
-layout_mode = 2
-icon = SubResource("ImageTexture_0m28g")
-script = ExtResource("2_nkosm")
+icon = SubResource("ImageTexture_mo6ny")
+script = ExtResource("2_l84pr")
 icon_name = "GuiVisibilityVisible"
 
 [node name="Button" type="Button" parent="Container/Box/Box"]
-layout_mode = 2
 size_flags_horizontal = 3
 text = "Edit"
 
 [node name="Control" type="Control" parent="."]
-layout_mode = 2
+layout_mode = 3
+anchors_preset = 0
 mouse_filter = 2
 metadata/_edit_lock_ = true
 
 [node name="Extra" type="MarginContainer" parent="Control"]
 visible = false
-layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
@@ -150,42 +139,35 @@ grow_vertical = 0
 metadata/_edit_group_ = true
 
 [node name="Panel4" type="Panel" parent="Control/Extra"]
-layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_o2ioo")
 metadata/_edit_lock_ = true
 
 [node name="Panel5" type="Panel" parent="Control/Extra"]
-layout_mode = 2
 size_flags_vertical = 3
 metadata/_edit_lock_ = true
 
 [node name="Margins" type="MarginContainer" parent="Control/Extra"]
-layout_mode = 2
 theme_override_constants/margin_left = 8
 theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 
 [node name="Box" type="VBoxContainer" parent="Control/Extra/Margins"]
-layout_mode = 2
 
 [node name="Header" type="HBoxContainer" parent="Control/Extra/Margins/Box"]
-layout_mode = 2
 
 [node name="Button" type="Button" parent="Control/Extra/Margins/Box/Header"]
-layout_mode = 2
 size_flags_horizontal = 3
 disabled = true
-icon = SubResource("ImageTexture_0m28g")
+icon = SubResource("ImageTexture_mo6ny")
 icon_alignment = 1
-script = ExtResource("2_nkosm")
+script = ExtResource("2_l84pr")
 icon_name = "ToolMove"
 
 [node name="Button2" type="Button" parent="Control/Extra/Margins/Box/Header"]
-layout_mode = 2
-icon = SubResource("ImageTexture_0m28g")
-script = ExtResource("2_nkosm")
+icon = SubResource("ImageTexture_mo6ny")
+script = ExtResource("2_l84pr")
 icon_name = "Close"
 
 [connection signal="gui_input" from="Control/Extra/Margins/Box/Header/Button" to="." method="_on_picker_header_gui_input"]
