@@ -81,16 +81,4 @@ func draw_preview(image_view : CanvasItem, mouse_position : Vector2i):
 	if !drawing: return
 
 	image_view.draw_rect(Rect2(mouse_position, Vector2.ONE), Color.WHITE)
-	var image_height = image.get_height()
-	for i in image.get_width():
-		var rect_height = 0
-		for j in image_height:
-			if affected_pixels.get_bit(i, j) && j != image_height:
-				rect_height += 1
-
-			elif rect_height > 0:
-				image_view.draw_rect(Rect2(
-					Vector2(i, j - rect_height),
-					Vector2(1, rect_height)
-				), drawing_color)
-				rect_height = 0
+	ImageFillTools.draw_bitmap(image_view, affected_pixels, drawing_color)

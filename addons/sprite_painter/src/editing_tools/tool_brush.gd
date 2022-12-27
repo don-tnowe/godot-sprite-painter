@@ -124,8 +124,7 @@ func apply_eraser(image):
 			for j in height:
 #				pos = k - last_affected_rect.position + Vector2i(i, j)
 				pos = Vector2i(i + k.x, j + k.y)
-				set_image_pixel(
-					chunk,
+				chunk.set_pixel(
 					i, j,
 					image.get_pixelv(pos) - chunk.get_pixel(i, j)
 				)
@@ -204,7 +203,13 @@ func paint(on_image, stroke_start, stroke_end, chunk_position, pressure):
 	for i in new_rect.size.x:
 		for j in new_rect.size.y:
 			cur_pos = new_rect.position + Vector2i(i, j)
-			set_image_pixelv(on_image, cur_pos, get_new_pixel(
+			if is_out_of_bounds(cur_pos + chunk_position, selection.get_size()):
+				continue
+
+			if !selection.get_bitv(cur_pos + chunk_position):
+				continue
+
+			on_image.set_pixelv(cur_pos, get_new_pixel(
 				on_image, color,
 				stroke_start, stroke_end, Vector2(cur_pos) + brush_offset,
 				radius, solid_radius

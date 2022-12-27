@@ -78,7 +78,6 @@ func mouse_pressed(
 		var rect = Rect2i(start_pos, Vector2i.ZERO).expand(end_pos).abs()
 		if !replace:
 			draw_shape(func(pos, sdf):
-				if is_out_of_bounds(pos, rect.size): return
 				set_image_pixelv(
 					image, pos,
 					image.get_pixelv(pos).blend(sdf_to_color(sdf))
@@ -107,11 +106,7 @@ func set_image_pixel_from_sdf(pos, sdf, image):
 
 
 func get_affected_rect():
-	var rect = Rect2i(start_pos, Vector2i.ZERO).expand(end_pos)
-	if Input.is_key_pressed(KEY_SHIFT):
-		rect.size = Vector2i.ONE * max(rect.size.x, rect.size.y)
-
-	return rect
+	return get_rect_from_drag(start_pos, end_pos, Input.is_key_pressed(KEY_SHIFT))
 
 
 func mouse_moved(event : InputEventMouseMotion):
@@ -271,6 +266,7 @@ func draw_preview(image_view : CanvasItem, mouse_position : Vector2i):
 			draw_next[1] += 1
 			draw_next[0] = cur_color
 		)
+		image_view.draw_rect(Rect2(rect.end, -Vector2i(1, draw_next[1])).abs(), draw_next[0])
 
 	else:
 		image_view.draw_rect(Rect2i(mouse_position + Vector2i(0, 4), Vector2(1, 32)).abs(), crosshair_color)
