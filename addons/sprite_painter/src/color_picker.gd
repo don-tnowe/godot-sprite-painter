@@ -23,7 +23,11 @@ var color_picker_primary := true
 func _ready():
 	if get_viewport() is SubViewport: return
 
+	hide()
 	size = Vector2.ZERO
+	show()
+	position = Vector2(0, get_parent().size.y - get_minimum_size().y)
+
 	set_picked_primary(true, false)
 	set_color(true, color1)
 	set_color(false, color2)

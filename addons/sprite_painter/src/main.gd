@@ -67,6 +67,9 @@ func _on_close_pressed():
 
 
 func _on_workspace_pre_image_changed(image : Image, rect):
+	if rect.size.x == 0 || rect.size.y == 0:
+		return
+
 	undo_redo.create_action("Edit image (start: %s, end: %s)" % [rect.position, rect.end])
 	var saved_image = copy_image_rect(image, rect)
 	undo_redo.add_undo_method(self, "paste_image_rect", saved_image, image, rect.position)
@@ -76,6 +79,9 @@ func _on_workspace_pre_image_changed(image : Image, rect):
 
 
 func _on_workspace_image_changed(image : Image, rect):
+	if rect.size.x == 0 || rect.size.y == 0:
+		return
+
 	var saved_image = copy_image_rect(image, rect)
 	undo_redo.add_do_method(self, "paste_image_rect", saved_image, image, rect.position)
 #	undo_redo.add_do_method(func edit_do():

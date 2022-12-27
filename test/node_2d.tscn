@@ -18,7 +18,7 @@ texture = ExtResource("2_lxinl")
 centered = false
 
 [node name="Icon2" type="Sprite2D" parent="."]
-position = Vector2(71, 111)
+position = Vector2(43, 131)
 texture = ExtResource("1_uj0gm")
 centered = false
 
