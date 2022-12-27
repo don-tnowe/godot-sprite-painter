@@ -3,10 +3,17 @@ extends EditorPlugin
 
 const can_edit_properties := [
 	"texture",
-#	"tile_set",
-#	"frames", # AnimatedSprite
+	"tile_set",
+	"frames", # AnimatedSprite
 #	"texture_normal", # TextureButton
-#	"texture_progress",
+#	"texture_progress", # Self explanatory
+]
+
+const can_edit_types := [
+	"Texture",
+	"AtlasTexture",
+	"SpriteFrames",
+	"TileSet",
 ]
 
 var editor_view : Control
@@ -110,6 +117,7 @@ func make_visible(visible):
 		if editor_view.unsaved_image_paths.size() == 0:
 			return
 
+		print("Saved images: " + str(editor_view.unsaved_image_paths))
 		get_editor_interface()\
 			.get_resource_filesystem()\
 			.reimport_files(editor_view.unsaved_image_paths)
@@ -123,14 +131,12 @@ func _edit(object):
 
 
 func _handles(object):
-	if !object is Node:
-		if object is CompressedTexture2D || object is AtlasTexture:
-			return true
-
-		return false
-
 	for x in can_edit_properties:
 		if x in object:
+			return true
+
+	for x in can_edit_types:
+		if ClassDB.is_parent_class(object.get_class(), x):
 			return true
 
 	return false

@@ -42,7 +42,7 @@ func edit_object(obj : Object):
 		object_selected.emit(obj)
 
 	else:
-		return false
+		object_selected.emit(obj)
 
 
 func edit_node(node : Node):
@@ -60,13 +60,13 @@ func edit_subresource(
 	grid_offset : Vector2i = Vector2i.ZERO,
 	is_region : bool = false
 ):
-	if !filepath in unsaved_image_paths:
-		unsaved_image_paths.append(filepath)
+	if unsaved_image_paths.find(StringName(filepath)) == -1:
+		unsaved_image_paths.append(StringName(filepath))
 
 	workspace.edit_texture(filepath)
 	if edited_object is Sprite2D || edited_object is Sprite3D:
 		update_grid_from_sprite(edited_object)
-	
+
 	else:
 		workspace.set_view_grid(grid_size, grid_offset, is_region)
 

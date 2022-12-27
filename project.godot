@@ -22,7 +22,7 @@ _global_script_classes=[{
 "path": "res://addons/sprite_painter/global/fill_tools.gd"
 }, {
 "base": "Control",
-"class": &"SpriteEditorRoot",
+"class": &"SpritePainterRoot",
 "language": &"GDScript",
 "path": "res://addons/sprite_painter/src/main.gd"
 }, {
@@ -34,7 +34,7 @@ _global_script_classes=[{
 _global_script_class_icons={
 "EditingTool": "",
 "ImageFillTools": "",
-"SpriteEditorRoot": "",
+"SpritePainterRoot": "",
 "ThemeIconButton": ""
 }
 
