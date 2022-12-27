@@ -104,19 +104,20 @@ func update_texture(new_image):
 	edited_image = new_image
 
 
-func resize_texture(old_image, old_size, new_size, expand_direction, stretch):
-	if stretch:
+func get_resized(old_image, new_size, expand_direction, stretch_format = -1) -> Image:
+	var old_size = old_image.get_size()
+	if stretch_format != -1:
 		var new_image = Image.create(old_size.x, old_size.y, false, old_image.get_format())
 		new_image.blit_rect(
 			old_image,
 			Rect2i(Vector2.ZERO, old_image.get_size()), Vector2i.ZERO
 		)
-		new_image.resize(new_size.x, new_size.y, Image.INTERPOLATE_NEAREST)
+		new_image.resize(new_size.x, new_size.y, stretch_format)
 		return new_image
 
 	else:
 		var new_image = Image.create(new_size.x, new_size.y, false, old_image.get_format())
-		var anchors = (Vector2i.ONE - expand_direction) / 2
+		var anchors = (Vector2i.ONE - expand_direction) * 0.5
 		new_image.blit_rect(
 			old_image,
 			Rect2i(Vector2i.ZERO, old_image.get_size()),
@@ -141,11 +142,13 @@ func clear_selection():
 	edited_image_selection.set_bit_rect(Rect2i(Vector2i.ZERO, edited_image_selection.get_size()), true)
 
 
-func _on_resize_value_changed(delta, expand_direction):
+func _on_resize_value_changed(
+	delta, expand_direction,
+	stretch_format = Image.INTERPOLATE_NEAREST if Input.is_key_pressed(KEY_SHIFT) else -1
+):
 	var old_size = edited_image.get_size()
-
 	var new_size = old_size + Vector2i(delta.round())
-	var stretch =  Input.is_key_pressed(KEY_SHIFT)
-	var new_image = resize_texture(edited_image, old_size, new_size, expand_direction, stretch)
+
+	var new_image = get_resized(edited_image, new_size, expand_direction, stretch_format)
 	image_replaced.emit(edited_image, new_image)
 	update_texture(new_image)
