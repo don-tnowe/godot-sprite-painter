@@ -42,7 +42,7 @@ static func flood_fill(
 			):
 				continue
 
-			if get_color_distance_squared(start_color, image.get_pixelv(pos)) <= tolerance:
+			if tolerance == 1.0 || get_color_distance_squared(start_color, image.get_pixelv(pos)) <= tolerance:
 				affected_rect = affected_rect.expand(pos)
 				result_into_mask.set_bitv(pos, true)
 				q.append(pos)
@@ -60,7 +60,7 @@ static func global_fill(
 	var affected_rect = Rect2i(start_pos, Vector2.ZERO)
 	for i in image.get_width():
 		for j in image.get_height():
-			if get_color_distance_squared(start_color, image.get_pixel(i, j)) <= tolerance:
+			if tolerance == 1.0 || get_color_distance_squared(start_color, image.get_pixel(i, j)) <= tolerance:
 				affected_rect = affected_rect.expand(Vector2i(i, j))
 				result_into_mask.set_bit(i, j, true)
 
@@ -68,12 +68,13 @@ static func global_fill(
 
 
 static func get_color_distance_squared(a : Color, b : Color) -> float:
-	var a_sum = a.a + b.a
+	if a.a + b.a == 0.0: return 0.0
 	return (
 		(a.r - b.r) * (a.r - b.r)
 		+ (a.g - b.g) * (a.g - b.g)
 		+ (a.b - b.b) * (a.b - b.b)
-	) * a_sum + (a.a - b.a) * (a.a - b.a) * (2.0 - a_sum)
+		+ (a.a - b.a) * (a.a - b.a)
+	) * 0.33333
 
 
 static func draw_bitmap(on_node : CanvasItem, bitmap : BitMap, color : Color, offset : Vector2 = Vector2(0, 0)):
@@ -100,7 +101,7 @@ static func draw_bitmap(on_node : CanvasItem, bitmap : BitMap, color : Color, of
 			draw_next = bitmap.get_bit(i, j)
 
 	on_node.draw_rect(Rect2(
-		offset + Vector2(map_size),
+		offset + Vector2(map_size.x - 1, map_size.y - rect_height),
 		Vector2(1, rect_height)
 	), color)
 

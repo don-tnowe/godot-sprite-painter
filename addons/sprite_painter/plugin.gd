@@ -5,12 +5,12 @@ const can_edit_properties := [
 	"texture",
 	"tile_set",
 	"frames", # AnimatedSprite
-#	"texture_normal", # TextureButton
-#	"texture_progress", # Self explanatory
+	"texture_normal", # TextureButton
+	"texture_progress", # Self explanatory
 ]
 
 const can_edit_types := [
-	"Texture",
+	"CompressedTexture2D",
 	"AtlasTexture",
 	"SpriteFrames",
 	"TileSet",
@@ -44,7 +44,6 @@ func _enter_tree() -> void:
 	ui.get_selection().selection_changed.connect(_on_selection_changed)
 
 	ui.get_base_control().add_child(editor_view)
-	_on_editor_resized(editor_2d_vp if editor_2d_vp.is_visible_in_tree() else editor_3d_vp)
 
 	make_visible(false)
 
@@ -71,6 +70,8 @@ func _connect_editor_viewports():
 			editor_view.editor_3d_vp = x
 			x.add_child(sploinky3)
 			x.move_child(sploinky3, 1)
+
+	call_deferred("_on_editor_resized", mainscreen)
 
 
 func _add_enable_button(container_id):
@@ -117,15 +118,21 @@ func make_visible(visible):
 		if editor_view.unsaved_image_paths.size() == 0:
 			return
 
-		print("Saved images: " + str(editor_view.unsaved_image_paths))
+#		print("Saved images: " + str(editor_view.unsaved_image_paths))
 		get_editor_interface()\
 			.get_resource_filesystem()\
-			.reimport_files(editor_view.unsaved_image_paths)
+			# I am totally done with this thing freezing the editor forever,
+			# Yes it is more efficient, but stability matters more
+#			.reimport_files(editor_view.unsaved_image_paths)
+			.scan()
 		editor_view.unsaved_image_paths.clear()
 
 
 func _edit(object):
 	editor_view.edit_object(object)
+	for x in enable_buttons.values():
+		x.show()
+
 	if overlay_enabled:
 		make_visible(true)
 

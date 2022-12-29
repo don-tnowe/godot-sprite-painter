@@ -19,17 +19,10 @@ func _ready():
 	if get_viewport() is SubViewport: return
 
 	var end_at = get_node(toolbar_end)
-	var default = null
 	for x in get_node(toolbar).get_children():
 		if x == end_at: break
 		if !x is BaseButton: continue
 		_setup_tool_button(x)
-		if default == null && !x.disabled:
-			default = x
-	
-	current_tool = default
-	default.button_pressed = true
-	default.show()
 
 
 func _setup_tool_button(button : BaseButton):
@@ -43,7 +36,7 @@ func _setup_tool_button(button : BaseButton):
 	if button.shortcut != null:
 		var buttons_with_sc = by_shortcut.get(button.shortcut, [])
 		buttons_with_sc.append(button)
-		button.pressed.connect(button_shortcut_pressed.bind(
+		button.pressed.connect(_on_button_shortcut_pressed.bind(
 			button,
 			buttons_with_sc
 		))
@@ -51,6 +44,8 @@ func _setup_tool_button(button : BaseButton):
 			button.set_deferred("shortcut", null)
 
 		by_shortcut[button.shortcut] = buttons_with_sc
+		if current_tool == null:
+			_on_button_shortcut_pressed(button, buttons_with_sc)
 
 	button.tooltip_text = "%s (%s)" % [
 		tool_node.tool_name,
@@ -60,9 +55,13 @@ func _setup_tool_button(button : BaseButton):
 	]
 	tool_node.hide()
 	button.toggled.connect(_on_tool_button_toggled.bind(tool_node))
+	if current_tool == null:
+		_on_tool_button_toggled(true, tool_node)
 
 
-func button_shortcut_pressed(button : BaseButton, list : Array):
+func _on_button_shortcut_pressed(button : BaseButton, list : Array):
+	if button.shortcut == null: return
+
 	var pressed_in_list = list.find(button)
 	if current_tool_shortcut_list != list:
 		# Next time the shortcut is pressed, it will select the first from the list
@@ -120,8 +119,9 @@ func draw_preview(image_view : CanvasItem, mouse_position : Vector2i):
 	current_tool.draw_preview(image_view, mouse_position)
 
 
-func draw_transparent_preview(image_view : CanvasItem, mouse_position : Vector2i):
-	current_tool.draw_transparent_preview(image_view, mouse_position)
+func draw_shader_preview(image_view : CanvasItem, mouse_position : Vector2i):
+	image_view.material = current_tool.preview_shader
+	current_tool.draw_shader_preview(image_view, mouse_position)
 
 
 func _on_color_settings_color_changed(new_color, is_primary):

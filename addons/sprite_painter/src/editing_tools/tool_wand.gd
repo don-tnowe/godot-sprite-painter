@@ -70,4 +70,3 @@ func draw_selection_preview(image_view : CanvasItem, mouse_position : Vector2i):
 		(fill_mode == 0) != Input.is_key_pressed(KEY_SHIFT)
 	)
 	ImageFillTools.draw_bitmap(image_view, affected_pixels, preview_color)
-	image_view.draw_rect(get_selection_rect(), preview_color)
