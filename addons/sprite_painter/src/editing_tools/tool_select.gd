@@ -5,6 +5,7 @@ extends EditingTool
 
 var operation := 0
 var secondary_as_bg := false
+var dragging_enabled := true
 
 var mouse_down := false
 var selection_dragging := false
@@ -24,12 +25,15 @@ func add_selection_common_properties():
 	add_property("Operation", operation,
 		func (x): operation = x,
 		TOOL_PROP_ENUM,
-		["Replace", "Add (Ctrl)", "Subtract (Right-click)", "Intersection", "Subtract Intersection"]
+		["Replace", "Add (Ctrl)", "Subtract (Right-click)", "Intersection", "Invert"],
+		true
 	)
-	add_property("Background", 1 if secondary_as_bg else 0,
-		func (x): secondary_as_bg = (x == 1),
+	add_property("Drag Background", 1 if secondary_as_bg else 0,
+		func (x):
+			secondary_as_bg = (x == 1)
+			dragging_enabled = !(x == 2),
 		TOOL_PROP_ENUM,
-		[&"Transparent", &"Secondary Color"]
+		["Transparent", "Secondary Color", "Never Drag"]
 	)
 
 
@@ -48,7 +52,8 @@ func mouse_pressed(
 		draw_start = event.position
 		draw_end = draw_start
 		selection_dragging = (
-			!subtract && !add
+			dragging_enabled
+			&& !subtract && !add
 			&& selection.get_bitv(event.position)
 			&& !is_selection_empty()
 		)

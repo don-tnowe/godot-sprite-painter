@@ -39,7 +39,8 @@ func _ready():
 			load(icon_folder + "triangle_shape_2d.svg") : "Triangle",
 			load(icon_folder + "diamond_shape_2d.svg") : "Diamond",
 			load(icon_folder + "hex_shape_2d.svg") : "Hexagon",
-		}
+		},
+		true
 	)
 	add_property("Fill Color", fill_mode,
 		func (x): fill_mode = x,

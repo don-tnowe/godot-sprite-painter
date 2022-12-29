@@ -23,7 +23,8 @@ func _ready():
 	add_property("Tolerance", tolerance * 100,
 		func (x): tolerance = x * 0.01,
 		TOOL_PROP_INT,
-		[0, 100]
+		[0, 100],
+		true
 	)
 
 

@@ -117,18 +117,18 @@ keycode = 4194305
 [sub_resource type="Shortcut" id="Shortcut_lhl5g"]
 events = [SubResource("InputEventKey_m8eep")]
 
-[sub_resource type="Gradient" id="Gradient_rda1r"]
+[sub_resource type="Gradient" id="Gradient_1ueng"]
 offsets = PackedFloat32Array(0, 1, 1)
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_bmka2"]
-gradient = SubResource("Gradient_rda1r")
+gradient = SubResource("Gradient_1ueng")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xuu2x"]
 shader = ExtResource("7_nc3ac")
-shader_parameter/from = Vector2(0.640625, 0.464844)
-shader_parameter/delta = Vector2(-0.0898438, 0.046875)
-shader_parameter/type = 0
+shader_parameter/from = Vector2(0.535156, 0.425781)
+shader_parameter/delta = Vector2(0, 0)
+shader_parameter/type = 3
 shader_parameter/gradient = SubResource("GradientTexture1D_bmka2")
 
 [sub_resource type="Gradient" id="Gradient_xyctd"]
@@ -768,7 +768,7 @@ region_outer_color = Color(0, 0, 0, 0.498039)
 
 [node name="SelectionView" type="Node2D" parent="Box/Workspace/ViewportOverlay/EditedImageView"]
 unique_name_in_owner = true
-self_modulate = Color(1, 1, 1, 0.29)
+self_modulate = Color(1, 1, 1, 0.011)
 z_as_relative = false
 script = ExtResource("13_81c1e")
 selection_color = Color(0.117647, 0.564706, 1, 0.498039)

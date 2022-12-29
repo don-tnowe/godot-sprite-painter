@@ -36,7 +36,8 @@ func _ready():
 			brushsize = x
 			brush_offset = Vector2(0.5, 0.5) * float(int(x) % 2),
 		TOOL_PROP_INT,
-		[1, max_brush_size]
+		[1, max_brush_size],
+		true
 	)
 	add_property("Hardness", hardness * 100,
 		func (x): hardness = x * 0.01,

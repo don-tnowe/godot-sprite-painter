@@ -33,7 +33,6 @@ var last_affected_rect := Rect2i()
 
 
 func _ready():
-	visibility_changed.connect(_on_visibility_changed)
 	default_gradient.add_point(1.0, Color.WHITE)
 
 	add_name()
@@ -47,7 +46,8 @@ func _ready():
 			"Node": "Radial",
 			"ToolRotate": "Conic",
 			"Groups": "Bounding Box",
-		}
+		},
+		true
 	)
 	add_property("Gradient", custom_gradient,
 		func (x): custom_gradient = x,
@@ -183,3 +183,4 @@ func draw_preview(image_view : CanvasItem, mouse_position : Vector2i):
 
 func _on_visibility_changed():
 	points = [Vector2(-INF, -INF), Vector2(-INF, -INF)]
+	super._on_visibility_changed()

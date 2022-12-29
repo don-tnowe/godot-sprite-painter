@@ -26,6 +26,12 @@ enum {
 var selection : BitMap
 
 var _last_grid : GridContainer
+var _hotkey_adjustment_hook : Callable
+
+
+func _enter_tree():
+	visibility_changed.connect(_on_visibility_changed)
+	set_process_shortcut_input(false)
 
 
 func add_name():
@@ -48,9 +54,17 @@ func start_property_grid():
 	grid.columns = 2
 	_last_grid = grid
 	add_child(grid)
+	return grid
 
 
-func add_property(property_name, default_value, setter : Callable, type : int, hint : Variant = null):
+func add_property(
+	property_name,
+	default_value,
+	setter : Callable,
+	type : int,
+	hint : Variant = null,
+	hotkey_adjustment = false,
+):
 	var parent = _last_grid
 	if _last_grid == null:
 		parent = HBoxContainer.new()
@@ -68,6 +82,10 @@ func add_property(property_name, default_value, setter : Callable, type : int, h
 			editor.button_pressed = default_value
 			editor.text = "On"
 			editor.toggled.connect(setter)
+			if hotkey_adjustment:
+				_hotkey_adjustment_hook = func(x):
+					editor.button_pressed = !editor.button_pressed
+					setter.call(editor.button_pressed)
 
 		TOOL_PROP_INT, TOOL_PROP_FLOAT:
 			editor = EditorSpinSlider.new()
@@ -84,6 +102,10 @@ func add_property(property_name, default_value, setter : Callable, type : int, h
 			editor.step = 0.01 if type == TOOL_PROP_FLOAT else 1.0
 			editor.custom_minimum_size.x = 64.0
 			editor.value_changed.connect(setter)
+			if hotkey_adjustment:
+				_hotkey_adjustment_hook = func(x):
+					editor.value += editor.step * x
+					setter.call(editor.value)
 
 		TOOL_PROP_ENUM:
 			if hint.size() != 2:
@@ -93,6 +115,10 @@ func add_property(property_name, default_value, setter : Callable, type : int, h
 
 				editor.item_selected.connect(setter)
 				editor.select(default_value)
+				if hotkey_adjustment:
+					_hotkey_adjustment_hook = func(x):
+						editor.select(posmod((editor.get_selected_id() + x), hint.size()))
+						setter.call(editor.get_selected_id())
 
 			else:
 				editor = Button.new()
@@ -102,6 +128,12 @@ func add_property(property_name, default_value, setter : Callable, type : int, h
 					editor.text = hint[x]
 					setter.call(x)
 				)
+				if hotkey_adjustment:
+					_hotkey_adjustment_hook = func(x):
+						var new_value = 1 if editor.text == hint[0] else 0
+						editor.text = hint[new_value]
+						setter.call(new_value)
+
 
 		TOOL_PROP_ICON_ENUM, TOOL_PROP_ICON_FLAGS:
 			editor = HBoxContainer.new()
@@ -139,6 +171,18 @@ func add_property(property_name, default_value, setter : Callable, type : int, h
 					)
 					button.button_pressed = default_value[button.get_index()]
 
+			if hotkey_adjustment:
+				_hotkey_adjustment_hook = func(x):
+					var new_value : int
+					for i in editor.get_child_count():
+						if editor.get_child(i).button_pressed:
+							new_value = posmod(i + x, hint.size())
+							editor.get_child(new_value).button_pressed = true
+							editor.get_child(i).button_pressed = false
+							break
+
+#					setter.call(new_value)
+
 		TOOL_PROP_RESOURCE:
 			editor = EditorResourcePicker.new()
 			editor.resource_changed.connect(func(x):
@@ -157,6 +201,18 @@ func add_property(property_name, default_value, setter : Callable, type : int, h
 					break
 
 	parent.add_child(editor)
+	return editor
+
+
+func add_text_display():
+	var textbox = TextEdit.new()
+	textbox.editable = false
+	textbox.text = tool_name
+	textbox.size_flags_vertical = SIZE_FILL
+	add_child(textbox)
+
+	_last_grid = null
+	return textbox
 
 
 func is_out_of_bounds(pos : Vector2i, rect_size : Vector2i):
@@ -223,3 +279,18 @@ func draw_preview(image_view : CanvasItem, mouse_position : Vector2i):
 
 func draw_shader_preview(image_view : CanvasItem, mouse_position : Vector2i):
 	pass
+
+
+func _shortcut_input(event : InputEvent):
+	if _hotkey_adjustment_hook == null: return
+	if !event is InputEventKey: return
+	if !event.pressed: return
+	if event.keycode != KEY_BRACKETLEFT:
+		_hotkey_adjustment_hook.call(+1)
+
+	if event.keycode != KEY_BRACKETRIGHT:
+		_hotkey_adjustment_hook.call(-1)
+
+
+func _on_visibility_changed():
+	set_process_shortcut_input(visible)

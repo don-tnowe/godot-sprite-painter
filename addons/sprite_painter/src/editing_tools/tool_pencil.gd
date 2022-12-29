@@ -17,7 +17,9 @@ func _ready():
 	start_property_grid()
 	add_property("Remove Jaggies", jaggies_removal,
 		func (x): jaggies_removal = x,
-		TOOL_PROP_BOOL
+		TOOL_PROP_BOOL,
+		null,
+		true
 	)
 	drawing_positions = []
 
