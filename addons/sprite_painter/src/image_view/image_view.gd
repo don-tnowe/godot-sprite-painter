@@ -5,6 +5,8 @@ extends Sprite2D
 
 @onready var border_rect = $"../ImageBorder"
 @onready var resize_result = $"../ResizeResult"
+@onready var preview = $"ToolView"
+@onready var preview_shader = $"SubViewport/ShaderView"
 @onready var resize_rect = border_rect.get_node("Resize")
 
 var camera_pos := Vector2.ZERO
@@ -25,6 +27,7 @@ func translate(by : Vector2):
 func update_position():
 	update_position_local()
 	resize_rect.rect_scale = global_scale
+	$"SubViewport".size = texture.get_size()
 
 
 func reset_position():
@@ -72,10 +75,6 @@ func _on_resize_preview_changed(current_delta, expand_direction):
 	resize_result.global_position = get_global_mouse_position() - resize_result.size * 0.5
 
 
-func _draw():
-	get_node(draw_handler).draw_preview(self, mouse_pos)
-
-
 func event_vp_to_image(from_event : InputEventMouse, unsafe : bool = false) -> InputEventMouse:
 	if !unsafe:
 		from_event = from_event.duplicate()
@@ -84,6 +83,10 @@ func event_vp_to_image(from_event : InputEventMouse, unsafe : bool = false) -> I
 	if from_event is InputEventMouseMotion:
 		from_event.relative /= scale
 
-	mouse_pos = from_event.position
-	queue_redraw()
+	preview.mouse_pos = from_event.position
+	preview.show()
+	preview.queue_redraw()
+	preview_shader.mouse_pos = from_event.position
+	preview_shader.show()
+	preview_shader.queue_redraw()
 	return from_event

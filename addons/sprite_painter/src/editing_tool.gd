@@ -9,7 +9,7 @@ enum {
   TOOL_PROP_ENUM,
   TOOL_PROP_ICON_ENUM,
   TOOL_PROP_ICON_FLAGS,
-  TOOL_PROP_GRADIENT,
+  TOOL_PROP_RESOURCE,
 }
 
 enum {
@@ -21,6 +21,7 @@ enum {
 }
 
 @export var tool_name := "Box Selection"
+@export var preview_shader : ShaderMaterial
 
 var selection : BitMap
 
@@ -138,9 +139,22 @@ func add_property(property_name, default_value, setter : Callable, type : int, h
 					)
 					button.button_pressed = default_value[button.get_index()]
 
-		TOOL_PROP_GRADIENT:
-			# TODO
-			pass
+		TOOL_PROP_RESOURCE:
+			editor = EditorResourcePicker.new()
+			editor.resource_changed.connect(func(x):
+				setter.call(x)
+			)
+			if hint.size() > 0:
+				editor.base_type = hint[0]
+
+			var plugin_root = get_parent()
+			while !plugin_root is Window:
+				plugin_root = plugin_root.get_parent()
+				if plugin_root is SpritePainterRoot:
+					editor.resource_selected.connect(func(x, inspected):
+						plugin_root.editor_interface.edit_resource(x)
+					)
+					break
 
 	parent.add_child(editor)
 
@@ -207,5 +221,5 @@ func draw_preview(image_view : CanvasItem, mouse_position : Vector2i):
 	printerr("Not implemented: draw_preview! (" + get_script().resource_path.get_file() + ")")
 
 
-func draw_transparent_preview(image_view : CanvasItem, mouse_position : Vector2i):
+func draw_shader_preview(image_view : CanvasItem, mouse_position : Vector2i):
 	pass
