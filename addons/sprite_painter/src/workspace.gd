@@ -30,16 +30,8 @@ func handle_input(event) -> bool:
 				dragging = false
 				mouse_button = -1
 				var rect = tool_manager.get_affected_rect()
-				pre_image_changed.emit(edited_image, rect)
-				if pass_event_to_tool(event):
-					image_changed.emit(edited_image, rect)
-					if edited_image_selection.get_true_bit_count() == 0:
-						clear_selection()
-
-					image_view.texture.update(edited_image)
-					return true
-				
-				else: return false
+				make_image_edit(event, rect)
+				return true
 
 		if event.button_index == MOUSE_BUTTON_WHEEL_UP:
 			image_view.zoom(Vector2.ONE * 1.05)
@@ -71,6 +63,16 @@ func handle_input(event) -> bool:
 		return false
 
 	return false
+
+
+func make_image_edit(event : InputEventMouseButton, rect : Rect2i):
+	pre_image_changed.emit(edited_image, rect)
+	pass_event_to_tool(event)
+	image_changed.emit(edited_image, rect)
+	if edited_image_selection.get_true_bit_count() == 0:
+		clear_selection()
+
+	image_view.texture.update(edited_image)
 
 
 func pass_event_to_tool(event) -> bool:

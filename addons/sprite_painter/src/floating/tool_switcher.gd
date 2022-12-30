@@ -5,6 +5,7 @@ signal tool_changed(tool_node)
 
 @export var toolbar : NodePath
 @export var toolbar_end : NodePath
+@export var image_view : NodePath
 
 var by_button := {}
 var by_shortcut := {}
@@ -89,6 +90,8 @@ func _on_tool_button_toggled(toggled : bool, tool_node : EditingTool):
 
 	tool_node.show()
 	current_tool = tool_node
+	
+	get_node(image_view).self_modulate.a = 1.0 if tool_node.image_hide_mode != 2 else 0.0
 	tool_changed.emit(tool_node)
 
 
@@ -106,6 +109,12 @@ func handle_image_input(event, image, selection) -> bool:
 			current_color1 if event.button_index == MOUSE_BUTTON_LEFT else current_color2,
 			current_color1 if event.button_index != MOUSE_BUTTON_LEFT else current_color2
 		)
+		if current_tool.image_hide_mode != 2:
+			get_node(image_view).self_modulate.a = 1.0
+
+		if event.pressed && current_tool.image_hide_mode == 1:
+			get_node(image_view).self_modulate.a = 0.0
+
 		return true
 
 	return false

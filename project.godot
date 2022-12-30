@@ -21,6 +21,11 @@ _global_script_classes=[{
 "language": &"GDScript",
 "path": "res://addons/sprite_painter/global/fill_tools.gd"
 }, {
+"base": "Node",
+"class": &"ImageScript",
+"language": &"GDScript",
+"path": "res://addons/sprite_painter/src/image_script.gd"
+}, {
 "base": "Control",
 "class": &"SpritePainterRoot",
 "language": &"GDScript",
@@ -34,6 +39,7 @@ _global_script_classes=[{
 _global_script_class_icons={
 "EditingTool": "",
 "ImageFillTools": "",
+"ImageScript": "",
 "SpritePainterRoot": "",
 "ThemeIconButton": ""
 }

@@ -10,6 +10,7 @@ enum {
   TOOL_PROP_ICON_ENUM,
   TOOL_PROP_ICON_FLAGS,
   TOOL_PROP_RESOURCE,
+  TOOL_PROP_FOLDER_SCAN,
 }
 
 enum {
@@ -22,6 +23,7 @@ enum {
 
 @export var tool_name := "Box Selection"
 @export var preview_shader : ShaderMaterial
+@export_enum("None", "When Drawing", "When Active") var image_hide_mode := 0
 
 var selection : BitMap
 
@@ -39,13 +41,18 @@ func add_name():
 	label.text = tool_name
 	label.size_flags_vertical = SIZE_SHRINK_CENTER | SIZE_FILL
 	add_child(label)
-	
+	add_separator()
+
+	_last_grid = null
+
+
+func add_separator():
 	var sep = ColorRect.new()
 	sep.custom_minimum_size = Vector2(0, 2)
 	sep.color = get_theme_color("accent_color", "Editor")
 	sep.size_flags_horizontal = SIZE_EXPAND_FILL
 	add_child(sep)
-
+	
 	_last_grid = null
 
 
@@ -189,7 +196,7 @@ func add_property(
 				setter.call(x)
 			)
 			if hint.size() > 0:
-				editor.base_type = hint[0]
+				editor.base_type = hint if hint is String else hint[0]
 
 			var plugin_root = get_parent()
 			while !plugin_root is Window:
@@ -200,6 +207,32 @@ func add_property(
 					)
 					break
 
+		TOOL_PROP_FOLDER_SCAN:
+			editor = OptionButton.new()
+			var folder = (hint if hint is String else hint[0]).trim_suffix("/") + "/"
+			var filenames = DirAccess.get_files_at(folder)
+			
+			for x in filenames:
+				editor.add_item(x.get_basename())
+
+			editor.item_selected.connect(func(x):
+				setter.call(load(folder + filenames[x]))
+			)
+			if default_value is int:
+				editor.select(default_value)
+
+			elif default_value is String:
+				default_value = default_value.get_file()
+
+				var found_index = filenames.find(default_value)
+				editor.select(found_index)
+
+			if hotkey_adjustment:
+				_hotkey_adjustment_hook = func(x):
+					editor.select(posmod((editor.get_selected_id() + x), hint.size()))
+					setter.call(load(folder + filenames[editor.get_selected_id()]))
+
+	editor.size_flags_horizontal = SIZE_EXPAND_FILL
 	parent.add_child(editor)
 	return editor
 
@@ -213,6 +246,20 @@ func add_text_display():
 
 	_last_grid = null
 	return textbox
+
+
+func add_button_panel(labels : Array[String]):
+	var container = HFlowContainer.new()
+	for x in labels:
+		var new_button = Button.new()
+		new_button.text = x
+		new_button.size_flags_horizontal = SIZE_EXPAND_FILL
+		container.add_child(new_button)
+
+	add_child(container)
+
+	_last_grid = null
+	return container
 
 
 func is_out_of_bounds(pos : Vector2i, rect_size : Vector2i):
