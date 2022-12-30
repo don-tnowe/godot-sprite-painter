@@ -2,6 +2,7 @@
 
 [resource]
 code = "shader_type canvas_item;
+render_mode blend_premul_alpha;
 
 uniform sampler2D gradient;
 uniform vec2 from;
@@ -18,7 +19,7 @@ void fragment() {
 	switch (type)
 	{
 		case 0: // Line
-			// Stolen again from legend:
+			// Stolen again from:
 			// https://iquilezles.org/articles/forgot-the-exact-link
 			vec2 delta_rotated = vec2(-delta.y, delta.x);
 			vec2 diff = UV - from;

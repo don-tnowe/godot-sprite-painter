@@ -128,7 +128,8 @@ func move_selected_pixels(image, drag_vec, copy, back_color):
 
 			selection.set_bit(i, j, true)
 			dest_pixel = old_pixels[dest_pos.x + dest_pos.y * image_size.x]
-			image.set_pixel(i, j, old_pixels[i + j * image_size.x].blend(dest_pixel))
+#			image.set_pixel(i, j, old_pixels[i + j * image_size.x].blend(dest_pixel))
+			image.set_pixel(i, j, image.get_pixel(i, j).blend(dest_pixel))
 
 
 func get_affected_rect():
