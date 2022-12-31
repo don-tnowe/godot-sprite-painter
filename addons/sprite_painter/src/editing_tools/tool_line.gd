@@ -8,7 +8,7 @@ func _ready():
 	add_property("Width", line_width,
 		func (x): line_width = x,
 		TOOL_PROP_INT,
-		[0, 20]
+		[0, 250]
 	)
 	add_property("Flags", [erase_mode, aa],
 		func (k, v):

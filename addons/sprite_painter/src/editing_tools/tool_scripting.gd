@@ -3,20 +3,23 @@ extends EditingTool
 
 @export var workspace : NodePath
 
+var timer : Timer
+var param_grid : Control
 var script_instance : ImageScript
 var original_image : Image
 var result_image_tex : ImageTexture
-var param_grid
 
 
 func _ready():
 	add_name()
-	add_property("Script",
+	var button = add_property("Script",
 		"",
 		load_script,
 		TOOL_PROP_FOLDER_SCAN, 
 		"res://addons/sprite_painter/image_scripts"
-	).text = "Choose a script..."
+	)
+	button.text = "Choose a script here. Hover over the image to preview the result."
+	button.fit_to_longest_item = false
 	param_grid = start_property_grid()
 	add_separator()
 
@@ -28,6 +31,14 @@ func _ready():
 		ws.image_replaced.emit(old_image, ws.edited_image)
 	)
 	buttons[1].pressed.connect(func(): load_script(script_instance.get_script()))
+	
+	# Updates are expensive if images are changed on the CPU.
+	# Update only sometimes to reduce lag
+	timer = Timer.new()
+	timer.wait_time = 2.0
+	timer.one_shot = true
+	timer.timeout.connect(_on_timer_timeout)
+	add_child(timer)
 
 
 func load_script(script : Script):
@@ -52,6 +63,8 @@ func load_script(script : Script):
 
 
 func update_script():
+	if timer.time_left != 0.0: return
+
 	var new_image = Image.create_from_data(
 		original_image.get_width(),
 		original_image.get_height(),
@@ -62,6 +75,7 @@ func update_script():
 	result_image_tex = ImageTexture.create_from_image(
 		script_instance._get_image(new_image)
 	)
+	timer.start()
 
 
 func mouse_pressed(
@@ -79,7 +93,6 @@ func get_affected_rect() -> Rect2i:
 
 func mouse_moved(event : InputEventMouseMotion):
 	original_image = get_node(workspace).edited_image
-	pass
 
 
 func draw_preview(image_view : CanvasItem, mouse_position : Vector2i):
@@ -88,3 +101,7 @@ func draw_preview(image_view : CanvasItem, mouse_position : Vector2i):
 
 func draw_shader_preview(image_view : CanvasItem, mouse_position : Vector2i):
 	image_view.texture = result_image_tex
+
+
+func _on_timer_timeout():
+	update_script()

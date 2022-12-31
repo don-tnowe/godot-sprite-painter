@@ -27,6 +27,7 @@ func _ready():
 		TOOL_PROP_INT,
 		[0, 100]
 	)
+	add_selection_button_panel()
 
 
 func apply_selection(add_modifier, subtract_modifier):

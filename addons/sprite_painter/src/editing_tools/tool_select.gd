@@ -3,9 +3,15 @@ extends EditingTool
 
 @export var preview_color := Color("1e90ff7f")
 
+enum {
+	DRAG_LEAVE_TRANSPARENT,
+	DRAG_LEAVE_SECONDARY,
+	DRAG_SELECTION_ONLY,
+	DRAG_NONE,
+}
+
 var operation := 0
-var secondary_as_bg := false
-var dragging_enabled := true
+var dragging_mode := DRAG_LEAVE_TRANSPARENT
 
 var mouse_down := false
 var selection_dragging := false
@@ -19,6 +25,7 @@ func _ready():
 	add_name()
 	start_property_grid()
 	add_selection_common_properties()
+	add_selection_button_panel()
 
 
 func add_selection_common_properties():
@@ -28,12 +35,47 @@ func add_selection_common_properties():
 		["Replace", "Add (Ctrl)", "Subtract (Right-click)", "Intersection", "Invert"],
 		true
 	)
-	add_property("Drag Background", 1 if secondary_as_bg else 0,
-		func (x):
-			secondary_as_bg = (x == 1)
-			dragging_enabled = !(x == 2),
+	add_property("Drag Mode", dragging_mode,
+		func (x): dragging_mode = x,
 		TOOL_PROP_ENUM,
-		["Transparent", "Secondary Color", "Never Drag"]
+		["Transparent BG", "Secondary Color BG", "Move Selection Only", "Never Drag"]
+	)
+
+
+func add_selection_button_panel():
+	var selection_view = $"%SelectionView"
+	var workspace = $"%Workspace"
+	add_separator()
+	var buttons = add_button_panel(
+		["Deselect", "Erase", "Invert"]
+	).get_children()
+	buttons[0].pressed.connect(func():
+		selection.set_bit_rect(Rect2i(Vector2i.ZERO, selection.get_size()), true)
+		selection_view.queue_redraw()
+	)
+
+	# This fragment of code is worth framing IMO.
+	buttons[1].pressed.connect(func():
+		var bg_color = Color.TRANSPARENT
+		if dragging_mode == DRAG_LEAVE_SECONDARY:
+			bg_color = get_parent().current_color2
+
+		workspace.make_image_edit(
+			func():
+				for i in selection.get_size().x:
+					for j in selection.get_size().y:
+						if selection.get_bit(i, j):
+							image.set_pixel(i, j, bg_color),
+			Rect2i(Vector2i.ZERO, selection.get_size())
+		)
+	)
+
+	buttons[2].pressed.connect(func():
+		for i in selection.get_size().x:
+			for j in selection.get_size().y:
+				selection.set_bit(i, j, !selection.get_bit(i, j))
+
+		selection_view.queue_redraw()
 	)
 
 
@@ -52,7 +94,7 @@ func mouse_pressed(
 		draw_start = event.position
 		draw_end = draw_start
 		selection_dragging = (
-			dragging_enabled
+			dragging_mode != DRAG_NONE
 			&& !subtract && !add
 			&& selection.get_bitv(event.position)
 			&& !is_selection_empty()
@@ -63,7 +105,7 @@ func mouse_pressed(
 			image,
 			Vector2i(draw_end - draw_start),
 			add,
-			color2 if secondary_as_bg else Color.TRANSPARENT
+			color2
 		)
 
 	else:
@@ -101,20 +143,24 @@ func apply_selection(add_modifier, subtract_modifier):
 
 
 func move_selected_pixels(image, drag_vec, copy, back_color):
-	var old_sel = BitMap.new()
-	old_sel.create(image_size)
-
 	var old_pixels = []
-	var source_selected := false
+	var old_sel = BitMap.new()
+	var move_image = dragging_mode != DRAG_SELECTION_ONLY
+	old_sel.create(image_size)
 	old_pixels.resize(image_size.x * image_size.y)
+
+	if dragging_mode == DRAG_LEAVE_TRANSPARENT:
+		back_color = Color.TRANSPARENT
+
 	# Go through source pixels
+	var source_selected := false
 	for i in image_size.x:
 		for j in image_size.y:
 			source_selected = selection.get_bit(i, j)
 			old_sel.set_bit(i, j, source_selected)
 			selection.set_bit(i, j, false)
 			old_pixels[i + j * image_size.x] = image.get_pixel(i, j)
-			if !copy && source_selected:
+			if !copy && source_selected && move_image:
 				image.set_pixel(i, j, back_color)
 
 	# Paste into destination pixels
@@ -128,8 +174,8 @@ func move_selected_pixels(image, drag_vec, copy, back_color):
 
 			selection.set_bit(i, j, true)
 			dest_pixel = old_pixels[dest_pos.x + dest_pos.y * image_size.x]
-#			image.set_pixel(i, j, old_pixels[i + j * image_size.x].blend(dest_pixel))
-			image.set_pixel(i, j, image.get_pixel(i, j).blend(dest_pixel))
+			if move_image:
+				image.set_pixel(i, j, image.get_pixel(i, j).blend(dest_pixel))
 
 
 func get_affected_rect():

@@ -82,14 +82,20 @@ func mouse_pressed(
 		var rect = get_affected_rect()
 		var new_image = shader_viewport_texture.get_image()
 		if !erase_mode:
-			image.blend_rect(new_image, rect, rect.position)
+			var cur_pos : Vector2i
+			for i in rect.size.x:
+				for j in rect.size.y:
+					cur_pos = rect.position + Vector2i(i, j)
+					set_image_pixelv(image, cur_pos,
+						image.get_pixelv(cur_pos).blend(new_image.get_pixelv(cur_pos))
+					)
 
 		else:
 			var cur_pos : Vector2i
 			for i in rect.size.x:
 				for j in rect.size.y:
 					cur_pos = rect.position + Vector2i(i, j)
-					image.set_pixelv(cur_pos, Color(
+					set_image_pixelv(image, cur_pos, Color(
 						image.get_pixelv(cur_pos),
 						1.0 - new_image.get_pixelv(cur_pos).a
 					))

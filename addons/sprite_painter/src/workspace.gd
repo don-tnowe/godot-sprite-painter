@@ -9,6 +9,7 @@ signal image_replaced(old_image, new_image)
 @onready var selection_view = $"%SelectionView"
 @onready var grid_view = $"%GridView"
 @onready var tool_manager = $"%ToolSwitcher"
+@onready var context_settings = $"%ContextSettings"
 
 var cur_scale := 1.0
 var mouse_button := -1
@@ -16,6 +17,14 @@ var dragging := false
 var edited_image : Image
 var edited_image_path : String
 var edited_image_selection := BitMap.new()
+
+
+func _ready():
+	# Recolor all floating panels to make buttons more visible
+	var style = get_theme_stylebox("panel", "Panel").duplicate()
+	style.bg_color = get_theme_color("base_color", "Editor")
+	theme = Theme.new()
+	theme.set_stylebox("panel", "Panel", style)
 
 
 func handle_input(event) -> bool:
@@ -30,7 +39,7 @@ func handle_input(event) -> bool:
 				dragging = false
 				mouse_button = -1
 				var rect = tool_manager.get_affected_rect()
-				make_image_edit(event, rect)
+				make_image_edit(func(): pass_event_to_tool(event), rect)
 				return true
 
 		if event.button_index == MOUSE_BUTTON_WHEEL_UP:
@@ -65,10 +74,10 @@ func handle_input(event) -> bool:
 	return false
 
 
-func make_image_edit(event : InputEventMouseButton, rect : Rect2i):
-	pre_image_changed.emit(edited_image, rect)
-	pass_event_to_tool(event)
-	image_changed.emit(edited_image, rect)
+func make_image_edit(edit : Callable, affected_rect : Rect2i):
+	pre_image_changed.emit(edited_image, affected_rect)
+	edit.call()
+	image_changed.emit(edited_image, affected_rect)
 	if edited_image_selection.get_true_bit_count() == 0:
 		clear_selection()
 
@@ -77,8 +86,12 @@ func make_image_edit(event : InputEventMouseButton, rect : Rect2i):
 
 func pass_event_to_tool(event) -> bool:
 	event.position = event.global_position - global_position
+	var image_space_event = image_view.event_vp_to_image(event)
+	if context_settings.handle_image_input(image_space_event):
+		return true
+
 	return tool_manager.handle_image_input(
-		image_view.event_vp_to_image(event),
+		image_space_event,
 		edited_image,
 		edited_image_selection
 	)
