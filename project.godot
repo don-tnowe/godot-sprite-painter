@@ -19,7 +19,7 @@ _global_script_classes=[{
 "base": "RefCounted",
 "class": &"ImageFillTools",
 "language": &"GDScript",
-"path": "res://addons/sprite_painter/global/fill_tools.gd"
+"path": "res://addons/sprite_painter/src/fill_tools.gd"
 }, {
 "base": "Node",
 "class": &"ImageScript",

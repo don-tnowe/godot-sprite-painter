@@ -52,7 +52,7 @@ float get_sdf(vec2 pos, vec2 size) {
 			float distance_to_diag = 0.0;
 			if ((drag_delta.x < 0.0) == (drag_delta.y < 0.0))
 				// Main diag
-				if (drag_delta.x > drag_delta.y)
+				if (drag_delta.x < drag_delta.y)
 					// Bottom filled
 					distance_to_diag = (pos.x - pos.y * aspect);
 				
@@ -63,7 +63,7 @@ float get_sdf(vec2 pos, vec2 size) {
 
 			else
 				// Secondary diag
-				if (drag_delta.x > -drag_delta.y)
+				if (drag_delta.x < -drag_delta.y)
 					// Bottom filled
 					// !!! incorrest sdf
 					distance_to_diag = (pos.y * aspect - size.x + pos.x);
@@ -79,24 +79,15 @@ float get_sdf(vec2 pos, vec2 size) {
 			return min(distance_to_diag / aspect, rect_dist);
 
 		case 3: // Diamond
-			vec2 from_center = abs(vec2(pos) - size * 0.5);
+			vec2 from_center = abs(vec2(pos * 2.0) - size) * 0.5;
 			from_center.y *= size.x / size.y;
-			return max(size.x, size.y) * 0.5 - (from_center.x + from_center.y);
+			return size.x * 0.5 - (from_center.x + from_center.y);
 
 		case 4: // Hex
 			if ((drag_delta.x < 0.0) == (drag_delta.y < 0.0)) {
 				pos = pos.yx;
 				size = size.yx;
 			}
-			// I'm sick of trying to make this pixel-perfect symmetric,
-			// for some reason it only works if set from scripts
-//			size += vec2(2.0, 0.0);
-//			if (pos.x <= size.x * 0.5)
-//				size.x = ceil(size.x * sin(PI * 0.666666));
-//
-//			else
-//				size.x = floor(size.x * sin(PI * 0.666666));
-
 			vec2 diamond_from_center = abs(pos * 2.0 - size) * vec2(0.25, 0.5);
 			return size.x * 0.5 - max(
 				diamond_from_center.x + diamond_from_center.y * size.x / size.y,

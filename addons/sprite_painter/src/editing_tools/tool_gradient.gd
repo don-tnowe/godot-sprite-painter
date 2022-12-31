@@ -85,7 +85,7 @@ func mouse_pressed(
 			return
 
 		points[0] = event.position.floor()
-		points[1] = event.position.floor() + Vector2.ONE
+		points[1] = event.position.floor()
 		affected_pixels.create(image.get_size())
 		fill(event.position, image)
 		var mask = affected_pixels.convert_to_image()

@@ -76,7 +76,7 @@ func update_grid_from_sprite(node : CanvasItem):
 	var frame_size = tex_size / Vector2(node.hframes, node.vframes)
 	var region_offset = Vector2i.ZERO
 	if node.region_enabled:
-		frame_size /= node.region_rect.size
+		frame_size = node.region_rect.size
 		region_offset = node.region_rect.position
 
 	workspace.set_view_grid(frame_size, region_offset, node.region_enabled)

@@ -92,12 +92,14 @@ func mouse_pressed(
 
 		else:
 			var cur_pos : Vector2i
+			var cur_pixel : Color
 			for i in rect.size.x:
 				for j in rect.size.y:
 					cur_pos = rect.position + Vector2i(i, j)
+					cur_pixel = image.get_pixelv(cur_pos)
 					set_image_pixelv(image, cur_pos, Color(
-						image.get_pixelv(cur_pos),
-						1.0 - new_image.get_pixelv(cur_pos).a
+						cur_pixel,
+						(cur_pixel.a - new_image.get_pixelv(cur_pos).a)
 					))
 
 
