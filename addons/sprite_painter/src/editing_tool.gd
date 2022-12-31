@@ -11,6 +11,7 @@ enum {
   TOOL_PROP_ICON_FLAGS,
   TOOL_PROP_RESOURCE,
   TOOL_PROP_FOLDER_SCAN,
+  TOOL_PROP_COLOR,
 }
 
 enum {
@@ -174,7 +175,8 @@ func add_property(
 
 				else:
 					button.toggled.connect(func(toggled):
-						setter.call(button.get_index(), toggled)
+						default_value[button.get_index()] = toggled
+						setter.call(default_value)
 					)
 					button.button_pressed = default_value[button.get_index()]
 
@@ -195,7 +197,8 @@ func add_property(
 			editor.resource_changed.connect(func(x):
 				setter.call(x)
 			)
-			if hint.size() > 0:
+			editor.edited_resource = default_value
+			if !hint is Array || hint.size() > 0:
 				editor.base_type = hint if hint is String else hint[0]
 
 			var plugin_root = get_parent()
@@ -231,6 +234,12 @@ func add_property(
 				_hotkey_adjustment_hook = func(x):
 					editor.select(posmod((editor.get_selected_id() + x), hint.size()))
 					setter.call(load(folder + filenames[editor.get_selected_id()]))
+
+		TOOL_PROP_COLOR:
+			editor = ColorPickerButton.new()
+			editor.color = default_value
+			editor.color_changed.connect(setter)
+			
 
 	editor.size_flags_horizontal = SIZE_EXPAND_FILL
 	parent.add_child(editor)

@@ -98,6 +98,8 @@ func _on_tool_button_toggled(toggled : bool, tool_node : EditingTool):
 func handle_image_input(event, image, selection) -> bool:
 	if current_tool == null: return false
 	if event is InputEventMouseMotion:
+		current_tool.selection = selection  # Needed because Image Script tool does not normally use clicks
+		# I better just fetch it from the Workspace but also ehhhh incapsulation
 		current_tool.mouse_moved(event)
 		return true
 

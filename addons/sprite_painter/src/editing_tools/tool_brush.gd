@@ -58,7 +58,7 @@ func _ready():
 		pressure_options["CanvasItemMaterial"] = "Tint"
 
 	add_property("Pen Pressure", pen_flags,
-		func (k, v): pen_flags[k] = v,
+		func (x): pen_flags = x,
 		TOOL_PROP_ICON_FLAGS,
 		pressure_options
 	)

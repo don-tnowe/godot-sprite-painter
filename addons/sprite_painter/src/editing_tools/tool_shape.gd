@@ -56,9 +56,9 @@ func _ready():
 		[0, 20]
 	)
 	add_property("Flags", [erase_mode, aa],
-		func (k, v):
-			if k == 0: erase_mode = v
-			else: aa = v,
+		func (x):
+			erase_mode = x[0]
+			aa = x[1],
 		TOOL_PROP_ICON_FLAGS,
 		{"Eraser" : "Erase Mode", "CurveTexture" : "Anti-Aliasing"}
 	)
@@ -81,22 +81,21 @@ func mouse_pressed(
 	else:
 		var rect = get_affected_rect()
 		var new_image = shader_viewport_texture.get_image()
-		if !erase_mode:
-			var cur_pos : Vector2i
-			for i in rect.size.x:
-				for j in rect.size.y:
-					cur_pos = rect.position + Vector2i(i, j)
-					set_image_pixelv(image, cur_pos,
-						image.get_pixelv(cur_pos).blend(new_image.get_pixelv(cur_pos))
-					)
+		var cur_pos : Vector2i
+		var cur_pixel : Color
+		for i in rect.size.x:
+			for j in rect.size.y:
+				cur_pos = rect.position + Vector2i(i, j)
+				if is_out_of_bounds(cur_pos, image_size):
+					continue
 
-		else:
-			var cur_pos : Vector2i
-			var cur_pixel : Color
-			for i in rect.size.x:
-				for j in rect.size.y:
-					cur_pos = rect.position + Vector2i(i, j)
-					cur_pixel = image.get_pixelv(cur_pos)
+				cur_pixel = image.get_pixelv(cur_pos)
+				if !erase_mode:
+					set_image_pixelv(image, cur_pos,
+						cur_pixel.blend(new_image.get_pixelv(cur_pos))
+					)
+				
+				else:
 					set_image_pixelv(image, cur_pos, Color(
 						cur_pixel,
 						(cur_pixel.a - new_image.get_pixelv(cur_pos).a)

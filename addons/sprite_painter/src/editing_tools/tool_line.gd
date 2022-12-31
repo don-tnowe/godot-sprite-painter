@@ -11,9 +11,10 @@ func _ready():
 		[0, 250]
 	)
 	add_property("Flags", [erase_mode, aa],
-		func (k, v):
-			if k == 0: erase_mode = v
-			else: aa = v,
+		func (x):
+			print(x)
+			erase_mode = x[0]
+			aa = x[1],
 		TOOL_PROP_ICON_FLAGS,
 		{"Eraser" : "Erase Mode", "CurveTexture" : "Anti-Aliasing"}
 	)
