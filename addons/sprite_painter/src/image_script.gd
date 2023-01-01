@@ -1,5 +1,5 @@
 class_name ImageScript
-extends Node
+extends RefCounted
 
 ## Base class for scripts that process images through Sprite painter.
 ##
@@ -7,22 +7,15 @@ extends Node
 ## to make it usable in Sprite Painter.
 
 enum {
-## Checkbox property. No hints.
-	SCRIPT_PARAM_BOOL,
-## Integer number property. Hints: [MINVALUE, MAXVALUE]
-	SCRIPT_PARAM_INT,
-## Float number property. Hints: [MINVALUE, MAXVALUE]
-	SCRIPT_PARAM_FLOAT,
-## Enumeration property. Hint is an array of names for the created OptionButton.
-	SCRIPT_PARAM_ENUM,
-## Enumeration property. Hint is an dictionary of {ICON : TOOLTIP} pairs.
-## ICON can be a theme icon or a loaded Texture.
-	SCRIPT_PARAM_ICON_ENUM,
-## Array of Bools property. Hint is an dictionary of {ICON : TOOLTIP} pairs.
-## ICON can be a theme icon or a loaded Texture.
-	SCRIPT_PARAM_ICON_FLAGS,
-## Resource property. Hint is the base type of accepted Resources.
-	SCRIPT_PARAM_RESOURCE,
+	SCRIPT_PARAM_BOOL, ## Checkbox property. No hints.
+	SCRIPT_PARAM_INT, ## Integer number property. Hints: [MINVALUE, MAXVALUE]
+	SCRIPT_PARAM_FLOAT, ## Floating-point number property. Hints: [MINVALUE, MAXVALUE]
+	SCRIPT_PARAM_ENUM, ## Enumeration property. Hint is an array of names for the created OptionButton.
+	SCRIPT_PARAM_ICON_ENUM, ## Enumeration property. Hint is an dictionary of {ICON : TOOLTIP} pairs. ICON can be a theme icon name or a loaded Texture.
+	SCRIPT_PARAM_ICON_FLAGS, ## Array of Bools property. Hint is an dictionary of {ICON : TOOLTIP} pairs. ICON can be a theme icon or a loaded Texture.
+	SCRIPT_PARAM_RESOURCE, ## Resource property. Hint is the base type of accepted Resources.
+	SCRIPT_PARAM_FILE, ## Resource property. Allows choosing a file from a folder set in a hint.
+	SCRIPT_PARAM_COLOR, ## Color property. No hints.
 }
 
 var _params = {}
@@ -33,9 +26,12 @@ var _params = {}
 func get_param(key : String) -> Variant:
 	return _params[key]
 
+## Called when the script is loaded: when switching scripts, opening an image, or resetting parameters.
+func _ready(image : Image):
+	pass
 
-## Edits the image. Must return the result, which can be the same image object.
-func _get_image(new_image : Image) -> Image:
+## Called to preview or apply the script. Must return the result, which can be the same image object.
+func _get_image(new_image : Image, selection : BitMap) -> Image:
 	return new_image
 
 ## Must return a list of parameters. Each parameter contains:

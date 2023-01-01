@@ -90,7 +90,7 @@ func _on_tool_button_toggled(toggled : bool, tool_node : EditingTool):
 
 	tool_node.show()
 	current_tool = tool_node
-	
+
 	get_node(image_view).self_modulate.a = 1.0 if tool_node.image_hide_mode != 2 else 0.0
 	tool_changed.emit(tool_node)
 

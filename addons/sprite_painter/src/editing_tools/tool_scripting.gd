@@ -3,6 +3,8 @@ extends EditingTool
 
 @export var workspace : NodePath
 
+var live_update := true
+
 var timer : Timer
 var param_grid : Control
 var script_instance : ImageScript
@@ -22,6 +24,13 @@ func _ready():
 	button.fit_to_longest_item = false
 	param_grid = start_property_grid()
 	add_separator()
+	add_property("Live Update",
+		live_update,
+		func(x):
+			live_update = x
+			if x: update_script(true),
+		TOOL_PROP_BOOL
+	)
 
 	var buttons = add_button_panel(["Apply", "Reset"]).get_children()
 	buttons[0].pressed.connect(func():
@@ -49,20 +58,26 @@ func load_script(script : Script):
 
 	for x in script_instance._get_param_list():
 		add_property(
-			x[0],
-			x[2],
+			x[0],  # Name
+			x[2],  # Value
 			func(y):
 				script_instance._params[x[0]] = y
-				update_script(),
-			x[1],
-			x[3] if x.size() > 3 else null
+				update_script()
+				if y is Resource && !y.changed.is_connected(update_script):
+					y.changed.connect(update_script),
+			x[1],  # Type
+			x[3] if x.size() > 3 else null  # Hint (if any)
 		)
 		script_instance._params[x[0]] = x[2]
+		if x[2] is Resource && !x[2].changed.is_connected(update_script):
+			x[2].changed.connect(update_script)
 
+	script_instance._ready(original_image)
 	update_script()
 
 
-func update_script():
+func update_script(automatic : bool = false):
+	if !live_update: return
 	if timer.time_left != 0.0: return
 
 	var new_image = Image.create_from_data(
@@ -73,9 +88,10 @@ func update_script():
 		original_image.get_data()
 	)
 	result_image_tex = ImageTexture.create_from_image(
-		script_instance._get_image(new_image)
+		script_instance._get_image(new_image, selection)
 	)
-	timer.start()
+	if !automatic:
+		timer.start()
 
 
 func mouse_pressed(
@@ -103,5 +119,19 @@ func draw_shader_preview(image_view : CanvasItem, mouse_position : Vector2i):
 	image_view.texture = result_image_tex
 
 
+func _on_visibility_changed():
+	super._on_visibility_changed()
+	if is_visible_in_tree() && script_instance != null:
+		script_instance._ready(original_image)
+		update_script(true)
+
+
 func _on_timer_timeout():
-	update_script()
+	update_script(true)
+
+
+func _on_workspace_image_replaced(old_image, new_image):
+	original_image = new_image
+	if is_visible_in_tree() && script_instance != null:
+		script_instance._ready(original_image)
+		update_script(true)
