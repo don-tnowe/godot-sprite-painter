@@ -18,6 +18,10 @@ var color1 := Color.WHITE
 var color2 := Color.TRANSPARENT
 
 var color_picker_primary := true
+var color_picker_picking := false
+var color_picker_picking_disable_with_click := false
+var color_picker_pick_from_image := false
+var screen_image : Image
 
 
 func _ready():
@@ -76,33 +80,33 @@ func set_picked_primary(is_primary, toggle_picker_shown = true):
 		which_color_picked.text = "Secondary"
 
 
+func set_color_screen_picking(picking, hold):
+	color_picker_picking_disable_with_click = !hold
+	color_picker_picking = picking
+	get_node(workspace).input_disabled = picking
+	if picking:
+		screen_image = get_viewport().get_texture().get_image()
+
+
 func _input(event):
-	if picker_shortcut.matches_event(event):
-		# Only pick primary coor (for consistent feel if picker not open)
-		set_picked_primary(true, false)
-		color_picker_tool_button.button_pressed = !color_picker_tool_button.button_pressed
+	if picker_shortcut.matches_event(event) && !event.is_echo():
+		# Only pick primary color (for consistent feel if picker not open)
+		set_color_screen_picking(event.is_pressed(), true)
 		return
 
-	if event is InputEventKey && !event.is_echo():
-		if color_picker_tool_button.button_pressed && event.is_pressed():
-			# Click on the primary color to undo the pick.
-			call_deferred("force_click", color1_button.global_position + color1_button.size * 0.5)
+	if event is InputEventMouseButton && color_picker_picking:
+		if !event.pressed: return
+		if color_picker_picking_disable_with_click:
+			set_color_screen_picking(false, false)
 
+		if color_picker_pick_from_image:
+			var img_view = get_node(workspace).image_view
+			var imagespace_event = img_view.event_vp_to_image(event)
+			var color = get_node(workspace).edited_image.get_pixelv(imagespace_event.position)
+			set_color(event.button_index == MOUSE_BUTTON_LEFT, color)
 
-func force_click(pos):
-	var click = InputEventMouseButton.new()
-	click.pressed = true
-	click.button_index = MOUSE_BUTTON_LEFT
-	click.position = pos
-	click.global_position = click.position
-	var movement = InputEventMouseMotion.new()
-	movement.position = click.position
-	movement.global_position = click.position
-	movement.relative = get_global_mouse_position() - click.position
-	get_viewport().push_input(movement)
-	get_viewport().push_input(click)
-	click.pressed = false
-	get_viewport().push_input(click)
+		else:
+			set_color(event.button_index == MOUSE_BUTTON_LEFT, screen_image.get_pixelv(event.position))
 
 
 func _yoink_color_picker_tool_button():
@@ -110,18 +114,7 @@ func _yoink_color_picker_tool_button():
 		if !x is Button:
 			continue
 
-		var old_button = color_picker_tool_button
-		color_picker_tool_button = x
-		x.get_parent().remove_child(x)
-		x.shortcut = picker_shortcut
-		x.shortcut_context = get_node(workspace)
-		x.icon_alignment = HORIZONTAL_ALIGNMENT_CENTER
-		x.flat = true
-		x.add_theme_stylebox_override("normal", StyleBoxEmpty.new())
-		x.add_theme_stylebox_override("focus", StyleBoxEmpty.new())
-		x.add_theme_stylebox_override("hover", StyleBoxEmpty.new())
-		old_button.replace_by(x)
-		old_button.queue_free()
+		x.free()
 		break
 
 
@@ -161,3 +154,12 @@ func _on_picker_header_gui_input(event):
 	if event is InputEventMouseMotion:
 		if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 			color_picker_container.position += event.relative
+
+
+func _on_color_pick_pressed():
+	set_color_screen_picking(!color_picker_picking, false)
+
+
+func _on_pick_from_image_toggled(button_pressed):
+	color_picker_pick_from_image = button_pressed
+

@@ -79,7 +79,7 @@ func event_vp_to_image(from_event : InputEventMouse, unsafe : bool = false) -> I
 	if !unsafe:
 		from_event = from_event.duplicate()
 
-	from_event.position = (from_event.position - position) / scale
+	from_event.position = (from_event.position - global_position) / scale
 	if from_event is InputEventMouseMotion:
 		from_event.relative /= scale
 

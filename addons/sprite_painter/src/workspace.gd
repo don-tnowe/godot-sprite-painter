@@ -13,6 +13,7 @@ signal image_replaced(old_image, new_image)
 
 var cur_scale := 1.0
 var mouse_button := -1
+var input_disabled := false
 var dragging := false
 var edited_image : Image
 var edited_image_path : String
@@ -28,6 +29,7 @@ func _ready():
 
 
 func handle_input(event) -> bool:
+	if input_disabled: return true
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_RIGHT || event.button_index == MOUSE_BUTTON_LEFT:
 			if event.pressed:
@@ -85,7 +87,7 @@ func make_image_edit(edit : Callable, affected_rect : Rect2i):
 
 
 func pass_event_to_tool(event) -> bool:
-	event.position = event.global_position - global_position
+	event.position = event.global_position
 	var image_space_event = image_view.event_vp_to_image(event)
 	if context_settings.handle_image_input(image_space_event):
 		return true
