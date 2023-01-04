@@ -23,6 +23,7 @@ enum {
 }
 
 @export var tool_name := "Box Selection"
+@export_multiline var tool_desc := ""
 @export var preview_shader : ShaderMaterial
 @export_enum("None", "When Drawing", "When Active") var image_hide_mode := 0
 
@@ -43,6 +44,13 @@ func add_name():
 	label.size_flags_vertical = SIZE_SHRINK_CENTER | SIZE_FILL
 	add_child(label)
 	add_separator()
+	label = Label.new()
+	label.autowrap_mode = TextServer.AUTOWRAP_WORD
+	label.self_modulate.a = 0.75
+	label.text = tool_desc
+	label.size_flags_vertical = SIZE_SHRINK_CENTER | SIZE_FILL
+	if tool_desc == "": label.hide()
+	add_child(label)
 
 	_last_grid = null
 
@@ -247,10 +255,10 @@ func add_property(
 
 
 func add_text_display():
-	var textbox = TextEdit.new()
+	var textbox = LineEdit.new()
 	textbox.editable = false
-	textbox.text = tool_name
 	textbox.size_flags_vertical = SIZE_FILL
+	textbox.expand_to_text_length = true
 	add_child(textbox)
 
 	_last_grid = null

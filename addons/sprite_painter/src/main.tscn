@@ -1,4 +1,4 @@
-[gd_scene load_steps=64 format=3 uid="uid://bc0weyhuhf5di"]
+[gd_scene load_steps=67 format=3 uid="uid://bc0weyhuhf5di"]
 
 [ext_resource type="Script" path="res://addons/sprite_painter/src/main.gd" id="1_pn6xr"]
 [ext_resource type="Script" path="res://addons/sprite_painter/editor_icon_button.gd" id="2_ahevp"]
@@ -16,6 +16,9 @@
 [ext_resource type="Script" path="res://addons/sprite_painter/src/editing_tools/tool_brush.gd" id="16_b68p1"]
 [ext_resource type="Script" path="res://addons/sprite_painter/src/editing_tools/tool_gradient.gd" id="16_np2pu"]
 [ext_resource type="Script" path="res://addons/sprite_painter/src/editing_tools/tool_bucket.gd" id="17_4lt5q"]
+[ext_resource type="Script" path="res://addons/sprite_painter/src/editing_tools/tool_brush_clone.gd" id="17_pf4en"]
+[ext_resource type="Script" path="res://addons/sprite_painter/src/editing_tools/tool_brush_normalmap.gd" id="18_dwsmj"]
+[ext_resource type="Script" path="res://addons/sprite_painter/src/editing_tools/tool_brush_shading.gd" id="18_f5yr5"]
 [ext_resource type="PackedScene" uid="uid://dcc6kewvuomhc" path="res://addons/sprite_painter/src/floating/type_context_settings.tscn" id="18_rmu80"]
 [ext_resource type="Script" path="res://addons/sprite_painter/src/editing_tools/tool_pencil.gd" id="19_76b7g"]
 [ext_resource type="Shader" uid="uid://clpby1t4s1pvy" path="res://addons/sprite_painter/shaders/shape.tres" id="20_0y2y6"]
@@ -43,7 +46,7 @@ events = [SubResource("InputEventKey_2olkx")]
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_lb3gr"]
 
-[sub_resource type="Image" id="Image_trbic"]
+[sub_resource type="Image" id="Image_41y0d"]
 data = {
 "data": PackedByteArray(255, 255, 255, 0, 255, 255, 255, 0, 255, 128, 128, 4, 255, 128, 128, 4, 255, 128, 128, 4, 255, 128, 128, 4, 255, 128, 128, 4, 255, 128, 128, 4, 255, 128, 128, 4, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 93, 93, 131, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 131, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 131, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 94, 94, 127, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 128, 128, 4, 255, 128, 128, 4, 255, 128, 128, 4, 255, 128, 128, 4, 255, 128, 128, 4, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 231, 255, 93, 93, 55, 255, 97, 97, 58, 255, 93, 93, 233, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 231, 255, 94, 94, 54, 255, 94, 94, 57, 255, 93, 93, 233, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 97, 97, 42, 255, 255, 255, 0, 255, 255, 255, 0, 255, 97, 97, 42, 255, 93, 93, 233, 255, 93, 93, 232, 255, 93, 93, 41, 255, 255, 255, 0, 255, 255, 255, 0, 255, 97, 97, 42, 255, 93, 93, 233, 255, 93, 93, 232, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 96, 96, 45, 255, 97, 97, 42, 255, 255, 255, 0, 255, 97, 97, 42, 255, 97, 97, 42, 255, 255, 255, 0, 255, 98, 98, 47, 255, 97, 97, 42, 255, 255, 255, 0, 255, 97, 97, 42, 255, 97, 97, 42, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 96, 96, 45, 255, 93, 93, 235, 255, 93, 93, 233, 255, 97, 97, 42, 255, 255, 255, 0, 255, 255, 255, 0, 255, 94, 94, 46, 255, 93, 93, 236, 255, 93, 93, 233, 255, 97, 97, 42, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 235, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 233, 255, 95, 95, 59, 255, 96, 96, 61, 255, 93, 93, 235, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 233, 255, 95, 95, 59, 255, 96, 96, 61, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0),
 "format": "RGBA8",
@@ -53,7 +56,7 @@ data = {
 }
 
 [sub_resource type="ImageTexture" id="ImageTexture_mo6ny"]
-image = SubResource("Image_trbic")
+image = SubResource("Image_41y0d")
 
 [sub_resource type="InputEventKey" id="InputEventKey_ac1o6"]
 keycode = 86
@@ -101,7 +104,7 @@ events = [SubResource("InputEventKey_qsaam")]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jth0e"]
 
-[sub_resource type="Image" id="Image_ssnuu"]
+[sub_resource type="Image" id="Image_cljhh"]
 data = {
 "data": PackedByteArray(255, 255, 255, 0, 255, 255, 255, 0, 255, 128, 128, 4, 255, 128, 128, 4, 255, 128, 128, 4, 255, 128, 128, 4, 255, 128, 128, 4, 255, 128, 128, 4, 255, 128, 128, 4, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 93, 93, 131, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 131, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 131, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 94, 94, 127, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 128, 128, 4, 255, 128, 128, 4, 255, 128, 128, 4, 255, 128, 128, 4, 255, 128, 128, 4, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 231, 255, 93, 93, 55, 255, 97, 97, 58, 255, 93, 93, 233, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 231, 255, 94, 94, 54, 255, 94, 94, 57, 255, 93, 93, 233, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 97, 97, 42, 255, 255, 255, 0, 255, 255, 255, 0, 255, 97, 97, 42, 255, 93, 93, 233, 255, 93, 93, 232, 255, 93, 93, 41, 255, 255, 255, 0, 255, 255, 255, 0, 255, 97, 97, 42, 255, 93, 93, 233, 255, 93, 93, 232, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 96, 96, 45, 255, 97, 97, 42, 255, 255, 255, 0, 255, 97, 97, 42, 255, 97, 97, 42, 255, 255, 255, 0, 255, 98, 98, 47, 255, 97, 97, 42, 255, 255, 255, 0, 255, 97, 97, 42, 255, 97, 97, 42, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 96, 96, 45, 255, 93, 93, 235, 255, 93, 93, 233, 255, 97, 97, 42, 255, 255, 255, 0, 255, 255, 255, 0, 255, 94, 94, 46, 255, 93, 93, 236, 255, 93, 93, 233, 255, 97, 97, 42, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 235, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 233, 255, 95, 95, 59, 255, 96, 96, 61, 255, 93, 93, 235, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 233, 255, 95, 95, 59, 255, 96, 96, 61, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0),
 "format": "RGBA8",
@@ -110,8 +113,8 @@ data = {
 "width": 16
 }
 
-[sub_resource type="ImageTexture" id="ImageTexture_nmypj"]
-image = SubResource("Image_ssnuu")
+[sub_resource type="ImageTexture" id="ImageTexture_x8x4d"]
+image = SubResource("Image_cljhh")
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_smn0a"]
 
@@ -121,7 +124,7 @@ keycode = 4194305
 [sub_resource type="Shortcut" id="Shortcut_lhl5g"]
 events = [SubResource("InputEventKey_m8eep")]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_al6ng"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fkl0a"]
 content_margin_left = 0.0
 content_margin_top = 0.0
 content_margin_right = 0.0
@@ -133,8 +136,8 @@ corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 corner_detail = 5
 
-[sub_resource type="Theme" id="Theme_fh15k"]
-Panel/styles/panel = SubResource("StyleBoxFlat_al6ng")
+[sub_resource type="Theme" id="Theme_3bkvw"]
+Panel/styles/panel = SubResource("StyleBoxFlat_fkl0a")
 
 [sub_resource type="Gradient" id="Gradient_1ueng"]
 offsets = PackedFloat32Array(0, 1, 1)
@@ -351,11 +354,9 @@ script = ExtResource("2_ahevp")
 icon_name = "Gradient"
 
 [node name="VSeparator3" type="VSeparator" parent="Box/Toolbar"]
-visible = false
 layout_mode = 2
 
 [node name="CloneBrush" type="Button" parent="Box/Toolbar"]
-visible = false
 layout_mode = 2
 tooltip_text = "Shape"
 focus_mode = 0
@@ -375,7 +376,6 @@ script = ExtResource("2_ahevp")
 icon_name = "Clear"
 
 [node name="ShadingBrush" type="Button" parent="Box/Toolbar"]
-visible = false
 layout_mode = 2
 focus_mode = 0
 theme_override_styles/normal = SubResource("StyleBoxEmpty_8skav")
@@ -394,7 +394,6 @@ script = ExtResource("2_ahevp")
 icon_name = "MaterialPreviewSphere"
 
 [node name="NormalMapBrush" type="Button" parent="Box/Toolbar"]
-visible = false
 layout_mode = 2
 focus_mode = 0
 theme_override_styles/normal = SubResource("StyleBoxEmpty_8skav")
@@ -482,28 +481,28 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_jth0e")
 text = "Transform"
 item_count = 8
 popup/item_0/text = "Rotate clockwise"
-popup/item_0/icon = SubResource("ImageTexture_nmypj")
+popup/item_0/icon = SubResource("ImageTexture_x8x4d")
 popup/item_0/id = 0
 popup/item_1/text = "Rotate counter-clockwise"
-popup/item_1/icon = SubResource("ImageTexture_nmypj")
+popup/item_1/icon = SubResource("ImageTexture_x8x4d")
 popup/item_1/id = 1
 popup/item_2/text = "Flip horizontally"
-popup/item_2/icon = SubResource("ImageTexture_nmypj")
+popup/item_2/icon = SubResource("ImageTexture_x8x4d")
 popup/item_2/id = 2
 popup/item_3/text = "Flip vertically"
-popup/item_3/icon = SubResource("ImageTexture_nmypj")
+popup/item_3/icon = SubResource("ImageTexture_x8x4d")
 popup/item_3/id = 3
 popup/item_4/text = ""
 popup/item_4/id = 286
 popup/item_4/separator = true
 popup/item_5/text = "Crop to selection/Crop transparent"
-popup/item_5/icon = SubResource("ImageTexture_nmypj")
+popup/item_5/icon = SubResource("ImageTexture_x8x4d")
 popup/item_5/id = 4
 popup/item_6/text = "Border +1"
-popup/item_6/icon = SubResource("ImageTexture_nmypj")
+popup/item_6/icon = SubResource("ImageTexture_x8x4d")
 popup/item_6/id = 5
 popup/item_7/text = "Change size..."
-popup/item_7/icon = SubResource("ImageTexture_nmypj")
+popup/item_7/icon = SubResource("ImageTexture_x8x4d")
 popup/item_7/id = 6
 script = ExtResource("9_20sxo")
 workspace = NodePath("../../Workspace")
@@ -745,7 +744,7 @@ size_flags_vertical = 3
 focus_mode = 1
 mouse_filter = 2
 mouse_force_pass_scroll_events = false
-theme = SubResource("Theme_fh15k")
+theme = SubResource("Theme_3bkvw")
 script = ExtResource("9_gvnc2")
 metadata/_edit_lock_ = true
 
@@ -804,7 +803,7 @@ region_outer_color = Color(0, 0, 0, 0.498039)
 
 [node name="SelectionView" type="Node2D" parent="Box/Workspace/ViewportOverlay/EditedImageView"]
 unique_name_in_owner = true
-self_modulate = Color(1, 1, 1, 0.31)
+self_modulate = Color(1, 1, 1, 0.6995)
 z_as_relative = false
 script = ExtResource("13_81c1e")
 selection_color = Color(0.117647, 0.564706, 1, 0.498039)
@@ -964,6 +963,29 @@ visible = false
 layout_mode = 2
 script = ExtResource("16_b68p1")
 tool_name = "Brush"
+
+[node name="CloneBrush" type="VBoxContainer" parent="Box/Workspace/Floating/Control/ToolSettings/ToolSwitcher"]
+visible = false
+layout_mode = 2
+script = ExtResource("17_pf4en")
+clone_preview_color = Color(1, 0.4, 0.937255, 0.752941)
+brush_type = 2
+tool_name = "Clone Brush"
+
+[node name="ShadingBrush" type="VBoxContainer" parent="Box/Workspace/Floating/Control/ToolSettings/ToolSwitcher"]
+visible = false
+layout_mode = 2
+script = ExtResource("18_f5yr5")
+brush_type = 3
+tool_name = "Fill Brush"
+
+[node name="NormalMapBrush" type="VBoxContainer" parent="Box/Workspace/Floating/Control/ToolSettings/ToolSwitcher"]
+visible = false
+layout_mode = 2
+script = ExtResource("18_dwsmj")
+brush_type = 4
+tool_name = "Normal Map Brush"
+tool_desc = "Use pen tilt or the left joystick while drawing to control normal."
 
 [node name="Eraser" type="VBoxContainer" parent="Box/Workspace/Floating/Control/ToolSettings/ToolSwitcher"]
 visible = false

@@ -247,8 +247,9 @@ func draw_preview(image_view : CanvasItem, mouse_position : Vector2i):
 		for k in last_edits_chunks:
 			last_edits_textures[k].update(last_edits_chunks[k])
 			image_view.draw_texture(last_edits_textures[k], k)
-	
-	image_view.draw_arc(Vector2(mouse_position + Vector2i.ONE) - brush_offset, brushsize * 0.5 + 0.5, PI * 0.1, PI * 0.9, 32, crosshair_color)
-	image_view.draw_arc(Vector2(mouse_position + Vector2i.ONE) - brush_offset, brushsize * 0.5 + 0.5, PI * 1.1, PI * 1.9, 32, crosshair_color)
+
+	var circle_center = Vector2(mouse_position + Vector2i.ONE) - brush_offset
+	image_view.draw_arc(circle_center, brushsize * 0.5 + 0.5, PI * 0.1, PI * 0.9, 32, crosshair_color)
+	image_view.draw_arc(circle_center, brushsize * 0.5 + 0.5, PI * 1.1, PI * 1.9, 32, crosshair_color)
 	# With region set to (0, 0, 0, 0), hides the image.
 	# image_view.region_enabled = drawing
