@@ -77,5 +77,5 @@ func draw_preview(image_view : CanvasItem, mouse_position : Vector2i):
 		)
 
 	var circle_center = Vector2(mouse_position + Vector2i.ONE + Vector2i(clone_offset)) - brush_offset
-	image_view.draw_arc(circle_center, brushsize * 0.5 + 0.5, PI * 0.6, PI * 1.4, 32, clone_preview_color)
-	image_view.draw_arc(circle_center, brushsize * 0.5 + 0.5, PI * 1.6, PI * 2.4, 32, clone_preview_color)
+	image_view.draw_arc(circle_center, brushsize * 0.5 + 0.5, PI * 0.6, PI * 1.4, 32, clone_preview_color, 1.0)
+	image_view.draw_arc(circle_center, brushsize * 0.5 + 0.5, PI * 1.6, PI * 2.4, 32, clone_preview_color, 1.0)

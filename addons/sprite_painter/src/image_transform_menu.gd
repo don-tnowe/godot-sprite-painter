@@ -35,13 +35,14 @@ func _ready():
 	p.id_pressed.connect(_on_id_pressed)
 	p.hide_on_item_selection = false
 
+	if get_viewport().get_parent() != null: return
 	p.set_item_icon(OPTION_ROTATE_CW, get_theme_icon("RotateRight", "EditorIcons"))
 	p.set_item_icon(OPTION_ROTATE_CCW, get_theme_icon("RotateLeft", "EditorIcons"))
 	p.set_item_icon(OPTION_FLIP_H, get_theme_icon("MoveRight", "EditorIcons"))
 	p.set_item_icon(OPTION_FLIP_V, get_theme_icon("MoveDown", "EditorIcons"))
 	# One of them is not real.
-#	p.set_item_icon(OPTION_FLIP_H, get_theme_icon("Hsize", "EditorIcons"))
-#	p.set_item_icon(OPTION_FLIP_V, get_theme_icon("VSize", "EditorIcons"))
+	# p.set_item_icon(OPTION_FLIP_H, get_theme_icon("Hsize", "EditorIcons"))
+	# p.set_item_icon(OPTION_FLIP_V, get_theme_icon("VSize", "EditorIcons"))
 	p.set_item_icon(OPTION_CROP + 1, get_theme_icon("MeshTexture", "EditorIcons"))
 	p.set_item_icon(OPTION_BORDER + 1, get_theme_icon("ToolMove", "EditorIcons"))
 	p.set_item_icon(OPTION_RESIZE + 1, get_theme_icon("DistractionFree", "EditorIcons"))

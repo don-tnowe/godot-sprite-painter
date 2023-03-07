@@ -346,7 +346,7 @@ func draw_shader_preview(image_view : CanvasItem, mouse_position : Vector2i):
 
 
 func _shortcut_input(event : InputEvent):
-	if _hotkey_adjustment_hook == null: return
+	if _hotkey_adjustment_hook.is_null(): return
 	if !event is InputEventKey: return
 	if !event.pressed: return
 	if event.keycode != KEY_BRACKETLEFT:
