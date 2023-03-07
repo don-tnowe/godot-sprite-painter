@@ -5,6 +5,9 @@ extends "res://addons/sprite_painter/src/editing_tools/tool_brush.gd"
 
 var shrink := 1.0
 
+var mouse_tilt_editing := false
+var mouse_tilt := Vector2.ZERO
+
 var tilt : Vector2
 var tilt_length : float
 
@@ -18,8 +21,29 @@ func _ready():
 	)
 
 
+func mouse_pressed(
+	event : InputEventMouseButton,
+	image : Image,
+	color1 : Color = Color.BLACK,
+	color2 : Color = Color.WHITE,
+):
+	if event.button_index == MOUSE_BUTTON_RIGHT:
+		mouse_tilt_editing = event.pressed
+		mouse_tilt = mouse_tilt.limit_length(1.0)
+
+	else:
+		super.mouse_pressed(event, image, color1, color2)
+
+
 func mouse_moved(event : InputEventMouseMotion):
-	tilt = Vector2(event.tilt.x, -event.tilt.y)
+	if mouse_tilt_editing:
+		mouse_tilt += event.relative / (brushsize * tilt_preview_scale)
+		tilt = mouse_tilt.limit_length(1.0)
+		return
+
+	if event.tilt != Vector2.ZERO:
+		tilt = Vector2(event.tilt.x, -event.tilt.y)
+
 	var joy_tilt = Vector2(Input.get_joy_axis(0, JOY_AXIS_LEFT_X), Input.get_joy_axis(0, JOY_AXIS_LEFT_Y))
 	if joy_tilt != Vector2.ZERO:
 		tilt = joy_tilt
@@ -47,4 +71,8 @@ func draw_preview(image_view : CanvasItem, mouse_position : Vector2i):
 		crosshair_color,
 		1.01
 	)
+	if mouse_tilt_editing:
+		image_view.draw_arc(circle_center - mouse_tilt * brushsize * tilt_preview_scale, brushsize * tilt_preview_scale + 0.5, PI * 0.6, PI * 1.4, 32, crosshair_color, 1.0)
+		image_view.draw_arc(circle_center - mouse_tilt * brushsize * tilt_preview_scale, brushsize * tilt_preview_scale + 0.5, PI * 1.6, PI * 2.4, 32, crosshair_color, 1.0)
+
 	super.draw_preview(image_view, mouse_position)
