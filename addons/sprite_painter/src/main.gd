@@ -63,6 +63,8 @@ func edit_subresource(
 	if unsaved_image_paths.find(StringName(filepath)) == -1:
 		unsaved_image_paths.append(StringName(filepath))
 
+	if !is_visible_in_tree(): return
+
 	workspace.edit_texture(filepath)
 	if edited_object is Sprite2D || edited_object is Sprite3D:
 		update_grid_from_sprite(edited_object)
