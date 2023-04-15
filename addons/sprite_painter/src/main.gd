@@ -122,6 +122,11 @@ static func pack_to_owner(root : Node, keep_scene_nodes : bool = true, new_owner
 
 
 func _on_close_pressed():
+	workspace.rollback_changes()
+	editor_plugin._on_enable_pressed()
+
+
+func _on_save_pressed():
 	editor_plugin._on_enable_pressed()
 
 

@@ -15,6 +15,7 @@ var cur_scale := 1.0
 var mouse_button := -1
 var input_disabled := false
 var dragging := false
+var rollback_to_image : Image
 var edited_image : Image
 var edited_image_path : String
 var edited_image_selection := BitMap.new()
@@ -100,15 +101,19 @@ func pass_event_to_tool(event) -> bool:
 
 
 func edit_texture(tex_path : String):
-	if edited_image_path != tex_path:
-		var new_image = Image.load_from_file(tex_path)
-		image_view.texture = ImageTexture.create_from_image(new_image)
-		image_view.reset_position()
-
-		replace_image(edited_image, new_image)
+	var new_image = Image.load_from_file(tex_path)
+	rollback_to_image = Image.create_from_data(new_image.get_width(), new_image.get_height(), new_image.has_mipmaps(), new_image.get_format(), new_image.get_data())
+	image_view.texture = ImageTexture.create_from_image(new_image)
+	image_view.reset_position()
+	replace_image(edited_image, new_image)
 
 	image_view.call_deferred("update_position")
 	edited_image_path = tex_path
+
+
+func rollback_changes():
+	image_view.texture = ImageTexture.create_from_image(rollback_to_image)
+	replace_image(edited_image, rollback_to_image)
 
 
 func set_view_grid(grid_size, grid_offset, is_region):
