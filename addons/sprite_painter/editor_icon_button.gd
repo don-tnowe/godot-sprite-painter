@@ -15,3 +15,4 @@ func _set_icon_name(v):
 
 func _ready():
 	_set_icon_name(icon_name)
+	tooltip_text = name
