@@ -102,6 +102,19 @@ func pass_event_to_tool(event) -> bool:
 
 func edit_texture(tex_path : String):
 	var new_image = Image.load_from_file(tex_path)
+	if new_image.get_format() == Image.FORMAT_RGB8:
+		# If no alpha, add alpha.
+		var image_bytes := new_image.get_data()
+		var new_image_bytes := PackedByteArray()
+		new_image_bytes.resize(image_bytes.size() / 3 * 4)
+		for i in image_bytes.size() / 3:
+			new_image_bytes[i * 4 + 0] = image_bytes[i * 3 + 0]
+			new_image_bytes[i * 4 + 1] = image_bytes[i * 3 + 1]
+			new_image_bytes[i * 4 + 2] = image_bytes[i * 3 + 2]
+			new_image_bytes[i * 4 + 3] = 255
+
+		new_image.set_data(new_image.get_width(), new_image.get_height(), new_image.has_mipmaps(), Image.FORMAT_RGBA8, new_image_bytes)
+
 	rollback_to_image = Image.create_from_data(new_image.get_width(), new_image.get_height(), new_image.has_mipmaps(), new_image.get_format(), new_image.get_data())
 	image_view.texture = ImageTexture.create_from_image(new_image)
 	image_view.reset_position()
