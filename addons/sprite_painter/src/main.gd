@@ -172,7 +172,7 @@ func save_changes(image = null):
 		image = workspace.edited_image
 		if image == null: return
 
-	var err = image.save_png(workspace.edited_image_path)
+	var err = image.save_png(workspace.edited_image_path.get_basename() + ".png")
 	if err != OK: printerr(err)
 	workspace.update_texture(image)
 
