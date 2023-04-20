@@ -78,7 +78,7 @@ func draw_preview(image_view : CanvasItem, mouse_position : Vector2i):
 		for x in drawing_positions:
 			image_view.draw_rect(Rect2(x, Vector2.ONE), drawing_color)
 
-	image_view.draw_rect(Rect2i(mouse_position + Vector2i(0, 4), Vector2(1, 32)).abs(), crosshair_color)
-	image_view.draw_rect(Rect2i(mouse_position - Vector2i(0, 3), Vector2(1, -32)).abs(), crosshair_color)
-	image_view.draw_rect(Rect2i(mouse_position + Vector2i(4, 0), Vector2(32, 1)).abs(), crosshair_color)
-	image_view.draw_rect(Rect2i(mouse_position - Vector2i(3, 0), Vector2(-32, 1)).abs(), crosshair_color)
+	image_view.draw_rect(Rect2i(mouse_position + Vector2i(0, 4), Vector2(1, 2)).abs(), crosshair_color)
+	image_view.draw_rect(Rect2i(mouse_position - Vector2i(0, 3), Vector2(1, -2)).abs(), crosshair_color)
+	image_view.draw_rect(Rect2i(mouse_position + Vector2i(4, 0), Vector2(2, 1)).abs(), crosshair_color)
+	image_view.draw_rect(Rect2i(mouse_position - Vector2i(3, 0), Vector2(-2, 1)).abs(), crosshair_color)

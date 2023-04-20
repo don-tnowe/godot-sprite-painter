@@ -211,10 +211,10 @@ func draw_preview(image_view : CanvasItem, mouse_position : Vector2i):
 
 		return
 
-	image_view.draw_rect(Rect2i(mouse_position + Vector2i(0, 4), Vector2(1, 32)).abs(), preview_color)
-	image_view.draw_rect(Rect2i(mouse_position - Vector2i(0, 3), Vector2(1, -32)).abs(), preview_color)
-	image_view.draw_rect(Rect2i(mouse_position + Vector2i(4, 0), Vector2(32, 1)).abs(), preview_color)
-	image_view.draw_rect(Rect2i(mouse_position - Vector2i(3, 0), Vector2(-32, 1)).abs(), preview_color)
+	image_view.draw_rect(Rect2i(mouse_position + Vector2i(0, 4), Vector2(1, 2)).abs(), preview_color)
+	image_view.draw_rect(Rect2i(mouse_position - Vector2i(0, 3), Vector2(1, -2)).abs(), preview_color)
+	image_view.draw_rect(Rect2i(mouse_position + Vector2i(4, 0), Vector2(2, 1)).abs(), preview_color)
+	image_view.draw_rect(Rect2i(mouse_position - Vector2i(3, 0), Vector2(-2, 1)).abs(), preview_color)
 
 
 func draw_selection_preview(image_view : CanvasItem, mouse_position : Vector2i):
