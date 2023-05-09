@@ -12,6 +12,7 @@ enum {
 const I_SIN120 = sin(PI * 0.66666)  # Used for making hexagons have equal qdges
 
 @export var crosshair_color := Color(0.5, 0.5, 0.5, 0.75)
+@export var crosshair_size := 3
 @export var shader_viewport_texture : Texture2D
 
 var shape := 0
@@ -151,7 +152,4 @@ func draw_shader_preview(image_view : CanvasItem, mouse_position : Vector2i):
 
 func draw_preview(image_view : CanvasItem, mouse_position : Vector2i):
 	if !drawing:
-		image_view.draw_rect(Rect2i(mouse_position + Vector2i(0, 4), Vector2(1, 32)).abs(), crosshair_color)
-		image_view.draw_rect(Rect2i(mouse_position - Vector2i(0, 3), Vector2(1, -32)).abs(), crosshair_color)
-		image_view.draw_rect(Rect2i(mouse_position + Vector2i(4, 0), Vector2(32, 1)).abs(), crosshair_color)
-		image_view.draw_rect(Rect2i(mouse_position - Vector2i(3, 0), Vector2(-32, 1)).abs(), crosshair_color)
+		draw_crosshair(image_view, mouse_position, crosshair_size, crosshair_color)

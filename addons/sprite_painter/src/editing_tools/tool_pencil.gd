@@ -2,7 +2,10 @@
 extends EditingTool
 
 @export var crosshair_color := Color(0.5, 0.5, 0.5, 0.75)
+@export var crosshair_size := 3
+@export var crosshair_size_ruler := 32
 
+var ruler_mode := false
 var jaggies_removal := true
 
 var drawing := false
@@ -15,11 +18,15 @@ var last_affected_rect := Rect2i()
 func _ready():
 	add_name()
 	start_property_grid()
-	add_property("Remove Jaggies", jaggies_removal,
-		func (x): jaggies_removal = x,
+	add_property("Guide Lines", ruler_mode,
+		func (x): ruler_mode = x,
 		TOOL_PROP_BOOL,
 		null,
 		true
+	)
+	add_property("Remove Jaggies", jaggies_removal,
+		func (x): jaggies_removal = x,
+		TOOL_PROP_BOOL
 	)
 	drawing_positions = []
 
@@ -78,7 +85,14 @@ func draw_preview(image_view : CanvasItem, mouse_position : Vector2i):
 		for x in drawing_positions:
 			image_view.draw_rect(Rect2(x, Vector2.ONE), drawing_color)
 
-	image_view.draw_rect(Rect2i(mouse_position + Vector2i(0, 4), Vector2(1, 32)).abs(), crosshair_color)
-	image_view.draw_rect(Rect2i(mouse_position - Vector2i(0, 3), Vector2(1, -32)).abs(), crosshair_color)
-	image_view.draw_rect(Rect2i(mouse_position + Vector2i(4, 0), Vector2(32, 1)).abs(), crosshair_color)
-	image_view.draw_rect(Rect2i(mouse_position - Vector2i(3, 0), Vector2(-32, 1)).abs(), crosshair_color)
+	if !ruler_mode:
+		draw_crosshair(image_view, mouse_position, crosshair_size, crosshair_color)
+
+	else:
+		draw_crosshair(image_view, mouse_position, crosshair_size_ruler, crosshair_color)
+		var diag_distance := 8
+		var posf := Vector2(mouse_position) + Vector2(0.5, 0.5)
+		image_view.draw_line(posf + Vector2(-1, +1) * diag_distance, posf + Vector2(-1, +1) * (diag_distance + crosshair_size_ruler), crosshair_color, 1)
+		image_view.draw_line(posf + Vector2(+1, -1) * diag_distance, posf + Vector2(+1, -1) * (diag_distance + crosshair_size_ruler), crosshair_color, 1)
+		image_view.draw_line(posf + Vector2(+1, +1) * diag_distance, posf + Vector2(+1, +1) * (diag_distance + crosshair_size_ruler), crosshair_color, 1)
+		image_view.draw_line(posf + Vector2(-1, -1) * diag_distance, posf + Vector2(-1, -1) * (diag_distance + crosshair_size_ruler), crosshair_color, 1)

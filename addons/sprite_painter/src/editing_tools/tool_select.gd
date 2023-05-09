@@ -2,6 +2,7 @@
 extends EditingTool
 
 @export var preview_color := Color("1e90ff7f")
+@export var crosshair_size := 3
 
 enum {
 	DRAG_LEAVE_TRANSPARENT,
@@ -211,10 +212,7 @@ func draw_preview(image_view : CanvasItem, mouse_position : Vector2i):
 
 		return
 
-	image_view.draw_rect(Rect2i(mouse_position + Vector2i(0, 4), Vector2(1, 32)).abs(), preview_color)
-	image_view.draw_rect(Rect2i(mouse_position - Vector2i(0, 3), Vector2(1, -32)).abs(), preview_color)
-	image_view.draw_rect(Rect2i(mouse_position + Vector2i(4, 0), Vector2(32, 1)).abs(), preview_color)
-	image_view.draw_rect(Rect2i(mouse_position - Vector2i(3, 0), Vector2(-32, 1)).abs(), preview_color)
+	draw_crosshair(image_view, mouse_position, crosshair_size, preview_color)
 
 
 func draw_selection_preview(image_view : CanvasItem, mouse_position : Vector2i):

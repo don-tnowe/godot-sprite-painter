@@ -345,6 +345,13 @@ func draw_shader_preview(image_view : CanvasItem, mouse_position : Vector2i):
 	pass
 
 
+func draw_crosshair(image_view : CanvasItem, mouse_position : Vector2i, line_length : int, color : Color):
+	image_view.draw_rect(Rect2i(mouse_position + Vector2i(0, 4), Vector2(1, +line_length)).abs(), color)
+	image_view.draw_rect(Rect2i(mouse_position - Vector2i(0, 3), Vector2(1, -line_length)).abs(), color)
+	image_view.draw_rect(Rect2i(mouse_position + Vector2i(4, 0), Vector2(+line_length, 1)).abs(), color)
+	image_view.draw_rect(Rect2i(mouse_position - Vector2i(3, 0), Vector2(-line_length, 1)).abs(), color)
+
+
 func _shortcut_input(event : InputEvent):
 	if _hotkey_adjustment_hook.is_null(): return
 	if !event is InputEventKey: return
