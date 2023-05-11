@@ -17,7 +17,11 @@ var unsaved_image_paths : Array[String] = []
 var undo_redo : EditorUndoRedoManager
 
 
-#func _ready():
+func _ready():
+	workspace.pre_image_changed.connect(_on_workspace_pre_image_changed)
+	workspace.image_changed.connect(_on_workspace_image_changed)
+	workspace.image_replaced.connect(_on_workspace_image_replaced)
+
 #	var plugin_undoredo = editor_plugin.get_undo_redo()
 #	var own_history_id = plugin_undoredo.get_object_history_id(self)
 #	undo_redo = plugin_undoredo.get_history_undo_redo(own_history_id)

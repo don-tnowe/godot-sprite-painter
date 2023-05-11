@@ -23,6 +23,7 @@ var edited_image_selection := BitMap.new()
 
 func _ready():
 	if !get_viewport() is Window: return
+
 	# Recolor all floating panels to make buttons more visible
 	var style = get_theme_stylebox("panel", "Panel").duplicate()
 	style.bg_color = get_theme_color("base_color", "Editor")
