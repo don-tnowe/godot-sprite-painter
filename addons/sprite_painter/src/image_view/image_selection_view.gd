@@ -24,6 +24,11 @@ func _draw():
 
 
 func _on_visibility_changed():
+	if !get_viewport() is Window:
+		set_process(false)
+		self_modulate.a = 0.75
+		return
+
 	set_process(is_visible_in_tree())
 
 

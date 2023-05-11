@@ -160,7 +160,7 @@ func add_property(
 			var bgroup = ButtonGroup.new()
 
 			for x in icons:
-				button = ThemeIconButton.new()
+				button = load("res://addons/sprite_painter/editor_icon_button.gd").new()
 				button.tooltip_text = tooltips.get(x)
 				button.toggle_mode = true
 				button.add_theme_stylebox_override("pressed", button.get_theme_stylebox("focus", "Button"))

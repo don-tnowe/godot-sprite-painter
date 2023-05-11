@@ -1,4 +1,4 @@
-[gd_scene load_steps=67 format=3 uid="uid://bc0weyhuhf5di"]
+[gd_scene load_steps=65 format=3 uid="uid://bc0weyhuhf5di"]
 
 [ext_resource type="Script" path="res://addons/sprite_painter/src/main.gd" id="1_pn6xr"]
 [ext_resource type="Script" path="res://addons/sprite_painter/editor_icon_button.gd" id="2_ahevp"]
@@ -46,18 +46,6 @@ keycode = 83
 resource_name = "S"
 events = [SubResource("InputEventKey_2olkx")]
 
-[sub_resource type="Image" id="Image_w05f8"]
-data = {
-"data": PackedByteArray(255, 255, 255, 0, 255, 255, 255, 0, 255, 128, 128, 4, 255, 128, 128, 4, 255, 128, 128, 4, 255, 128, 128, 4, 255, 128, 128, 4, 255, 128, 128, 4, 255, 128, 128, 4, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 93, 93, 131, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 131, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 131, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 94, 94, 127, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 128, 128, 4, 255, 128, 128, 4, 255, 128, 128, 4, 255, 128, 128, 4, 255, 128, 128, 4, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 231, 255, 93, 93, 55, 255, 97, 97, 58, 255, 93, 93, 233, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 231, 255, 94, 94, 54, 255, 94, 94, 57, 255, 93, 93, 233, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 97, 97, 42, 255, 255, 255, 0, 255, 255, 255, 0, 255, 97, 97, 42, 255, 93, 93, 233, 255, 93, 93, 232, 255, 93, 93, 41, 255, 255, 255, 0, 255, 255, 255, 0, 255, 97, 97, 42, 255, 93, 93, 233, 255, 93, 93, 232, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 96, 96, 45, 255, 97, 97, 42, 255, 255, 255, 0, 255, 97, 97, 42, 255, 97, 97, 42, 255, 255, 255, 0, 255, 98, 98, 47, 255, 97, 97, 42, 255, 255, 255, 0, 255, 97, 97, 42, 255, 97, 97, 42, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 96, 96, 45, 255, 93, 93, 235, 255, 93, 93, 233, 255, 97, 97, 42, 255, 255, 255, 0, 255, 255, 255, 0, 255, 94, 94, 46, 255, 93, 93, 236, 255, 93, 93, 233, 255, 97, 97, 42, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 235, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 233, 255, 95, 95, 59, 255, 96, 96, 61, 255, 93, 93, 235, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 233, 255, 95, 95, 59, 255, 96, 96, 61, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0),
-"format": "RGBA8",
-"height": 16,
-"mipmaps": false,
-"width": 16
-}
-
-[sub_resource type="ImageTexture" id="ImageTexture_mo6ny"]
-image = SubResource("Image_w05f8")
-
 [sub_resource type="InputEventKey" id="InputEventKey_ac1o6"]
 keycode = 86
 
@@ -95,6 +83,18 @@ keycode = 68
 resource_name = "D"
 events = [SubResource("InputEventKey_bi32x")]
 
+[sub_resource type="Image" id="Image_sywsh"]
+data = {
+"data": PackedByteArray(255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 230, 230, 230, 20, 229, 229, 229, 19, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 224, 224, 224, 48, 224, 224, 224, 248, 224, 224, 224, 248, 228, 228, 228, 47, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 225, 225, 225, 124, 224, 224, 224, 255, 224, 224, 224, 255, 225, 225, 225, 124, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 224, 224, 224, 16, 224, 224, 224, 160, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 160, 224, 224, 224, 16, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 224, 224, 224, 64, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 64, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 224, 224, 224, 16, 224, 224, 224, 160, 224, 224, 224, 112, 224, 224, 224, 112, 225, 225, 225, 159, 224, 224, 224, 16, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 224, 224, 224, 128, 224, 224, 224, 64, 224, 224, 224, 64, 225, 225, 225, 126, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 224, 224, 224, 128, 224, 224, 224, 64, 224, 224, 224, 64, 225, 225, 225, 125, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 224, 224, 224, 128, 224, 224, 224, 64, 224, 224, 224, 64, 225, 225, 225, 124, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 226, 226, 226, 87, 224, 224, 224, 155, 225, 225, 225, 157, 224, 224, 224, 82, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 224, 224, 224, 202, 224, 224, 224, 202, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 224, 224, 224, 48, 224, 224, 224, 48, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0),
+"format": "RGBA8",
+"height": 12,
+"mipmaps": false,
+"width": 12
+}
+
+[sub_resource type="ImageTexture" id="ImageTexture_d17fa"]
+image = SubResource("Image_sywsh")
+
 [sub_resource type="InputEventKey" id="InputEventKey_qsaam"]
 keycode = 79
 
@@ -104,18 +104,6 @@ events = [SubResource("InputEventKey_qsaam")]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jth0e"]
 
-[sub_resource type="Image" id="Image_ugiwk"]
-data = {
-"data": PackedByteArray(255, 255, 255, 0, 255, 255, 255, 0, 255, 128, 128, 4, 255, 128, 128, 4, 255, 128, 128, 4, 255, 128, 128, 4, 255, 128, 128, 4, 255, 128, 128, 4, 255, 128, 128, 4, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 93, 93, 131, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 131, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 131, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 94, 94, 127, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 128, 128, 4, 255, 128, 128, 4, 255, 128, 128, 4, 255, 128, 128, 4, 255, 128, 128, 4, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 231, 255, 93, 93, 55, 255, 97, 97, 58, 255, 93, 93, 233, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 231, 255, 94, 94, 54, 255, 94, 94, 57, 255, 93, 93, 233, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 97, 97, 42, 255, 255, 255, 0, 255, 255, 255, 0, 255, 97, 97, 42, 255, 93, 93, 233, 255, 93, 93, 232, 255, 93, 93, 41, 255, 255, 255, 0, 255, 255, 255, 0, 255, 97, 97, 42, 255, 93, 93, 233, 255, 93, 93, 232, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 96, 96, 45, 255, 97, 97, 42, 255, 255, 255, 0, 255, 97, 97, 42, 255, 97, 97, 42, 255, 255, 255, 0, 255, 98, 98, 47, 255, 97, 97, 42, 255, 255, 255, 0, 255, 97, 97, 42, 255, 97, 97, 42, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 96, 96, 45, 255, 93, 93, 235, 255, 93, 93, 233, 255, 97, 97, 42, 255, 255, 255, 0, 255, 255, 255, 0, 255, 94, 94, 46, 255, 93, 93, 236, 255, 93, 93, 233, 255, 97, 97, 42, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 235, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 233, 255, 95, 95, 59, 255, 96, 96, 61, 255, 93, 93, 235, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 233, 255, 95, 95, 59, 255, 96, 96, 61, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 93, 93, 252, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0),
-"format": "RGBA8",
-"height": 16,
-"mipmaps": false,
-"width": 16
-}
-
-[sub_resource type="ImageTexture" id="ImageTexture_x7wik"]
-image = SubResource("Image_ugiwk")
-
 [sub_resource type="ButtonGroup" id="ButtonGroup_smn0a"]
 
 [sub_resource type="InputEventKey" id="InputEventKey_m8eep"]
@@ -124,7 +112,7 @@ keycode = 4194305
 [sub_resource type="Shortcut" id="Shortcut_lhl5g"]
 events = [SubResource("InputEventKey_m8eep")]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4wgp8"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kt81e"]
 content_margin_left = 0.0
 content_margin_top = 0.0
 content_margin_right = 0.0
@@ -136,8 +124,8 @@ corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 corner_detail = 5
 
-[sub_resource type="Theme" id="Theme_sx6wc"]
-Panel/styles/panel = SubResource("StyleBoxFlat_4wgp8")
+[sub_resource type="Theme" id="Theme_vlrlm"]
+Panel/styles/panel = SubResource("StyleBoxFlat_kt81e")
 
 [sub_resource type="Gradient" id="Gradient_1ueng"]
 offsets = PackedFloat32Array(0, 1, 1)
@@ -204,8 +192,8 @@ shader_parameter/enable_aa = false
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hi61m"]
 shader = ExtResource("22_sfnac")
 shader_parameter/color = Color(1, 1, 1, 1)
-shader_parameter/origin = Vector2(360.5, 56.5)
-shader_parameter/delta = Vector2i(-96, 0)
+shader_parameter/origin = Vector2(104.5, 114.5)
+shader_parameter/delta = Vector2i(33, -33)
 shader_parameter/width = 1
 shader_parameter/enable_aa = false
 
@@ -242,7 +230,6 @@ toggle_mode = true
 button_group = SubResource("ButtonGroup_lb3gr")
 shortcut = SubResource("Shortcut_ipdqg")
 shortcut_in_tooltip = false
-icon = SubResource("ImageTexture_mo6ny")
 flat = true
 script = ExtResource("2_ahevp")
 icon_name = "ActionCopy"
@@ -259,7 +246,6 @@ toggle_mode = true
 button_group = SubResource("ButtonGroup_lb3gr")
 shortcut = SubResource("Shortcut_ipdqg")
 shortcut_in_tooltip = false
-icon = SubResource("ImageTexture_mo6ny")
 flat = true
 script = ExtResource("2_ahevp")
 icon_name = "PreviewSun"
@@ -279,7 +265,6 @@ toggle_mode = true
 button_group = SubResource("ButtonGroup_lb3gr")
 shortcut = SubResource("Shortcut_7y38e")
 shortcut_in_tooltip = false
-icon = SubResource("ImageTexture_mo6ny")
 flat = true
 script = ExtResource("2_ahevp")
 icon_name = "Edit"
@@ -296,7 +281,6 @@ toggle_mode = true
 button_group = SubResource("ButtonGroup_lb3gr")
 shortcut = SubResource("Shortcut_cnbj8")
 shortcut_in_tooltip = false
-icon = SubResource("ImageTexture_mo6ny")
 flat = true
 script = ExtResource("2_ahevp")
 icon_name = "CanvasItem"
@@ -313,7 +297,6 @@ toggle_mode = true
 button_group = SubResource("ButtonGroup_lb3gr")
 shortcut = SubResource("Shortcut_cnbj8")
 shortcut_in_tooltip = false
-icon = SubResource("ImageTexture_mo6ny")
 flat = true
 script = ExtResource("2_ahevp")
 icon_name = "Eraser"
@@ -330,7 +313,6 @@ toggle_mode = true
 button_group = SubResource("ButtonGroup_lb3gr")
 shortcut = SubResource("Shortcut_unc62")
 shortcut_in_tooltip = false
-icon = SubResource("ImageTexture_mo6ny")
 flat = true
 script = ExtResource("2_ahevp")
 icon_name = "Bucket"
@@ -348,7 +330,6 @@ toggle_mode = true
 button_group = SubResource("ButtonGroup_lb3gr")
 shortcut = SubResource("Shortcut_unc62")
 shortcut_in_tooltip = false
-icon = SubResource("ImageTexture_mo6ny")
 flat = true
 script = ExtResource("2_ahevp")
 icon_name = "Gradient"
@@ -369,7 +350,6 @@ toggle_mode = true
 button_group = SubResource("ButtonGroup_lb3gr")
 shortcut = SubResource("Shortcut_pgrth")
 shortcut_in_tooltip = false
-icon = SubResource("ImageTexture_mo6ny")
 flat = true
 script = ExtResource("2_ahevp")
 icon_name = "MaterialPreviewSphere"
@@ -388,7 +368,6 @@ toggle_mode = true
 button_group = SubResource("ButtonGroup_lb3gr")
 shortcut = SubResource("Shortcut_pgrth")
 shortcut_in_tooltip = false
-icon = SubResource("ImageTexture_mo6ny")
 flat = true
 script = ExtResource("2_ahevp")
 icon_name = "Clear"
@@ -406,7 +385,6 @@ toggle_mode = true
 button_group = SubResource("ButtonGroup_lb3gr")
 shortcut = SubResource("Shortcut_pgrth")
 shortcut_in_tooltip = false
-icon = SubResource("ImageTexture_mo6ny")
 flat = true
 script = ExtResource("2_ahevp")
 icon_name = "3D"
@@ -415,6 +393,7 @@ icon_name = "3D"
 layout_mode = 2
 
 [node name="Shape" type="Button" parent="Box/Toolbar"]
+custom_minimum_size = Vector2(21, 0)
 layout_mode = 2
 focus_mode = 0
 theme_override_styles/normal = SubResource("StyleBoxEmpty_8skav")
@@ -427,7 +406,7 @@ toggle_mode = true
 button_group = SubResource("ButtonGroup_lb3gr")
 shortcut = SubResource("Shortcut_qgge1")
 shortcut_in_tooltip = false
-icon = SubResource("ImageTexture_mo6ny")
+icon = SubResource("ImageTexture_d17fa")
 flat = true
 script = ExtResource("2_ahevp")
 icon_name = "PickerShapeCircle"
@@ -445,7 +424,6 @@ toggle_mode = true
 button_group = SubResource("ButtonGroup_lb3gr")
 shortcut = SubResource("Shortcut_qgge1")
 shortcut_in_tooltip = false
-icon = SubResource("ImageTexture_mo6ny")
 flat = true
 script = ExtResource("2_ahevp")
 icon_name = "Curve2D"
@@ -463,7 +441,6 @@ toggle_mode = true
 button_group = SubResource("ButtonGroup_lb3gr")
 shortcut = SubResource("Shortcut_nva4u")
 shortcut_in_tooltip = false
-icon = SubResource("ImageTexture_mo6ny")
 flat = true
 script = ExtResource("2_ahevp")
 icon_name = "Shader"
@@ -481,28 +458,21 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_jth0e")
 text = "Transform"
 item_count = 8
 popup/item_0/text = "Rotate clockwise"
-popup/item_0/icon = SubResource("ImageTexture_x7wik")
 popup/item_0/id = 0
 popup/item_1/text = "Rotate counter-clockwise"
-popup/item_1/icon = SubResource("ImageTexture_x7wik")
 popup/item_1/id = 1
 popup/item_2/text = "Flip horizontally"
-popup/item_2/icon = SubResource("ImageTexture_x7wik")
 popup/item_2/id = 2
 popup/item_3/text = "Flip vertically"
-popup/item_3/icon = SubResource("ImageTexture_x7wik")
 popup/item_3/id = 3
 popup/item_4/text = ""
 popup/item_4/id = 286
 popup/item_4/separator = true
 popup/item_5/text = "Crop to selection/Crop transparent"
-popup/item_5/icon = SubResource("ImageTexture_x7wik")
 popup/item_5/id = 4
 popup/item_6/text = "Border +1"
-popup/item_6/icon = SubResource("ImageTexture_x7wik")
 popup/item_6/id = 5
 popup/item_7/text = "Change size..."
-popup/item_7/icon = SubResource("ImageTexture_x7wik")
 popup/item_7/id = 6
 script = ExtResource("9_20sxo")
 workspace = NodePath("../../Workspace")
@@ -579,7 +549,6 @@ layout_mode = 2
 toggle_mode = true
 button_pressed = true
 button_group = SubResource("ButtonGroup_smn0a")
-icon = SubResource("ImageTexture_mo6ny")
 icon_alignment = 1
 script = ExtResource("2_ahevp")
 icon_name = "ControlAlignTopLeft"
@@ -588,7 +557,6 @@ icon_name = "ControlAlignTopLeft"
 layout_mode = 2
 toggle_mode = true
 button_group = SubResource("ButtonGroup_smn0a")
-icon = SubResource("ImageTexture_mo6ny")
 icon_alignment = 1
 script = ExtResource("2_ahevp")
 icon_name = "ControlAlignCenterTop"
@@ -597,7 +565,6 @@ icon_name = "ControlAlignCenterTop"
 layout_mode = 2
 toggle_mode = true
 button_group = SubResource("ButtonGroup_smn0a")
-icon = SubResource("ImageTexture_mo6ny")
 icon_alignment = 1
 script = ExtResource("2_ahevp")
 icon_name = "ControlAlignTopRight"
@@ -606,7 +573,6 @@ icon_name = "ControlAlignTopRight"
 layout_mode = 2
 toggle_mode = true
 button_group = SubResource("ButtonGroup_smn0a")
-icon = SubResource("ImageTexture_mo6ny")
 icon_alignment = 1
 script = ExtResource("2_ahevp")
 icon_name = "ControlAlignCenterLeft"
@@ -615,7 +581,6 @@ icon_name = "ControlAlignCenterLeft"
 layout_mode = 2
 toggle_mode = true
 button_group = SubResource("ButtonGroup_smn0a")
-icon = SubResource("ImageTexture_mo6ny")
 icon_alignment = 1
 script = ExtResource("2_ahevp")
 icon_name = "ControlAlignCenter"
@@ -624,7 +589,6 @@ icon_name = "ControlAlignCenter"
 layout_mode = 2
 toggle_mode = true
 button_group = SubResource("ButtonGroup_smn0a")
-icon = SubResource("ImageTexture_mo6ny")
 icon_alignment = 1
 script = ExtResource("2_ahevp")
 icon_name = "ControlAlignCenterRight"
@@ -633,7 +597,6 @@ icon_name = "ControlAlignCenterRight"
 layout_mode = 2
 toggle_mode = true
 button_group = SubResource("ButtonGroup_smn0a")
-icon = SubResource("ImageTexture_mo6ny")
 icon_alignment = 1
 script = ExtResource("2_ahevp")
 icon_name = "ControlAlignBottomLeft"
@@ -642,7 +605,6 @@ icon_name = "ControlAlignBottomLeft"
 layout_mode = 2
 toggle_mode = true
 button_group = SubResource("ButtonGroup_smn0a")
-icon = SubResource("ImageTexture_mo6ny")
 icon_alignment = 1
 script = ExtResource("2_ahevp")
 icon_name = "ControlAlignCenterBottom"
@@ -651,7 +613,6 @@ icon_name = "ControlAlignCenterBottom"
 layout_mode = 2
 toggle_mode = true
 button_group = SubResource("ButtonGroup_smn0a")
-icon = SubResource("ImageTexture_mo6ny")
 icon_alignment = 1
 script = ExtResource("2_ahevp")
 icon_name = "ControlAlignBottomRight"
@@ -661,7 +622,6 @@ layout_mode = 2
 tooltip_text = "Scale image"
 toggle_mode = true
 button_group = SubResource("ButtonGroup_smn0a")
-icon = SubResource("ImageTexture_mo6ny")
 icon_alignment = 1
 script = ExtResource("2_ahevp")
 icon_name = "ControlAlignFullRect"
@@ -700,7 +660,6 @@ theme_override_styles/hover = SubResource("StyleBoxEmpty_8skav")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_8skav")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_8skav")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_nkhd7")
-icon = SubResource("ImageTexture_mo6ny")
 flat = true
 script = ExtResource("2_ahevp")
 icon_name = "RotateRight"
@@ -714,7 +673,6 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_8skav")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_8skav")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_nkhd7")
 text = "Save"
-icon = SubResource("ImageTexture_mo6ny")
 flat = true
 script = ExtResource("2_ahevp")
 icon_name = "Save"
@@ -733,7 +691,6 @@ theme_override_styles/disabled = SubResource("StyleBoxEmpty_8skav")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_nkhd7")
 shortcut = SubResource("Shortcut_lhl5g")
 text = "Discard"
-icon = SubResource("ImageTexture_mo6ny")
 flat = true
 script = ExtResource("2_ahevp")
 icon_name = "Close"
@@ -748,7 +705,7 @@ size_flags_vertical = 3
 focus_mode = 1
 mouse_filter = 2
 mouse_force_pass_scroll_events = false
-theme = SubResource("Theme_sx6wc")
+theme = SubResource("Theme_vlrlm")
 script = ExtResource("9_gvnc2")
 metadata/_edit_lock_ = true
 
@@ -807,7 +764,7 @@ region_outer_color = Color(0, 0, 0, 0.498039)
 
 [node name="SelectionView" type="Node2D" parent="Box/Workspace/ViewportOverlay/EditedImageView"]
 unique_name_in_owner = true
-self_modulate = Color(1, 1, 1, 0.365)
+self_modulate = Color(1, 1, 1, 0.75)
 z_as_relative = false
 script = ExtResource("13_81c1e")
 selection_color = Color(0.117647, 0.564706, 1, 0.498039)
@@ -1053,11 +1010,6 @@ offset_bottom = 0.0
 [connection signal="item_selected" from="Box/Toolbar/Transform/Dialog/Grid/Interpolation" to="Box/Toolbar/Transform" method="_on_interpolation_item_selected"]
 [connection signal="pressed" from="Box/Toolbar/Save" to="." method="_on_save_pressed"]
 [connection signal="pressed" from="Box/Toolbar/Discard" to="." method="_on_close_pressed"]
-[connection signal="image_changed" from="Box/Workspace" to="." method="_on_workspace_image_changed"]
-[connection signal="image_changed" from="Box/Workspace" to="Box/Workspace/ViewportOverlay/EditedImageView/SelectionView" method="_on_image_changed"]
-[connection signal="image_replaced" from="Box/Workspace" to="." method="_on_workspace_image_replaced"]
-[connection signal="image_replaced" from="Box/Workspace" to="Box/Workspace/Floating/Control/ToolSettings/ToolSwitcher/Script" method="_on_workspace_image_replaced"]
-[connection signal="pre_image_changed" from="Box/Workspace" to="." method="_on_workspace_pre_image_changed"]
 [connection signal="visibility_changed" from="Box/Workspace/ViewportOverlay/EditedImageView/SelectionView" to="Box/Workspace/ViewportOverlay/EditedImageView/SelectionView" method="_on_visibility_changed"]
 [connection signal="preview_changed" from="Box/Workspace/ViewportOverlay/ImageBorder/Resize" to="Box/Workspace/ViewportOverlay/EditedImageView" method="_on_resize_preview_changed"]
 [connection signal="value_changed" from="Box/Workspace/ViewportOverlay/ImageBorder/Resize" to="Box/Workspace" method="_on_resize_value_changed"]

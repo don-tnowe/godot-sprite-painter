@@ -35,7 +35,7 @@ func _ready():
 	p.id_pressed.connect(_on_id_pressed)
 	p.hide_on_item_selection = false
 
-	if get_viewport().get_parent() != null: return
+	if !get_viewport() is Window: return
 	p.set_item_icon(OPTION_ROTATE_CW, get_theme_icon("RotateRight", "EditorIcons"))
 	p.set_item_icon(OPTION_ROTATE_CCW, get_theme_icon("RotateLeft", "EditorIcons"))
 	p.set_item_icon(OPTION_FLIP_H, get_theme_icon("MoveRight", "EditorIcons"))
