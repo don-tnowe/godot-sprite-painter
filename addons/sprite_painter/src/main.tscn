@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=3 uid="uid://bc0weyhuhf5di"]
+[gd_scene load_steps=63 format=3 uid="uid://bc0weyhuhf5di"]
 
 [ext_resource type="Script" path="res://addons/sprite_painter/src/main.gd" id="1_pn6xr"]
 [ext_resource type="Script" path="res://addons/sprite_painter/editor_icon_button.gd" id="2_ahevp"]
@@ -83,18 +83,6 @@ keycode = 68
 resource_name = "D"
 events = [SubResource("InputEventKey_bi32x")]
 
-[sub_resource type="Image" id="Image_sywsh"]
-data = {
-"data": PackedByteArray(255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 230, 230, 230, 20, 229, 229, 229, 19, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 224, 224, 224, 48, 224, 224, 224, 248, 224, 224, 224, 248, 228, 228, 228, 47, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 225, 225, 225, 124, 224, 224, 224, 255, 224, 224, 224, 255, 225, 225, 225, 124, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 224, 224, 224, 16, 224, 224, 224, 160, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 160, 224, 224, 224, 16, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 224, 224, 224, 64, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 64, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 224, 224, 224, 16, 224, 224, 224, 160, 224, 224, 224, 112, 224, 224, 224, 112, 225, 225, 225, 159, 224, 224, 224, 16, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 224, 224, 224, 128, 224, 224, 224, 64, 224, 224, 224, 64, 225, 225, 225, 126, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 224, 224, 224, 128, 224, 224, 224, 64, 224, 224, 224, 64, 225, 225, 225, 125, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 224, 224, 224, 128, 224, 224, 224, 64, 224, 224, 224, 64, 225, 225, 225, 124, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 226, 226, 226, 87, 224, 224, 224, 155, 225, 225, 225, 157, 224, 224, 224, 82, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 224, 224, 224, 202, 224, 224, 224, 202, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 224, 224, 224, 48, 224, 224, 224, 48, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0),
-"format": "RGBA8",
-"height": 12,
-"mipmaps": false,
-"width": 12
-}
-
-[sub_resource type="ImageTexture" id="ImageTexture_d17fa"]
-image = SubResource("Image_sywsh")
-
 [sub_resource type="InputEventKey" id="InputEventKey_qsaam"]
 keycode = 79
 
@@ -126,20 +114,6 @@ corner_detail = 5
 
 [sub_resource type="Theme" id="Theme_vlrlm"]
 Panel/styles/panel = SubResource("StyleBoxFlat_kt81e")
-
-[sub_resource type="Gradient" id="Gradient_1ueng"]
-offsets = PackedFloat32Array(0, 1, 1)
-colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_bmka2"]
-gradient = SubResource("Gradient_1ueng")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_xuu2x"]
-shader = ExtResource("7_nc3ac")
-shader_parameter/from = Vector2(0.535156, 0.425781)
-shader_parameter/delta = Vector2(0, 0)
-shader_parameter/type = 3
-shader_parameter/gradient = SubResource("GradientTexture1D_bmka2")
 
 [sub_resource type="Gradient" id="Gradient_xyctd"]
 interpolation_mode = 1
@@ -178,15 +152,29 @@ shadow_color = Color(0.8, 0.8, 0.8, 1)
 shadow_size = 4
 anti_aliasing = false
 
+[sub_resource type="Gradient" id="Gradient_jeov6"]
+offsets = PackedFloat32Array(0, 1, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_bmka2"]
+gradient = SubResource("Gradient_jeov6")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xuu2x"]
+shader = ExtResource("7_nc3ac")
+shader_parameter/from = Vector2(0.0820313, 0.132813)
+shader_parameter/delta = Vector2(0.0742188, 0.1875)
+shader_parameter/type = 0
+shader_parameter/gradient = SubResource("GradientTexture1D_bmka2")
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qmoem"]
 shader = ExtResource("20_0y2y6")
 shader_parameter/shape_index = 0
-shader_parameter/color_border = Color(0.14902, 0.168627, 0.231373, 1)
-shader_parameter/color_fill = Color(0.14902, 0.168627, 0.231373, 1)
-shader_parameter/origin = Vector2i(-12, 35)
-shader_parameter/shape_size = Vector2i(1, 1)
+shader_parameter/color_border = Color(1, 1, 1, 0)
+shader_parameter/color_fill = Color(1, 1, 1, 0)
+shader_parameter/origin = Vector2i(-23, -38)
+shader_parameter/shape_size = Vector2i(32, 4)
 shader_parameter/border_width = 1
-shader_parameter/drag_delta = Vector2i(0, 0)
+shader_parameter/drag_delta = Vector2i(31, -3)
 shader_parameter/enable_aa = false
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hi61m"]
@@ -286,6 +274,7 @@ script = ExtResource("2_ahevp")
 icon_name = "CanvasItem"
 
 [node name="Eraser" type="Button" parent="Box/Toolbar"]
+custom_minimum_size = Vector2(21, 0)
 layout_mode = 2
 focus_mode = 0
 theme_override_styles/normal = SubResource("StyleBoxEmpty_8skav")
@@ -406,7 +395,6 @@ toggle_mode = true
 button_group = SubResource("ButtonGroup_lb3gr")
 shortcut = SubResource("Shortcut_qgge1")
 shortcut_in_tooltip = false
-icon = SubResource("ImageTexture_d17fa")
 flat = true
 script = ExtResource("2_ahevp")
 icon_name = "PickerShapeCircle"
@@ -739,7 +727,6 @@ size = Vector2i(64, 64)
 z_as_relative = false
 texture_filter = 1
 texture_repeat = 2
-material = SubResource("ShaderMaterial_xuu2x")
 texture = SubResource("GradientTexture2D_mhx6q")
 centered = false
 script = ExtResource("7_47ui8")

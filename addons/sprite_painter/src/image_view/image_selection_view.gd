@@ -16,6 +16,7 @@ func _process(delta):
 
 
 func _draw():
+	if selection == null: return
 	var sel_size = selection.get_size()
 	if selection.get_true_bit_count() == sel_size.x * sel_size.y:
 		return

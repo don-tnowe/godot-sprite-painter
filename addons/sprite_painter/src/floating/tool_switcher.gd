@@ -127,10 +127,12 @@ func get_affected_rect() -> Rect2i:
 
 
 func draw_preview(image_view : CanvasItem, mouse_position : Vector2i):
+	if current_tool == null: return
 	current_tool.draw_preview(image_view, mouse_position)
 
 
 func draw_shader_preview(image_view : CanvasItem, mouse_position : Vector2i):
+	if current_tool == null: return
 	image_view.material = current_tool.preview_shader
 	current_tool.draw_shader_preview(image_view, mouse_position)
 

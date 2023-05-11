@@ -67,4 +67,3 @@ func _on_frame_selected(index, at_pos, mouse_button_index):
 
 func _on_anim_selected():
 	update_spriteframes()
-

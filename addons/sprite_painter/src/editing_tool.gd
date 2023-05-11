@@ -34,7 +34,9 @@ var _hotkey_adjustment_hook : Callable
 
 
 func _enter_tree():
-	visibility_changed.connect(_on_visibility_changed)
+	if !visibility_changed.is_connected(_on_visibility_changed):
+		visibility_changed.connect(_on_visibility_changed)
+
 	set_process_shortcut_input(false)
 
 
