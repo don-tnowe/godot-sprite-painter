@@ -7,6 +7,7 @@ var selection : BitMap
 
 
 func _ready():
+	get_node("../../..").image_changed.connect(_on_image_changed)
 	_on_visibility_changed()
 
 
