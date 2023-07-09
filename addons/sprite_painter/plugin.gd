@@ -28,6 +28,9 @@ var overlay_enabled := false
 
 
 func _enter_tree() -> void:
+	# Sometimes crashes on startup. Until I find why, let this be here
+	await get_tree().create_timer(2.0)
+
 	var ui := get_editor_interface()
 
 	undo_redo = get_undo_redo()
