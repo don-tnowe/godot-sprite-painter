@@ -20,7 +20,7 @@ func _ready():
 		TOOL_PROP_FOLDER_SCAN, 
 		"res://addons/sprite_painter/image_scripts"
 	)
-	button.text = "Choose a script here. Hover over the image to preview the result."
+	button.text = "Choose script...                   "
 	button.fit_to_longest_item = false
 	param_grid = start_property_grid()
 	add_separator()
@@ -55,6 +55,7 @@ func load_script(script : Script):
 	param_grid.free()
 	param_grid = start_property_grid()
 	param_grid.get_parent().move_child(param_grid, 3)
+	param_grid.get_parent().get_child(2).hide()
 
 	for x in script_instance._get_param_list():
 		add_property(

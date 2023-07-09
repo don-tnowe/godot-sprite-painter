@@ -979,6 +979,11 @@ layout_mode = 2
 script = ExtResource("23_h1454")
 workspace = NodePath("../../../../..")
 tool_name = "Image Script"
+tool_desc = "Choose a script in the dropdown.
+To preview the result, hover over the image!
+
+Edit or create scripts in the folder:
+res://addons/sprite_painter/image_scripts/"
 image_hide_mode = 2
 metadata/_edit_lock_ = true
 
