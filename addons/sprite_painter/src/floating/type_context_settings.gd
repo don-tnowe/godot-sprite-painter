@@ -19,17 +19,12 @@ func _ready():
 	readjust_size()
 	show()
 
-	plugin_root = get_parent()
-	while !plugin_root is Window:
-		plugin_root = plugin_root.get_parent()
-		if !plugin_root is SpritePainterRoot:
-			continue
-
-		editor_plugin = plugin_root.editor_plugin
-		plugin_root.object_selected.connect(_on_plugin_object_selected)
-		for x in type_handlers:
-			x.connect_plugin(plugin_root)
-
+	plugin_root = get_tree().root
+	print(self.get_parent().get_parent())
+	editor_plugin = plugin_root.editor_plugin
+	plugin_root.object_selected.connect(_on_plugin_object_selected)
+	for x in type_handlers:
+		x.connect_plugin(plugin_root)
 		break
 
 	var c = Control.new()
@@ -79,7 +74,7 @@ func _on_plugin_object_selected(obj):
 
 func readjust_size():
 	size = Vector2.ZERO
-	position = get_parent().size - get_minimum_size()
+	position = Vector2(get_parent().size) - get_minimum_size() #get_parent().size can be a Vector2i
 
 
 func _on_visibility_changed():
