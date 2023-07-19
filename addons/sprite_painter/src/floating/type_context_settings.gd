@@ -19,13 +19,17 @@ func _ready():
 	readjust_size()
 	show()
 
-	plugin_root = get_tree().root
-	print(self.get_parent().get_parent())
-	editor_plugin = plugin_root.editor_plugin
-	plugin_root.object_selected.connect(_on_plugin_object_selected)
-	for x in type_handlers:
-		x.connect_plugin(plugin_root)
-		break
+	plugin_root = get_parent()
+	while !plugin_root is Window:
+		plugin_root = plugin_root.get_parent()
+		if !plugin_root is SpritePainterRoot:
+			continue
+
+		editor_plugin = plugin_root.editor_plugin
+		plugin_root.object_selected.connect(_on_plugin_object_selected)
+		for x in type_handlers:
+			x.connect_plugin(plugin_root)
+			break
 
 	var c = Control.new()
 	editor_plugin.add_control_to_bottom_panel(c, "AAA")
