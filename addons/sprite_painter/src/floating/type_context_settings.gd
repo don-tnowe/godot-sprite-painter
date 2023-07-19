@@ -29,8 +29,7 @@ func _ready():
 		plugin_root.object_selected.connect(_on_plugin_object_selected)
 		for x in type_handlers:
 			x.connect_plugin(plugin_root)
-
-		break
+			break
 
 	var c = Control.new()
 	editor_plugin.add_control_to_bottom_panel(c, "AAA")
@@ -79,7 +78,7 @@ func _on_plugin_object_selected(obj):
 
 func readjust_size():
 	size = Vector2.ZERO
-	position = get_parent().size - get_minimum_size()
+	position = Vector2(get_parent().size) - get_minimum_size() #get_parent().size can be a Vector2i
 
 
 func _on_visibility_changed():
