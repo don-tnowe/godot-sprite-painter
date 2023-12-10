@@ -176,6 +176,6 @@ func _on_selection_changed():
 			x.show()
 
 
-func _on_editor_resized(vieport):
-	editor_view.size = vieport.size
-	editor_view.global_position = vieport.global_position
+func _on_editor_resized(mainscreen : Control):
+	editor_view.size = mainscreen.size
+	editor_view.global_position = mainscreen.global_position

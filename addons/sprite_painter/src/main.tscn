@@ -185,8 +185,7 @@ shader_parameter/delta = null
 shader_parameter/width = null
 shader_parameter/enable_aa = false
 
-[node name="Painter" type="Control"]
-layout_mode = 3
+[node name="Painter" type="MarginContainer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -198,8 +197,6 @@ metadata/_edit_lock_ = true
 
 [node name="Box" type="VBoxContainer" parent="."]
 layout_mode = 2
-offset_right = 1152.0
-offset_bottom = 648.0
 mouse_filter = 2
 
 [node name="Toolbar" type="HBoxContainer" parent="Box"]

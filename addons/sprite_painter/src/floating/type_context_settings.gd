@@ -19,7 +19,7 @@ func _ready():
 	readjust_size()
 	show()
 
-	plugin_root = get_parent()
+	plugin_root = self
 	while !plugin_root is Window:
 		plugin_root = plugin_root.get_parent()
 		if !plugin_root is SpritePainterRoot:
@@ -39,7 +39,7 @@ func _ready():
 			y.try_connect_bottom_dock(x)
 
 	editor_plugin.remove_control_from_bottom_panel(c)
-	_on_plugin_object_selected(editor_plugin.edited_object)
+	_on_plugin_object_selected(plugin_root.edited_object)
 
 
 func handle_image_input(event):

@@ -110,7 +110,11 @@ func _input(event):
 
 
 func _yoink_color_picker_tool_button():
-	for x in color_picker.get_child(1, true).get_children(true):
+	var child = color_picker.get_child(1, true);
+	if child == null:
+		return
+
+	for x in child.get_children(true):
 		if !x is Button:
 			continue
 
@@ -162,4 +166,3 @@ func _on_color_pick_pressed():
 
 func _on_pick_from_image_toggled(button_pressed):
 	color_picker_pick_from_image = button_pressed
-
