@@ -126,7 +126,7 @@ func apply_eraser(image):
 	# Must find another way - erasing is very slow.
 #	var new_image = Image.create(last_affected_rect.size.x + 1, last_affected_rect.size.y + 1, false, image.get_format())
 #	new_image.blit_rect(new_image, last_affected_rect, Vector2i.ZERO)
-	var pos
+	var pos : Vector2i
 	for k in last_edits_chunks:
 		var chunk = last_edits_chunks[k]
 		var height = mini(image.get_height() - k.y, chunk.get_height())
@@ -154,13 +154,13 @@ func mouse_moved(event : InputEventMouseMotion):
 		stroke(event.position, event.position - event.relative, 1.0)
 
 
-func stroke(stroke_start, stroke_end, pressure):
+func stroke(stroke_start : Vector2, stroke_end : Vector2, pressure : float):
 	var rect = Rect2i(stroke_start, Vector2.ZERO)\
 		.expand(stroke_end)\
 		.grow(brushsize * 0.5 + 1)
 	rect = Rect2i(rect.position / chunk_size, rect.end / chunk_size)
-	var key
-	var keyf
+	var key : Vector2i
+	var keyf : Vector2
 	for i in rect.size.x + 1:
 		for j in rect.size.y + 1:
 			key = (rect.position + Vector2i(i, j)) * chunk_size
@@ -176,10 +176,10 @@ func stroke(stroke_start, stroke_end, pressure):
 			)
 
 
-func paint(on_image, stroke_start, stroke_end, chunk_position, pressure):
-	var unsolid_radius = (brushsize * 0.5) * (1.0 - hardness)
-	var radius = remap(brushsize * 0.5 * (pressure if pen_flags[0] else 1.0), 0.0, brushsize * 0.5, brushminsize * 0.5, brushsize * 0.5)
-	var solid_radius = radius - unsolid_radius
+func paint(on_image : Image, stroke_start : Vector2, stroke_end : Vector2, chunk_position : Vector2i, pressure : float):
+	var unsolid_radius := (brushsize * 0.5) * (1.0 - hardness)
+	var radius := lerpf(brushminsize, brushsize, pressure if pen_flags[0] else 1.0) * 0.5
+	var solid_radius := radius - unsolid_radius
 
 	var color : Color
 	if brush_type == BRUSH_ERASE:
@@ -195,7 +195,7 @@ func paint(on_image, stroke_start, stroke_end, chunk_position, pressure):
 	if pen_flags[1]:
 		color.a *= pressure
 
-	var new_rect = Rect2i(stroke_start, Vector2i.ZERO)\
+	var new_rect := Rect2i(stroke_start, Vector2i.ZERO)\
 		.expand(stroke_end)\
 		.grow(radius + 2)\
 		.intersection(Rect2i(Vector2i.ZERO, on_image.get_size()))
@@ -226,7 +226,7 @@ func paint(on_image, stroke_start, stroke_end, chunk_position, pressure):
 			))
 
 
-func get_new_pixel(on_image, color, stroke_start, stroke_end, cur_pos, radius, solid_radius):
+func get_new_pixel(on_image : Image, color : Color, stroke_start : Vector2, stroke_end : Vector2, cur_pos : Vector2, radius : float, solid_radius : float):
 	var old_color = on_image.get_pixelv(cur_pos)
 	var distance = Geometry2D.get_closest_point_to_segment(
 		cur_pos, stroke_start, stroke_end
@@ -238,7 +238,7 @@ func get_new_pixel(on_image, color, stroke_start, stroke_end, cur_pos, radius, s
 		return blended
 
 	elif distance <= radius:
-		var blended = old_color.blend(color)
+		var blended := old_color.blend(color)
 		distance = (distance - solid_radius) / (radius - solid_radius)
 #		Possible better handling of variable pressure,
 #		but creates artifacts when zig-zagging

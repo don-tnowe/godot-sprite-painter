@@ -39,13 +39,13 @@ func mouse_moved(event : InputEventMouseMotion):
 	super.mouse_moved(event)
 
 
-func get_new_pixel(on_image, color, stroke_start, stroke_end, cur_pos, radius, solid_radius):
-	var old_color = on_image.get_pixelv(cur_pos)
-	var cloned_color = source_image.get_pixel(
-		posmod(cur_pos.x + clone_offset.x, source_image.get_width()),
-		posmod(cur_pos.y + clone_offset.y, source_image.get_height())
+func get_new_pixel(on_image : Image, color : Color, stroke_start : Vector2, stroke_end : Vector2, cur_pos : Vector2, radius : float, solid_radius : float):
+	var old_color := on_image.get_pixelv(cur_pos)
+	var cloned_color := source_image.get_pixel(
+		fposmod(cur_pos.x + clone_offset.x, source_image.get_width()),
+		fposmod(cur_pos.y + clone_offset.y, source_image.get_height())
 	)
-	var distance = Geometry2D.get_closest_point_to_segment(
+	var distance := Geometry2D.get_closest_point_to_segment(
 		cur_pos, stroke_start, stroke_end
 	).distance_to(cur_pos)
 
@@ -76,6 +76,6 @@ func draw_preview(image_view : CanvasItem, mouse_position : Vector2i):
 			HORIZONTAL_ALIGNMENT_CENTER
 		)
 
-	var circle_center = Vector2(mouse_position + Vector2i.ONE + Vector2i(clone_offset)) - brush_offset
+	var circle_center := Vector2(mouse_position + Vector2i.ONE + Vector2i(clone_offset)) - brush_offset
 	image_view.draw_arc(circle_center, brushsize * 0.5 + 0.5, PI * 0.6, PI * 1.4, 32, clone_preview_color, 1.0)
 	image_view.draw_arc(circle_center, brushsize * 0.5 + 0.5, PI * 1.6, PI * 2.4, 32, clone_preview_color, 1.0)

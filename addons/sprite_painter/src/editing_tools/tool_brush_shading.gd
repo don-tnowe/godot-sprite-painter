@@ -39,7 +39,7 @@ func mouse_pressed(
 	super.mouse_pressed(event, image, color1, color2)
 
 
-func get_new_pixel(on_image, color, stroke_start, stroke_end, cur_pos, radius, solid_radius):
+func get_new_pixel(on_image : Image, color : Color, stroke_start : Vector2, stroke_end : Vector2, cur_pos : Vector2, radius : float, solid_radius : float):
 	if !allowed_pixels.get_bitv(cur_pos):
 		return on_image.get_pixelv(cur_pos)
 
