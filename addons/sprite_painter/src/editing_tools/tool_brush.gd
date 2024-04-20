@@ -178,7 +178,7 @@ func stroke(stroke_start, stroke_end, pressure):
 
 func paint(on_image, stroke_start, stroke_end, chunk_position, pressure):
 	var unsolid_radius = (brushsize * 0.5) * (1.0 - hardness)
-	var radius = max((brushsize * 0.5) * (pressure if pen_flags[0] else 1.0),(brushminsize * 0.5))
+	var radius = remap(brushsize * 0.5 * (pressure if pen_flags[0] else 1.0), 0.0, brushsize * 0.5, brushminsize * 0.5, brushsize * 0.5)
 	var solid_radius = radius - unsolid_radius
 
 	var color : Color
