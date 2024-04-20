@@ -12,9 +12,11 @@ enum {
 @export_enum("Draw", "Erase", "Clone", "Shading", "Normal Map") var brush_type := 0
 @export var chunk_size := Vector2i(256, 256)
 @export var max_brush_size := 150
+@export var max_brush_min_size := 150
 @export var crosshair_color := Color(0.5, 0.5, 0.5, 0.75)
 
 var brushsize := 5
+var brushminsize := 5
 var brush_offset := Vector2(0.5, 0.5)
 var hardness := 1.0
 var opacity := 1.0
@@ -37,6 +39,13 @@ func _ready():
 			brush_offset = Vector2(0.5, 0.5) * float(int(x) % 2),
 		TOOL_PROP_INT,
 		[1, max_brush_size],
+		true
+	)
+	add_property("Min Size", brushminsize,
+		func (x):
+		brushminsize = x,
+		TOOL_PROP_INT,
+		[1, max_brush_min_size],
 		true
 	)
 	add_property("Hardness", hardness * 100,
@@ -169,7 +178,7 @@ func stroke(stroke_start, stroke_end, pressure):
 
 func paint(on_image, stroke_start, stroke_end, chunk_position, pressure):
 	var unsolid_radius = (brushsize * 0.5) * (1.0 - hardness)
-	var radius = (brushsize * 0.5) * (pressure if pen_flags[0] else 1.0)
+	var radius = remap(brushsize * 0.5 * (pressure if pen_flags[0] else 1.0), 0.0, brushsize * 0.5, brushminsize * 0.5, brushsize * 0.5)
 	var solid_radius = radius - unsolid_radius
 
 	var color : Color
